@@ -20,5 +20,29 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  // CSS imports
+  app.import('vendor/css/bootstrap.min.css');
+  app.import('vendor/css/font-awesome.min.css');
+  app.import('vendor/css/prettyPhoto.css');
+  app.import('vendor/css/price-range.css');
+  app.import('vendor/css/animate.css');
+  app.import('vendor/css/main.css');  
+  app.import('vendor/css/responsive.css');
+
+  // JS imports
+  app.import('vendor/js/jquery.js');
+  app.import('vendor/js/bootstrap.min.js'); 
+  app.import('vendor/js/jquery.scrollUp.min.js');
+  app.import('vendor/js/price-range.js');
+  app.import('vendor/js/jquery.prettyPhoto.js');
+  app.import('vendor/js/main.js');
+
+  // Fonts imports
+  app.import('vendor/fonts/fontawesome-webfont.svg');
+  app.import('vendor/fonts/fontawesome-webfont.woff');
+  app.import('vendor/fonts/FontAwesome.otf');
+  app.import('vendor/fonts/glyphicons-halflings-regular.svg');
+  app.import('vendor/fonts/glyphicons-halflings-regular.woff');
+
   return app.toTree();
 };
