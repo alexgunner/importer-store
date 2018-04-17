@@ -2,7 +2,6 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
 	name: DS.attr(),
-	description: DS.attr(),
-	category: DS.belongsTo('category'),
+	abbreviation: DS.attr(),
 	products: DS.hasMany('product')
 });

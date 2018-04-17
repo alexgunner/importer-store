@@ -9,18 +9,18 @@
 	<div class="container">
 		<div class="row">
 			<!-- Left sideBar -->
-			{{left-sidebar categories=model.categories}}
+			{{left-sidebar categories=model.categories manufacturers=model.manufacturers}}
 			<!-- Left sideBar -->
 			
 			<div class="col-sm-9 padding-right">
 				<div class="features_items"><!--features_items-->
-					<h2 class="title text-center">Productos Destacados</h2>
+					<h2 class="title text-center">Productos</h2>
+					{{product-list products=model.products}}
 				</div><!--features_items-->
 				
-				
-				<div class="recommended_items"><!--recommended_items-->
+				<!--<div class="recommended_items">
 					<h2 class="title text-center">Productos recomendados</h2>
-				</div>
+				</div><!--recommended_items-->
 			</div>
 		</div>
 	</div>

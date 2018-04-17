@@ -16,7 +16,7 @@
 					<div id="category{{category.id}}" class="panel-collapse collapse">
 						<div class="panel-body">
 							<ul>
-								{{#each category.subcategory as |subcategory|}}
+								{{#each category.subcategories as |subcategory|}}
 									<li><a href="#">{{subcategory.name}} </a></li>
 								{{/each}}
 							</ul>
@@ -32,13 +32,9 @@
 			<h2>Fabricantes</h2>
 			<div class="brands-name">
 				<ul class="nav nav-pills nav-stacked">
-					<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-					<li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-					<li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-					<li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-					<li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-					<li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-					<li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+					{{#each manufacturers as |manufacturer|}}
+						<li><a href="#"> <span class="pull-right"></span>{{manufacturer.name}}</a></li>
+					{{/each}}
 				</ul>
 			</div>
 		</div><!--/brands_products-->
