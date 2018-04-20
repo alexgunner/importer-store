@@ -1,7 +1,17 @@
 import Route from '@ember/routing/route';
+import RSVP from 'rsvp';
 
 export default Route.extend({
 	model() {
-		return this.get('store').findAll('category');
+		return RSVP.hash({
+			categories: this.get('store').findAll('category'),
+			manufacturers: this.get('store').findAll('manufacturer'),
+			host: this.get('store').adapterFor('application').get('host'),
+		}); 
+	},
+	afterModel: function(model){
+		return RSVP.hash({
+			subcategories: model.categories.getEach('subcategories'),
+		});
 	}
 });
