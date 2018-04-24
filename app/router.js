@@ -8,6 +8,7 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('categories');
+  this.route('subcategory-products',{path: 'subcategory-products/:id'});
 });
 
 export default Router;
