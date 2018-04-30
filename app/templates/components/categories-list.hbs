@@ -10,14 +10,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="categoryModal{{category.id}}Label">Subcategorías</h5>
+                <h2 class="title text-center" id="categoryModal{{category.id}}Label">Subcategorías</h2>
             </div>
-            
             <div id="category{{category.id}}" class="modal-body">
                 <div class="list-group">
                     {{#each category.subcategories as |subcategory|}}
                     <a href="/subcategory-products/{{subcategory.id}}" class="list-group-item">
-                    <h4 class="list-group-item-heading">{{subcategory.name}}</h4>
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <b>{{subcategory.name}}</b>
                     <p class="list-group-item-text">{{subcategory.description}}</p>
                     </a>
                     {{/each}}
