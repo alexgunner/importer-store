@@ -6,8 +6,8 @@ export default Route.extend({
 		return RSVP.hash({
             products: this.get('store').findAll('product'),
             categories: this.get('store').findAll('category'),
-						manufacturers: this.get('store').findAll('manufacturer'),
-						subcategory: this.get('store').findRecord('subcategory, params.id'),
+			manufacturers: this.get('store').findAll('manufacturer'),
+			subcategory: this.get('store').findRecord('subcategory', params.id),
 			host: this.get('store').adapterFor('application').get('host'),
 		}); 
     },
