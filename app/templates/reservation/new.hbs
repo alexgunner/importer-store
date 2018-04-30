@@ -1,0 +1,20 @@
+{{outlet}}
+<h1>New Reservation</h1>
+<form>
+  <div>
+    <label>Reserve Date:</label>
+    {{input type="text" value=model.reserve_date}}
+  </div>
+  <div>
+    <label>Client:</label>
+    {{input type="text" value=model.client}}
+  </div>
+  <div>
+    <label>Confirmed:</label>
+    {{input type="text" value=model.confirmed}}
+  </div>
+  <div>
+    <button {{action 'save'}}>Save</button>
+    <button {{action 'cancel'}}>Cancel</button>
+  </div>
+</form>
