@@ -9,8 +9,12 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('categories');
   this.route('subcategory-products',{path: 'subcategory-products/:id'});
-  
-  this.route('reservation', function() {
+
+  this.route('order', function() {
+    this.route('new');
+  });
+
+  this.route('cart', function() {
     this.route('new');
   });
 });
