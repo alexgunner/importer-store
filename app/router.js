@@ -14,9 +14,7 @@ Router.map(function() {
     this.route('new');
   });
 
-  this.route('cart', function() {
-    this.route('new');
-  });
+  this.route('cart',{path: 'cart/:id'});
 });
 
 export default Router;

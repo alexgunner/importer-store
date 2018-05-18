@@ -1,9 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    product: DS.attr(),
 	quantity: DS.attr(),
-	order: DS.belongsTo('order'),
+	order_id: DS.attr(),
 	product: DS.belongsTo('product')
-	
 });
