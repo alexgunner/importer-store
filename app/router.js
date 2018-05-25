@@ -15,6 +15,7 @@ Router.map(function() {
   });
 
   this.route('cart',{path: 'cart/:id'});
+  this.route('carts');
 });
 
 export default Router;

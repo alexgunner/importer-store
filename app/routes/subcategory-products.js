@@ -15,7 +15,6 @@ export default Route.extend({
     afterModel: function(model){
 		return RSVP.hash({
 			subcategories: model.categories.getEach('subcategories'),
-			//products: model.subcategory.products
 		});
 	}
 });

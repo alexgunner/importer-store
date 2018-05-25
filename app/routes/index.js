@@ -4,6 +4,7 @@ import RSVP from 'rsvp';
 export default Route.extend({
 	model() {
 		return RSVP.hash({
+			carts: this.get('store').findAll('cart'),
 			categories: this.get('store').findAll('category'),
 			manufacturers: this.get('store').findAll('manufacturer'),
 			products: this.get('store').findAll('product'),
@@ -12,7 +13,7 @@ export default Route.extend({
 	},
 	afterModel: function(model){
 		return RSVP.hash({
-			subcategories: model.categories.getEach('subcategories'),
+			subcategories: model.categories.getEach('subcategories')
 		});
 	}
 });
