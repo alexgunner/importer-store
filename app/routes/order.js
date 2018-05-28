@@ -1,10 +1,7 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-    model() {
-        return {}
-    },
-      actions: {
+    actions: {
         save() {
           const newOrder = this.get('store').createRecord('order', this.currentModel);
           newOrder.save()
@@ -12,5 +9,5 @@ export default Route.extend({
         cancel() {
           this.transitionTo('/');
         }
-      }
+    }
 });

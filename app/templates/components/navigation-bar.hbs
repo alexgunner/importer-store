@@ -32,7 +32,10 @@
 				<div class="col-sm-8">
 					<div class="shop-menu pull-right">
 						<ul class="nav navbar-nav">
-							<li><a href="/cart"><i class="fa fa-shopping-cart"></i> Carrito de compras <span class="badge">{{model.length}}</span></a></li>
+							<li><a href="/cart"><i class="fa fa-shopping-cart"></i> Carrito de compras 
+							{{#if (gt items.length  0)}}<span class="badge">
+								{{items.length}}</span>
+							{{/if}}</a></li>
 						</ul>
 					</div>
 				</div>
