@@ -11,6 +11,8 @@
                     <div class="panel-body">
                         <img src="{{product.picture}}" width="200" height="200" />
                         detalles del producto
+                        <p>Precio:</p>
+                        {{product.price}} Bs.
                         <p>Cantidad:</p>
                         {{item.quantity}}
                         <button {{action 'addQuantity' item}}type="button" class="btn btn-default">
@@ -23,6 +25,6 @@
             {{/if}}
         {{/each}}
     {{/each}}
-    <button type="button" class="btn btn-default">Seguir Comprando</button>
-    <button {{action 'newOrder'}} ype="button" class="btn btn-warning">Completar Transacción</button>
+    <a href ="/" type="button" class="btn btn-default">Seguir Comprando</a>
+    <a href="/order" type="button" class="btn btn-warning">Continuar con la Compra</a>
 </div>

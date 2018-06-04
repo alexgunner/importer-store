@@ -24,15 +24,5 @@ export default Route.extend({
         item.deleteRecord();
         item.save();
       },
-
-      newOrder(){
-        var order = this.get('store').createRecord('order', {
-        orderdate: "27/05/2018",
-        client: "Dhara",
-        confirmed: "SI",
-        });
-        order.save();
-        this.transitionTo('/');
-      }
     }
 });
