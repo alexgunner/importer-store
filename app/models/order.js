@@ -1,7 +1,6 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    orderdate: DS.attr(),
-	client: DS.attr(),
-	confirmed: DS.attr()
+    orderdate: DS.attr('date'),
+	client_id: DS.attr('number')
 });

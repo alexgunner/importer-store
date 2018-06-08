@@ -10,20 +10,30 @@ export default Route.extend({
     actions: {
         save() {
           var items = this.get('store').findAll('item');
-          const newOrder = this.get('store').createRecord('order', this.currentModel);
-
-          newOrder.save().then(function(record){
-            items.forEach(function(item){
-              var cart_item = this.get('store').createRecord('cart', {
-                quantity: item.quantity,
-                order_id: record.id,
-                product_id: item.product_id
-              });
-              console.log("lo crea?")
-              cart_item.save();
+          var store = this.get('store');
+          const client = this.get('store').createRecord('client', this.currentModel);
+          console.log("entro al action");
+          client.save().then(function(record){
+            console.log("hizo el save");
+            var order = store.createRecord('order', {
+              orderdate: new Date(),
+              client_id: record.id,
             });
+            console.log("crea cliente");
+              order.save().then(function(record){
+                items.forEach(function(item){
+                  var cart = store.createRecord('cart', {
+                    quantity: item.get('quantity'),
+                    order_id: record.id,
+                    product_id: item.get('product_id')
+                  });
+                  console.log("creo todo");
+                  cart.save();
+                });
+            });
+           
           });
-          //this.transitionTo('/pay');
+          this.transitionTo('/pay');
         },
         cancel() {
           this.transitionTo('/');
