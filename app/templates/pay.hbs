@@ -10,7 +10,8 @@
                     </div>
                     <div class="panel-body">
                         <img src="{{product.picture}}" width="200" height="200" />
-                        detalles del producto
+                         <p>Descripción:</p>
+                        <p>{{product.description}}</p>
                         <p>Monto total cancelar:</p>
                         {{mult product.price item.quantity}} Bs.
                     </div>
@@ -18,5 +19,5 @@
             {{/if}}
         {{/each}}
     {{/each}}
-    <a href ="http://localhost:3000" type="button" class="btn btn-default">Pagar</a>
+    <a href ="http://localhost:3000/pay/{{model.orders.lastObject.id}}" type="button" class="btn btn-default">Pagar</a>
 </div>

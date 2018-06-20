@@ -9,8 +9,8 @@ export default Route.extend({
      },
     actions: {
         save() {
-          var items = this.get('store').findAll('item');
           var store = this.get('store');
+          var items = this.get('store').findAll('item');
           const client = this.get('store').createRecord('client', this.currentModel);
           console.log("entro al action");
           client.save().then(function(record){
