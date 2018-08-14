@@ -2,7 +2,7 @@ import DS from 'ember-data';
 
 export default DS.Transform.extend({
   deserialize(serialized) {
-    return "http://www.todo-construccion.com/" + serialized;
+    return "http://localhost:3000/" + serialized;
   },
 
   serialize(deserialized) {
