@@ -4,12 +4,19 @@
 	<div class="container">
 		<div class="row">
 			<!-- Left sideBar -->
-			{{left-sidebar categories=model.categories manufacturers=model.manufacturers}}
+			{{left-sidebar categories=model.categories manufacturers=model.manufacturers extras=model.extras}}
 			<!-- Left sideBar -->
 			<div class="col-sm-9 padding-right">
 				<div class="features_items"><!--features_items-->
-				<h2 class="title text-center">Productos de la Subcategoría</h2>
-				{{#each model.subcategory.products as |product|}}
+				<h2 class="title text-center">{{model.category.name}}</h2>
+                <p class="justified-text">
+                {{model.category.description}}</p>
+
+				{{#each model.category.subcategories as |subcategory|}}
+                    <h4 class="title">{{subcategory.name}}</h4>
+	                <p class="justified-text">
+                    {{subcategory.description}}</p>
+                   {{#each subcategory.products as |product|}}
 					<div class="col-sm-4">
 						<div class="product-image-wrapper">
 							<div class="single-products">
@@ -30,7 +37,7 @@
 							</div>
 						</div>
 					</div>
-
+                    {{/each}}
 				{{/each}}
 			</div><!--features_items-->
 				

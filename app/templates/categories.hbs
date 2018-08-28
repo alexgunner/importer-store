@@ -1,26 +1,16 @@
 {{outlet}}
-
-
-<section id="slider"><!--slider-->
-	{{main-slider}}
-</section><!--/slider-->
-
 <section>
 	<div class="container">
 		<div class="row">
 			<!-- Left sideBar -->
-			{{left-sidebar categories=model.categories manufacturers=model.manufacturers}}
+			{{left-sidebar categories=model.categories manufacturers=model.manufacturers extras=model.extras}}
 			<!-- Left sideBar -->
 			
 			<div class="col-sm-9 padding-right">
-				<div class="features_items"><!--features_items-->
+				<div class="features_items">
 					<h2 class="title text-center">Categorías</h2>
 					{{categories-list categories=model.categories}}
-				</div><!--features_items-->
-				
-				<!--<div class="recommended_items">
-					<h2 class="title text-center">Productos recomendados</h2>
-				</div><!--recommended_items-->
+				</div>
 			</div>
 		</div>
 	</div>
