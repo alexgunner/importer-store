@@ -25,7 +25,7 @@ export default Route.extend({
                   var cart = store.createRecord('cart', {
                     quantity: item.get('quantity'),
                     order_id: record.id,
-                    product_id: item.get('product_id')
+                    product_variant_id: item.get('variant_id')
                   });
                   console.log("creo todo");
                   cart.save();

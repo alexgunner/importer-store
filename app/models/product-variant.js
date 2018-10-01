@@ -10,5 +10,6 @@ export default DS.Model.extend({
     reposition: DS.attr(),
     reposition_date: DS.attr(),
     offerprice: DS.attr(),
-    product: DS.belongsTo('product')
+    product: DS.belongsTo('product'),
+    carts: DS.hasMany('carts')
 });

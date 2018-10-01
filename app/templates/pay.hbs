@@ -1,23 +1,22 @@
 {{outlet}}
 <div class="container">
   <h1>Pagar productos</h1>
-    {{#each model.products as |product|}}
+    {{#each model.product_variants as |variant|}}
         {{#each model.items as |item|}}
-            {{#if (is-equal product.id item.product_id) }}
+            {{#if (is-equal variant.id item.variant_id) }}
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><p>{{product.name}}</p></h3>
+                        <h3 class="panel-title"><p>{{variant.code}}</p></h3>
                     </div>
                     <div class="panel-body">
-                        <img src="{{product.picture}}" width="200" height="200" />
                          <p>Descripción:</p>
-                        <p>{{product.description}}</p>
+                        <p>{{variant.description}}</p>
                         <p>Monto total cancelar:</p>
-                        {{mult product.price item.quantity}} Bs.
+                        {{mult variant.price item.quantity}} Bs.
                     </div>
                 </div>
             {{/if}}
         {{/each}}
     {{/each}}
-    <a href ="http://todoconstruccion-api.herokuapp.com/pay/{{model.orders.lastObject.id}}" type="button" class="btn btn-default">Pagar</a>
+    <a href ="http://localhost:3000/pay/{{model.orders.lastObject.id}}" type="button" class="btn btn-default">Pagar</a>
 </div>

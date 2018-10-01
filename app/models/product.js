@@ -12,6 +12,5 @@ export default DS.Model.extend({
 	manufacturer: DS.belongsTo('manufacturer'),
 	category: DS.belongsTo('category'),
 	subcategory: DS.belongsTo('subcategory'),
-	carts: DS.hasMany('carts'),
 	product_variants: DS.hasMany('product_variants')
 });

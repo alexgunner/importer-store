@@ -6,9 +6,9 @@ export default Component.extend({
     
     actions: {
 
-		addToCart(product) {
+		addToCart(variant) {
 			var item = this.get('store').createRecord('item', {
-			product_id: product.id,
+			variant_id: variant.id,
 			quantity: 1
 			});
             item.save();
