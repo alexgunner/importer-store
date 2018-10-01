@@ -29,17 +29,16 @@
 						<a href="/"><img src="{{extras.lastObject.logo}}" alt="" class="img-responsive" /></a>
 					</div>
 				</div>
-				<!--<div class="col-sm-8">
+				<div class="col-sm-8">
 					<div class="shop-menu pull-right">
 						<ul class="nav navbar-nav">
-							<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-							<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-							<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-							<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-							<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+							<li><a href="/cart"><i class="fa fa-shopping-cart"></i> Carrito de compras 
+							{{#if (gt items.length  0)}}<span class="badge">
+								{{items.length}}</span>
+							{{/if}}</a></li>
 						</ul>
 					</div>
-				</div>-->
+				</div>
 			</div>
 		</div>
 	</div><!--/header-middle-->
@@ -63,11 +62,11 @@
 							<li class="dropdown"><a href="#">Tienda<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="/categories">Categorías</a></li>
-                                    <li><a href="/product-offers">Ofertas</a></li>
+                                    <li><a href="/products-offer">Ofertas</a></li>
                                 </ul>
                             </li>
                             <li><a href="/services">Servicios</a></li>
-							<li><a href="/contacts">Contactos</a></li>
+							<li><a href="/contact">Contactos</a></li>
 						</ul>
 					</div>
 				</div>

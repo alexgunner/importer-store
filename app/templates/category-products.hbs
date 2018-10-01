@@ -11,33 +11,26 @@
 				<h2 class="title text-center">{{model.category.name}}</h2>
                 <p class="justified-text">
                 {{model.category.description}}</p>
-
+			
 				{{#each model.category.subcategories as |subcategory|}}
                     <h4 class="title">{{subcategory.name}}</h4>
 	                <p class="justified-text">
-                    {{subcategory.description}}</p>
-                   {{#each subcategory.products as |product|}}
-					<div class="col-sm-4">
+					{{subcategory.description}}</p>
+					
+					{{#each subcategory.products as |product|}}
+					<div class="col-sm-3">
 						<div class="product-image-wrapper">
 							<div class="single-products">
 								<div class="productinfo text-center">
 									<img src="{{product.picture}}" alt="" />
-									<h2>Bs. {{product.price}}</h2>
-									<p>{{product.name}}</p>
-									<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Añadir al carrito</a>
-								
-								</div>
-								<div class="product-overlay">
-									<div class="overlay-content">
-										<h2>Bs. {{product.price}}</h2>
-										<p>{{product.name}}</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Añadir al carrito</a>
-									</div>
+									<h2>{{product.name}}</h2>
+									<p>{{product.description}}</p>
+									<a href="#" class="btn btn-default add-to-cart"><span class="glyphicon glyphicon-eye-open"></span> Ver más</a>
 								</div>
 							</div>
 						</div>
 					</div>
-                    {{/each}}
+					{{/each}}
 				{{/each}}
 			</div><!--features_items-->
 				

@@ -1,10 +1,9 @@
 import DS from 'ember-data';
-import product_variant from './product_variant';
 
 export default DS.Model.extend({
 	name: DS.attr(),
 	description: DS.attr(),
-	reference_code: DS.attr(),
+	code: DS.attr(),
 	picture: DS.attr('image'),
 	offer: DS.attr(),
 	details: DS.attr(),
@@ -14,5 +13,5 @@ export default DS.Model.extend({
 	category: DS.belongsTo('category'),
 	subcategory: DS.belongsTo('subcategory'),
 	carts: DS.hasMany('carts'),
-	product_variants: DS.hasMany('product_variant')
+	product_variants: DS.hasMany('product_variants')
 });

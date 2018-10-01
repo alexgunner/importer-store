@@ -1,13 +1,13 @@
 {{#each categories as |category|}}
-	<div class="col-sm-3">
-		<div class="category-image-wrapper">
-			<div class="single-products">
-				<div class="productinfo text-center">
-					<img src="{{category.picture}}" alt="" class="img-fluid"/>
-						<p>{{category.name}}</p>
-						<h4><a href="/category-products/{{category.id}}" class="btn btn-default add-to-cart">Ver</a></h4>
-				</div>
+<div class="col-sm-3">
+	<div class="category-image-wrapper">
+		<div class="single-products">
+			<div class="productinfo text-center">
+				<img src="{{category.picture}}" alt="" class="img-responsive"/>
+				<p>{{category.name}}</p>
+				<h4><a href="/category-products/{{category.id}}" class="btn btn-default add-to-cart"><span class="glyphicon glyphicon-eye-open"></span> Ver</a></h4>
 			</div>
 		</div>
-    </div>
+	</div>
+</div>
 {{/each}}

@@ -1,0 +1,32 @@
+{{outlet}}
+<section>
+	<div class="container">
+		<div class="row">
+			<!-- Left sideBar -->
+			{{left-sidebar categories=model.categories manufacturers=model.manufacturers extras=model.extras}}
+			<!-- Left sideBar -->
+			
+			<div class="col-sm-9 padding-right">
+				<div class="features_items">
+					<h2 class="title text-center">Productos en Oferta</h2>
+                    {{#each model.products as |product|}}
+                        {{#if (eq product.offer true)}}
+						<div class="col-sm-3">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{product.picture}}" alt="" />
+                                        <h2>{{product.name}}</h2>
+                                        <p>{{product.description}}</p>
+                                        <a href="#" class="btn btn-default add-to-cart"><span class="glyphicon glyphicon-eye-open"></span> Ver más</a>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        {{/if}}
+                    {{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

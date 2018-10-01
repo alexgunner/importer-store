@@ -7,14 +7,9 @@
 			<!-- Left sideBar -->
 			
 			<div class="col-sm-9 padding-right">
-				<div class="features_items">
-					<h2 class="title text-center">Categorías</h2>
-				
-						{{categories-list categories=model.categories}}
-
-				</div>
+				<h4>Servicios</h4>
+                <p class="justified-text">{{model.extras.lastObject.services}}</p>
 			</div>
 		</div>
 	</div>
 </section>
-

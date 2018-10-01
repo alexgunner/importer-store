@@ -9,12 +9,13 @@ export default Route.extend({
 			products: this.get('store').findAll('product'),
 			extras: this.get('store').findAll('extra'),
 			contact: this.get('store').findAll('contact'),
+			variants: this.get('store').findAll('product_variant'),
 			host: this.get('store').adapterFor('application').get('host'),
 		}); 
 	},
 	afterModel: function(model){
 		return RSVP.hash({
-			subcategories: model.categories.getEach('subcategories')
+			subcategories: model.categories.getEach('subcategories'),
 		});
 	}
 });

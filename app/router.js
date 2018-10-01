@@ -16,6 +16,9 @@ Router.map(function() {
   this.route('pay');
   this.route('about-us');
   this.route('category-products', {path: 'category-products/:id'});
+  this.route('products-offer');
+  this.route('services');
+  this.route('contact');
 });
 
 export default Router;
