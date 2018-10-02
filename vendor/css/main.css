@@ -6,6 +6,10 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
 
+.ember-google-map{
+  width: 500px;
+  height: 500px;
+}
 body {
   font-family: 'Roboto', sans-serif;
   background:;
@@ -33,9 +37,18 @@ a {
     -o-transition: 300ms;
     transition: 300ms;
 }
+.text-big {
+  font-size: 17px;
+}
 
+h4 {
+  color: rgb(10,32, 120);
+  font-size: 18px;
+  font-weight: bold;
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
+  
 }
 
 .btn:hover, 
@@ -52,7 +65,7 @@ a#scrollUp {
   bottom: 0px;
   right: 10px;
   padding: 5px 10px;
-  background: #FE980F;
+  background: rgb(10,32, 120);
   color: #FFF;
   -webkit-animation: bounce 2s ease infinite;
   animation: bounce 2s ease infinite;
@@ -215,7 +228,7 @@ a#scrollUp i{
 
 
 .shop-menu ul li a:hover {
-	color:#fe980f;
+	color: rgb(10,32, 120);
 	background:#fff;
 }
 
@@ -241,7 +254,7 @@ a#scrollUp i{
 .mainmenu ul li a {
 	color: #696763;
 	font-family: 'Roboto', sans-serif;
-	font-size: 17px;
+	font-size: 20px;
 	font-weight: 300;
 	padding: 0;
 	padding-bottom: 10px;
@@ -249,7 +262,7 @@ a#scrollUp i{
 
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
 	background:none;
-	color:#fdb45e;
+	color: rgb(10,32, 120);
 }
 
 .search_box input {
@@ -263,7 +276,7 @@ a#scrollUp i{
   outline: medium none;
   padding-left: 10px;
   width: 155px;
-  background-image: url(/assets/images/home/searchicon.png);
+  background-image: url(images/home/searchicon.png);
   background-repeat: no-repeat;
   background-position: 130px;
 }
@@ -320,7 +333,7 @@ ul.sub-menu {
 }
 
 .navbar-nav li ul.sub-menu li a:hover{
-    color: #FDB45E;
+    color: rgb(10,32, 120);
 }
 
 .fa-angle-down{
@@ -367,7 +380,7 @@ ul.sub-menu {
 }
 
 .companyinfo h2  span{
-  color:#FE980F;
+  color: rgb(10,32, 120);
 }
 
 .companyinfo p {
@@ -557,7 +570,7 @@ ul.sub-menu {
 }
 
 .footer-bottom p span a {
-  color: #FE980F;
+  color: rgb(10,32, 120);
   font-style: italic;
   text-decoration: underline;
 }
@@ -659,8 +672,16 @@ ul.sub-menu {
   padding-bottom: 20px;
   padding-top: 15px;
 }
+
+.category-image-wrapper {
+  border: 1px solid #F7F7F5;
+  overflow: hidden;
+  margin-bottom: 30px;
+  min-height: 280px;
+}
+
 .left-sidebar h2, .brands_products h2 {
-  color: #FE980F;
+  color:rgb(10,32, 120);
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -835,7 +856,7 @@ h2.title:before{
 
 
 h2.title {
-  color: #FE980F;
+  color:  rgb(10,32, 120);
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -848,7 +869,7 @@ h2.title {
 .product-image-wrapper{
 	border:1px solid #F7F7F5;
 	overflow: hidden;
-	margin-bottom:30px;
+  margin-bottom:30px;
 }
 
 .single-products {
@@ -862,7 +883,7 @@ h2.title {
 }
 
 .productinfo h2{
-	color: #FE980F;
+	color:  rgb(10,32, 120);;
 	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
 	font-weight: 700;
@@ -889,10 +910,11 @@ h2.title {
 .productinfo{
  position:relative;
  min-height: 400px !important; 
+
 }
 
 .product-overlay {
-  background:#FE980F;
+  background:  rgb(10,32, 120);
   top: 0;
   display: none;
   height: 0;
@@ -921,7 +943,7 @@ h2.title {
   background:#fff;
   border: 0 none;
   border-radius: 0;
-  color: #FE980F;
+  color:  rgb(10,32, 120);;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   margin-bottom: 25px;
@@ -929,7 +951,7 @@ h2.title {
 
 .product-overlay .add-to-cart:hover {
   background:#fff;
-  color: #FE980F;
+  color:  rgb(10,32, 120);;
 }
 
 
@@ -953,7 +975,7 @@ h2.title {
 }
 
 .add-to-cart:hover {
-  background: #FE980F;
+  background:  rgb(10,32, 120);
   border: 0 none;
   border-radius: 0;
   color: #FFFFFF;
@@ -968,7 +990,7 @@ h2.title {
 }
 
 .add-to-cart:hover {
-  background: #FE980F;
+  background:  rgb(10,32, 120);
   color: #FFFFFF;
 }
 
@@ -2393,7 +2415,7 @@ h2.title {
 }
 
 .btn.btn-primary {
-  background:#FE980F;
+  background: rgb(10,32, 120);
   border: 0 none;
   border-radius: 0;
   margin-top: 16px;

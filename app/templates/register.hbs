@@ -1,0 +1,58 @@
+{{outlet}}
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 padding-right">
+				<h2 class="title text-center">Registro de usuario</h2>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label>Nombres:</label>
+                        {{input type="text" class="form-control" value=model.firstName}}
+                    </div>
+                    <div class="form-group">
+                        <label>Apellidos:</label>
+                        {{input type="text" class="form-control" value=model.lastName}}
+                    </div>
+                    <div class="form-group">
+                        <label>CI:</label>
+                        {{input type="number" class="form-control" value=model.ci}}
+                    </div>
+                    <div class="form-group">
+                        <label>Dirección:</label>
+                        {{input type="text" class="form-control" value=model.address}}
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono:</label>
+                        {{input type="number" class="form-control" value=model.phone}}
+                    </div>
+                    <div class="form-group">
+                        <label>Correo electrónico:</label>
+                        {{input type="text" class="form-control" value=model.mail}}
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña:</label>
+                        {{input type="password" class="form-control" value=model.encryted_password}}
+                    </div>
+                    <div class="form-group">
+                        <label>NIT:</label>
+                        {{input type="number" class="form-control" value=model.nit}}
+                    </div>
+                    <div class="form-group">
+                        <label>NIT Imagen:</label>
+                        {{input type="file" class="form-control" value=model.imagenit}}
+                    </div>
+                    <div class="form-group">
+                        <label>Carnet de Identidad Imagen:</label>
+                        {{input type="file" class="form-control" value=model.imagenit}}
+                    </div>
+                    <center>
+                        <button {{action 'save'}} class="btn btn-info">Aceptar</button>
+                        <button {{action 'cancel'}} class="btn btn-default">Cancelar</button>
+                        <br/>
+                        <br/>
+                    </center>
+                </form>
+			</div>
+		</div>
+	</div>
+</section>

@@ -5,28 +5,28 @@
 				<div class="col-sm-6">
 					<div class="contactinfo">
 						<ul class="nav nav-pills">
-							<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-							<li><a href="#"><i class="fa fa-envelope"></i> info@todo-construccion.com</a></li>
+							<li><a href="#"><i class="fa fa-phone"></i> {{contact.lastObject.phone}}</a></li>
+							<li><a href="#"><i class="fa fa-envelope"></i> {{contact.lastObject.email}}</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="social-icons pull-right">
 						<ul class="nav navbar-nav">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="{{contact.lastObject.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div><!--/header_top-->
-	
+
 	<div class="header-middle"><!--header-middle-->
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="logo pull-left">
-						<!--<a href="index.html"><img src="images/home/logo.png" alt="" /></a>-->
+						<a href="/"><img src="{{extras.lastObject.logo}}" alt="" class="img-responsive" /></a>
 					</div>
 				</div>
 				<div class="col-sm-8">
@@ -36,6 +36,9 @@
 							{{#if (gt items.length  0)}}<span class="badge">
 								{{items.length}}</span>
 							{{/if}}</a></li>
+						</ul>
+						<ul class="nav navbar-nav">
+							<li><a href="/register"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
 						</ul>
 					</div>
 				</div>
@@ -57,21 +60,25 @@
 					</div>
 					<div class="mainmenu pull-left">
 						<ul class="nav navbar-nav collapse navbar-collapse">
-							<li><a href="/" class="active">Inicio</a></li>
-							<li><a href="#">Nosotros</a></li>
-							<li class="dropdown"><a href="#">Productos<i class="fa fa-angle-down"></i></a>
+							<li><a href="/">Inicio</a></li>
+							<li><a href="/about-us">Nosotros</a></li>
+							<li class="dropdown"><a href="#">Tienda<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="#">Ver Productos</a></li>
-									<li><a href="/categories">Categorías</a></li>
+                                    <li><a href="/categories">Categorías</a></li>
+                                    <li><a href="/products-offer">Ofertas</a></li>
                                 </ul>
-                            </li> 
-							<li><a href="#">Contacto</a></li>
+                            </li>
+                            <li><a href="/services">Servicios</a></li>
+							<li><a href="/contact">Contactos</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-sm-3">
 					<div class="search_box pull-right">
-						<input type="text" placeholder="Buscar"/>
+						<form action="/search" accept-charset="UTF-8" method="get">
+							<input name="utf8" type="hidden">
+							<input type="text" name="name" id="name" placeholder="Buscar">
+						</form>
 					</div>
 				</div>
 			</div>

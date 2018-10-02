@@ -1,32 +1,13 @@
 {{#each categories as |category|}}
-	<div class="col-sm-4">
-		<h4>{{category.name}}
-        <button type="button" class="btn btn-primary-right" data-toggle="modal" data-target="#categoryModal{{category.id}}">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </button></h4>
-
-        <!-- Modal -->
-        <div class="modal fade" id="categoryModal{{category.id}}" tabindex="-1" role="dialog" aria-labelledby="categoryModal{{category.id}}Label" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="title text-center" id="categoryModal{{category.id}}Label">Subcategorías</h2>
-            </div>
-            <div id="category{{category.id}}" class="modal-body">
-                <div class="list-group">
-                    {{#each category.subcategories as |subcategory|}}
-                    <a href="/subcategory-products/{{subcategory.id}}" class="list-group-item">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <b>{{subcategory.name}}</b>
-                    <p class="list-group-item-text">{{subcategory.description}}</p>
-                    </a>
-                    {{/each}}
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
-            </div>
-        </div>
-        </div>
+<div class="col-sm-3">
+	<div class="category-image-wrapper">
+		<div class="single-products">
+			<div class="productinfo text-center">
+				<img src="{{category.picture}}" alt="" class="img-responsive"/>
+				<p>{{category.name}}</p>
+				<h4><a href="/category-products/{{category.id}}" class="btn btn-default add-to-cart"><span class="glyphicon glyphicon-eye-open"></span> Ver</a></h4>
+			</div>
+		</div>
 	</div>
+</div>
 {{/each}}

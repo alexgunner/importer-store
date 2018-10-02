@@ -14,6 +14,12 @@ Router.map(function() {
 
   this.route('cart');
   this.route('pay');
+  this.route('about-us');
+  this.route('category-products', {path: 'category-products/:id'});
+  this.route('products-offer');
+  this.route('services');
+  this.route('contact');
+  this.route('register');
 });
 
 export default Router;

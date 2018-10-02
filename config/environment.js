@@ -29,6 +29,12 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-google-maps'] = {
+      key: 'AIzaSyAy4PzSIG77OtqMciXyhMuTD9tQSICh0LM' // Using .env files in this example
+      // client: undefined,
+      // channel: undefined,
+      // baseUrl: '//maps.googleapis.com/maps/api/js'
+    }
   }
 
   if (environment === 'test') {
@@ -46,6 +52,6 @@ module.exports = function(environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
-
+  
   return ENV;
 };
