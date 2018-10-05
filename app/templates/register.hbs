@@ -7,11 +7,11 @@
                 <form class="form-horizontal">
                     <div class="form-group">
                         <label>Nombres:</label>
-                        {{input type="text" class="form-control" value=model.firstName}}
+                        {{input type="text" class="form-control" value=model.name}}
                     </div>
                     <div class="form-group">
                         <label>Apellidos:</label>
-                        {{input type="text" class="form-control" value=model.lastName}}
+                        {{input type="text" class="form-control" value=model.lastname}}
                     </div>
                     <div class="form-group">
                         <label>CI:</label>
@@ -27,11 +27,15 @@
                     </div>
                     <div class="form-group">
                         <label>Correo electrónico:</label>
-                        {{input type="text" class="form-control" value=model.mail}}
+                        {{input type="text" class="form-control" value=model.email}}
                     </div>
                     <div class="form-group">
                         <label>Contraseña:</label>
-                        {{input type="password" class="form-control" value=model.encryted_password}}
+                        {{input type="password" class="form-control" value=model.password}}
+                    </div>
+                     <div class="form-group">
+                        <label>Confirmar contraseña:</label>
+                        {{input type="password" class="form-control" value=model.password_confirmation}}
                     </div>
                     <div class="form-group">
                         <label>NIT:</label>
@@ -43,7 +47,7 @@
                     </div>
                     <div class="form-group">
                         <label>Carnet de Identidad Imagen:</label>
-                        {{input type="file" class="form-control" value=model.imagenit}}
+                        {{input type="file" class="form-control" value=model.imagenci}}
                     </div>
                     <center>
                         <button {{action 'save'}} class="btn btn-info">Aceptar</button>

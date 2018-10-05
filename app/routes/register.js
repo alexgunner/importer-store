@@ -10,9 +10,9 @@ export default Route.extend({
      actions: {
          save() {
            const user = this.get('store').createRecord('user', this.currentModel);
-           user.save().
+           user.save();
            console.log("guardo usuario");
-           this.transitionTo('/');
+           //this.transitionTo('/');
          },
          cancel() {
            this.transitionTo('/');
