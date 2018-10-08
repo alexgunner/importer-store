@@ -17,6 +17,9 @@ module.exports = function(environment) {
       }
     },
 
+  paperclip: {
+    path: ':class/:attachment/:id_partition/:style/:filename.jpg'
+  },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -35,6 +38,7 @@ module.exports = function(environment) {
       // channel: undefined,
       // baseUrl: '//maps.googleapis.com/maps/api/js'
     }
+    
   }
 
   if (environment === 'test') {

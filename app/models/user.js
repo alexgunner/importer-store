@@ -8,7 +8,10 @@ export default DS.Model.extend({
     phone: DS.attr(),
     nit: DS.attr(),
     address: DS.attr(),
-    imagenit: DS.attr('image'),
+    //imagenit: attr('file'),
+    imagenit: DS.attr('file', {
+        filename: 'data'
+      }),
     imageci: DS.attr('image'),
     password: DS.attr(),
     password_confirmation: DS.attr()
