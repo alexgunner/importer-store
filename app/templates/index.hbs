@@ -9,8 +9,14 @@
 			
 			<div class="col-sm-9 padding-right">
 				<div class="features_items">
-					<h2 class="title text-center">Productos</h2>
-					{{product-list products=model.products variants=model.variants}}
+					<h2 class="title text-center">Nuestras Categorías</h2>
+					{{categories-list categories=model.categories}} 
+				</div>
+			</div>
+			<div class="col-sm-9 padding-right">
+				<div class="features_items">
+					<h2 class="title text-center">Productos en Oferta</h2>
+					{{products-offer products=model.products}} 
 				</div>
 			</div>
 		</div>

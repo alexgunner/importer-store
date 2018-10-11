@@ -677,7 +677,7 @@ ul.sub-menu {
   border: 1px solid #F7F7F5;
   overflow: hidden;
   margin-bottom: 30px;
-  min-height: 280px;
+  min-height: 280px !important; 
 }
 
 .left-sidebar h2, .brands_products h2 {
@@ -909,7 +909,7 @@ h2.title {
 
 .productinfo{
  position:relative;
- min-height: 400px !important; 
+ min-height: 300px; 
 
 }
 
