@@ -1,30 +1,40 @@
 {{outlet}}
-<div class="container">
-    <h1>Productos en Carrito</h1>
-    {{#each model.product_variants as |variant|}}
-        {{#each model.items as |item|}}
-            {{#if (is-equal variant.id item.variant_id) }}
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><p>{{variant.code}}</p></h3>
-                    </div>
-                    <div class="panel-body">
-                        <p>Descripción:</p>
-                        <p>{{variant.description}}</p>
-                        {{!-- <p>Precio:</p>
-                        {{product.price}} Bs. --}}
-                        <p>Cantidad:</p>
-                        {{item.quantity}}
-                        <button {{action 'addQuantity' item}}type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-                        <button {{action 'restQuantity' item}}type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
-                        <button {{action 'deleteToCart' item}} type="button" class="btn btn-danger">Quitar del carrito</button>
-                    </div>
-                </div>
-            {{/if}}
-        {{/each}}
-    {{/each}}
-    <a href ="/" type="button" class="btn btn-default">Seguir Comprando</a>
-    <a href="/order" type="button" class="btn btn-warning">Continuar con la Compra</a>
-</div>
+<section>
+	<div class="container">
+        <div class="row">
+            <div class="col-sm-12 padding-right">
+				<h2 class="title text-center">Productos en el carrito</h2>
+                {{#each model.product_variants as |variant|}}
+                    {{#each model.items as |item|}}
+                        {{#if (is-equal variant.id item.variant_id) }}
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h2 class="title text-center">{{variant.code}}</h2>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>Descripción:</h4>
+                                    <p>{{variant.description}}</p>
+                                    <h4>Precio:</h4>
+                                    {{variant.price}} Bs.
+                                    <h4>Cantidad:</h4>
+                                    {{item.quantity}}
+                                    <button {{action 'addQuantity' item}} type="button" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                                    <button {{action 'restQuantity' item}}type="button" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                                    <button {{action 'deleteToCart' item}} type="button" class="btn btn-danger">
+                                    <span class="glyphicon glyphicon-trash"></span> Quitar del carrito</button>
+                                </div>
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                {{/each}}
+            </div>
+            <center>
+                <a href ="/" type="button" class="btn btn-default">Seguir Comprando</a>
+                <a href="/order" type="button" class="btn btn-info">Continuar con la Compra</a>
+            </center>
+            <br/>
+        </div>
+    </div>
+</section>

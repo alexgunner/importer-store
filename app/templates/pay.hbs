@@ -1,23 +1,31 @@
 {{outlet}}
-<div class="container">
-  <h1>Pagar productos</h1>
-    {{#each model.product_variants as |variant|}}
-        {{#each model.items as |item|}}
-            {{#if (is-equal variant.id item.variant_id) }}
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><p>{{variant.code}}</p></h3>
-                    </div>
-                    <div class="panel-body">
-                         <p>Descripción:</p>
-                        <p>{{variant.description}}</p>
-                        <p>Monto total cancelar:</p>
-                        {{mult variant.price item.quantity}} Bs.
-                    </div>
-                </div>
-            {{/if}}
-        {{/each}}
-    {{/each}}
-    <a href ="http://localhost:3000/pay/{{model.orders.lastObject.id}}" type="button" class="btn btn-default">Pagar</a>
-    {{!-- <a href ="http://todoconstruccion-api.herokuapp.com/pay/{{model.orders.lastObject.id}}" type="button" class="btn btn-default">Pagar</a> --}}
-</div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 padding-right">
+				<h2 class="title text-center">Pagar productos</h2>
+                {{#each model.product_variants as |variant|}}
+                    {{#each model.items as |item|}}
+                        {{#if (is-equal variant.id item.variant_id) }}
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h2 class="title text-center">{{variant.code}}</h2>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>Descripción:</h4>
+                                    <p>{{variant.description}}</p>
+                                    <h4>Monto total cancelar:</h4>
+                                    {{mult variant.price item.quantity}} Bs.
+                                </div>
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                {{/each}}
+                <a href ="http://localhost:3000/pay/{{model.orders.lastObject.id}}" type="button" class="btn btn-info">Pagar</a>
+                {{!-- <a href ="http://todoconstruccion-api.herokuapp.com/pay/{{model.orders.lastObject.id}}" type="button" class="btn btn-default">Pagar</a> --}}
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+</section>

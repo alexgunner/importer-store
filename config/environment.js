@@ -16,10 +16,6 @@ module.exports = function(environment) {
         Date: false
       }
     },
-
-  paperclip: {
-    path: ':class/:attachment/:id_partition/:style/:filename.jpg'
-  },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

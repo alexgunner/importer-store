@@ -18,4 +18,5 @@ export default Route.extend({
 			subcategories: model.categories.getEach('subcategories'),
 		});
 	}
+
 });

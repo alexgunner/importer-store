@@ -20,6 +20,7 @@ Router.map(function() {
   this.route('services');
   this.route('contact');
   this.route('register');
+  this.route('login');
 });
 
 export default Router;

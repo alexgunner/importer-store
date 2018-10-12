@@ -9,5 +9,6 @@ export default Route.extend({
             extras: this.get('store').findAll('extra'),
             products: this.get('store').findAll('product')
 		}); 
-	}
+	},
+	
 });
