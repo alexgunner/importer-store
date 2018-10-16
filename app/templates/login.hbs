@@ -4,22 +4,25 @@
 		<div class="row">
 			<div class="col-sm-12 padding-right">
 				<h2 class="title text-center">Iniciar sesión</h2>
-                <form class="form-horizontal">
+                <form {{action "authenticate" on="submit"}} class="form-horizontal" >
                     <div class="form-group">
                         <label>Correo electrónico:</label>
-                        {{input type="text" class="form-control" value=model.email}}
+                        {{input  type="text" class="form-control" value=identification }}
                     </div>
                     <div class="form-group">
                         <label>Contraseña:</label>
-                        {{input type="password" class="form-control" value=model.password}}
+                        {{input  type="password" class="form-control" value=password }}
                     </div>
                     <center>
-                        <button {{action 'save'}} class="btn btn-info">Ingresar</button>
+                        <button type="submit" class="btn btn-info">Ingresar</button>
                         <br/>
                         <h4>¿No tienes cuenta? <a href="/register">Registrate</a></h4>
                         <br/>
                     </center>
                 </form>
+                {{#if errorMessage}}
+                    <h1>TONOT</h1>
+                {{/if}}
 			</div>
 		</div>
 	</div>
