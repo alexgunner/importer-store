@@ -24,6 +24,11 @@ module.exports = function(environment) {
       'connect-src': "*"
     }
   };
+  ENV['ember-simple-auth'] = {
+    authenticationRoute: 'login',
+    routeAfterAuthentication: 'index',
+    routeIfAlreadyAuthenticated: 'index'
+  }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
@@ -31,17 +36,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV['ember-google-maps'] = {
-      key: 'AIzaSyAy4PzSIG77OtqMciXyhMuTD9tQSICh0LM' // Using .env files in this example
-      // client: undefined,
-      // channel: undefined,
-      // baseUrl: '//maps.googleapis.com/maps/api/js'
-    }, 
-    ENV['ember-simple-auth'] = {
-      authenticationRoute: 'login',
-      routeAfterAuthentication: 'dashboard',
-      routeIfAlreadyAuthenticated: 'dashboard'
-    }
+    // ENV['ember-google-maps'] = {
+    //   key: 'AIzaSyAy4PzSIG77OtqMciXyhMuTD9tQSICh0LM' // Using .env files in this example
+    //   // client: undefined,
+    //   // channel: undefined,
+    //   // baseUrl: '//maps.googleapis.com/maps/api/js'
+    // },
+    
     
   }
 
@@ -58,11 +59,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV['ember-simple-auth'] = {
-      authenticationRoute: 'login',
-      routeAfterAuthentication: 'dashboard',
-      routeIfAlreadyAuthenticated: 'dashboard'
-    }
+    
   }
   
   return ENV;

@@ -38,7 +38,14 @@
 							{{/if}}</a></li>
 						</ul>
 						<ul class="nav navbar-nav">
-							<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
+							{{#if session.isAuthenticated}}
+								<li><a href="/"{{action 'logout'}}><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
+								{{!-- {{#if currentUser.user}} --}}
+								<p>Signed in as {{currentUser.user.email}}</p>
+								{{!-- {{/if}} --}}
+							{{else}}
+								<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
+							{{/if}}
 						</ul>
 					</div>
 				</div>
