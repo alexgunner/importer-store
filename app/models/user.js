@@ -11,5 +11,8 @@ export default DS.Model.extend({
     imagenit: DS.attr('image'),
     imageci: DS.attr('image'),
     password: DS.attr(),
-    password_confirmation: DS.attr()
+    password_confirmation: DS.attr(),
+    wholesaleprice: DS.attr(),
+    specialistprice: DS.attr(),
+    importerprice: DS.attr()
 });
