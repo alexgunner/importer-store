@@ -8,7 +8,7 @@
             <h4 class="title">{{subcategory.name}}</h4>
             <p class="justified-text">
             {{subcategory.description}}</p>
-
+        
             {{#each subcategory.products as |product|}}
             <div class="col-sm-3">
                 <div class="product-image-wrapper">
@@ -23,7 +23,6 @@
                     </div>
                 </div>
             </div>
-
                 <!-- Modal -->
                 <div class="modal fade" id="product{{product.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
@@ -107,8 +106,8 @@
                                                             {{#if variant.reposition}}
                                                                 {{variant.reposition_date}}
                                                             {{else}}
-                                                                <button {{action 'addToCart' variant}} class="btn btn-default add-to-cart">
-                                                                <i class="fa fa-shopping-cart"></i>Añadir al carrito</button>
+                                                                {{!-- <button {{action 'addToCart' variant}} class="btn btn-default add-to-cart">
+                                                                <i class="fa fa-shopping-cart"></i>Añadir al carrito</button> --}}
                                                             {{/if}}
                                                         </td>
                                                     </tr>
