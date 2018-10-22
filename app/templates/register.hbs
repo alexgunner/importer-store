@@ -9,22 +9,26 @@
                         <label>Nombres:</label>
                         {{input type="text" class="form-control" value=name}}
                     </div>
-                    {{!-- <div class="form-group">
+                    <div class="form-group">
                         <label>Apellidos:</label>
-                        {{input type="text" class="form-control" value=model.lastname}}
+                        {{input type="text" class="form-control" value=lastname}}
                     </div>
                     <div class="form-group">
                         <label>CI:</label>
-                        {{input type="number" class="form-control" value=model.ci}}
+                        {{input type="number" class="form-control" value=ci}}
+                    </div>
+                    <div class="form-group">
+                        <label>NIT:</label>
+                        {{input type="number" class="form-control" value=nit}}
                     </div>
                     <div class="form-group">
                         <label>Dirección:</label>
-                        {{input type="text" class="form-control" value=model.address}}
+                        {{input type="text" class="form-control" value=address}}
                     </div>
                     <div class="form-group">
                         <label>Teléfono:</label>
-                        {{input type="number" class="form-control" value=model.phone}}
-                    </div> --}}
+                        {{input type="number" class="form-control" value=phone}}
+                    </div>
                     <div class="form-group">
                         <label>Correo electrónico:</label>
                         {{input type="text" class="form-control" value=email}}
@@ -37,24 +41,18 @@
                         <label>Confirmar contraseña:</label>
                         {{input type="password" class="form-control" value=password_confirmation}}
                     </div>
-                    {{!-- <div class="form-group">
-                        <label>NIT:</label>
-                        {{input type="number" class="form-control" value=model.nit}}
-                    </div> --}}
                     <div class="form-group">
-                         <label>Image<br>(200x200)</label>
-                            <div class="col-sm-10"> 
-                            <img id="output" height="200" width="200" hidden={{shouldHideImage}}>
-                        <p></p>
-                        {{x-file-input class="custom-class" multiple=false name="files" action='didSelectImage' accept="image/*" alt="Upload Image"}}
-                        </div> 
-                        {{!-- {{file-upload value=model.imagenit multipart="true"}} --}}
-                        {{!-- {{input type="file" class="form-control" multiple="true" value=imagenit}} --}}
+                         <label>CI/NIT</label>
+                         <p>Por favor suba una imagen de su carnet de identidad o el nit de su negocio/empresa,
+                             el nombre de la imagen debe ser el del propietario o del su negocio/empresa. <br/>
+                             Para cargar una imagen click en el texto 'Subir Imagen'.
+                         </p>
+                        <center>
+                            <img id="output" height="600" width="600" hidden={{shouldHideImage}}>
+                            <p></p>
+                            {{x-file-input class="custom-class" multiple=false name="files" action='didSelectImage' accept="image/*" alt="Subir Imagen"}}
+                        </center>
                     </div>
-                    {{!-- <div class="form-group">
-                        <label>Carnet de Identidad Imagen:</label>
-                        {{input type="file" class="form-control" value=model.imagenci}}
-                    </div> --}}
                     <center>
                         <button {{action 'save'}} class="btn btn-info">Aceptar</button>
                         <button {{action 'cancel'}} class="btn btn-default">Cancelar</button>
