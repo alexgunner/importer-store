@@ -27,24 +27,29 @@
                     </div> --}}
                     <div class="form-group">
                         <label>Correo electrónico:</label>
-                        {{input type="text" class="form-control" value=model.email}}
+                        {{input type="text" class="form-control" value=email}}
                     </div>
                     <div class="form-group">
                         <label>Contraseña:</label>
-                        {{input type="password" class="form-control" value=model.password}}
+                        {{input type="password" class="form-control" value=password}}
                     </div>
                      <div class="form-group">
                         <label>Confirmar contraseña:</label>
-                        {{input type="password" class="form-control" value=model.password_confirmation}}
+                        {{input type="password" class="form-control" value=password_confirmation}}
                     </div>
                     {{!-- <div class="form-group">
                         <label>NIT:</label>
                         {{input type="number" class="form-control" value=model.nit}}
                     </div> --}}
                     <div class="form-group">
-                        <label>NIT Imagen:</label>
-                        {{file-upload value=model.imagenit multipart="true"}}
-                        {{!-- {{input type="file" class="form-control" multiple="true" value=imagenit id="file-field"}} --}}
+                         <label>Image<br>(200x200)</label>
+                            <div class="col-sm-10"> 
+                            <img id="output" height="200" width="200" hidden={{shouldHideImage}}>
+                        <p></p>
+                        {{x-file-input class="custom-class" multiple=false name="files" action='didSelectImage' accept="image/*" alt="Upload Image"}}
+                        </div> 
+                        {{!-- {{file-upload value=model.imagenit multipart="true"}} --}}
+                        {{!-- {{input type="file" class="form-control" multiple="true" value=imagenit}} --}}
                     </div>
                     {{!-- <div class="form-group">
                         <label>Carnet de Identidad Imagen:</label>

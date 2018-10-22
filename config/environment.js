@@ -22,6 +22,13 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'connect-src': "*"
+    },
+
+    firebase: {
+      apiKey: 'AIzaSyCYgaXj24QRp7nKm5ARl7ZANt3GnaCtrno',
+      authDomain: '',
+      databaseURL: '',
+      storageBucket: 'importer-store-1537766216237.appspot.com',
     }
   };
   ENV['ember-simple-auth'] = {
