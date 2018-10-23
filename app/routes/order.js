@@ -10,7 +10,8 @@ export default Route.extend({
     actions: {
         save() {
           var store = this.get('store');
-          var items = this.get('store').findAll('item');
+          let items = this.get('store').findAll('item');
+          
           const client = this.get('store').createRecord('client', this.currentModel);
           console.log("entro al action");
           client.save().then(function(record){
@@ -22,10 +23,12 @@ export default Route.extend({
             console.log("crea cliente");
               order.save().then(function(record){
                 items.forEach(function(item){
+                  console.log(item.get('role'));
                   var cart = store.createRecord('cart', {
                     quantity: item.get('quantity'),
                     order_id: record.id,
-                    product_variant_id: item.get('variant_id')
+                    product_variant_id: item.get('variant_id'),
+                    role: item.get('role')
                   });
                   console.log("creo todo");
                   cart.save();

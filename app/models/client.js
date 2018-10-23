@@ -6,5 +6,6 @@ export default DS.Model.extend({
     address: DS.attr('string'),
     phone: DS.attr('number'),
     mail: DS.attr('string'),
-    nit: DS.attr('number')
+    nit: DS.attr('number'),
+    count: DS.attr('number')
 });

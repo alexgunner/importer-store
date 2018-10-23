@@ -15,7 +15,18 @@
                                     <h4>Descripción:</h4>
                                     <p>{{variant.description}}</p>
                                     <h4>Monto total cancelar:</h4>
-                                    {{mult variant.price item.quantity}} Bs.
+                                    {{#if (eq item.role "Mayorista")}}
+                                        {{mult variant.wholesaleprice item.quantity}} Bs.
+                                    {{/if}}
+                                     {{#if (eq item.role "Especialista")}}
+                                        {{mult variant.specialistprice item.quantity}} Bs.
+                                    {{/if}}
+                                    {{#if (eq item.role "Distribuidor")}}
+                                        {{mult variant.importerprice item.quantity}} Bs.
+                                    {{/if}}
+                                    {{#if (eq item.role " ")}}
+                                        {{mult variant.price item.quantity}} Bs.
+                                    {{/if}}
                                 </div>
                             </div>
                         {{/if}}

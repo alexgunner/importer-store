@@ -15,7 +15,18 @@
                                     <h4>Descripción:</h4>
                                     <p>{{variant.description}}</p>
                                     <h4>Precio:</h4>
-                                    {{variant.price}} Bs.
+                                    {{#if (eq item.role "Mayorista")}}
+                                        {{variant.wholesaleprice}} Bs.
+                                    {{/if}}
+                                     {{#if (eq item.role "Especialista")}}
+                                        {{variant.specialistprice}} Bs.
+                                    {{/if}}
+                                    {{#if (eq item.role "Distribuidor")}}
+                                        {{variant.importerprice}} Bs.
+                                    {{/if}}
+                                    {{#if (eq item.role " ")}}
+                                        {{variant.price}} Bs.
+                                    {{/if}}
                                     <h4>Cantidad:</h4>
                                     {{item.quantity}}
                                     <button {{action 'addQuantity' item}} type="button" class="btn btn-default">

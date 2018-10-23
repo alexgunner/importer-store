@@ -4,10 +4,11 @@ export default Component.extend({
 	session: service('session'),
 	store: Ember.inject.service(),
 	actions: {
-		addToCart(variant) {
+		addToCart(variant, role_user) {
 			var item = this.get('store').createRecord('item', {
 			variant_id: variant.id,
-			quantity: 1
+			quantity: 1,
+			role: role_user
 			});
             item.save();
 			this.get('router').transitionTo('/cart');
