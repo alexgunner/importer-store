@@ -4,14 +4,18 @@ import RSVP from 'rsvp';
 export default Route.extend({
     model() {
        return RSVP.hash({
-         host: this.get('store').adapterFor('application').get('host')
+         host: this.get('store').adapterFor('application').get('host'),
+         deliveries: this.get('store').findAll('delivery')
         })
      },
     actions: {
         save() {
           var store = this.get('store');
           let items = this.get('store').findAll('item');
-          
+          var select = document.querySelector("#deliveries");
+          var valor = select.value;
+          console.log(valor);
+
           const client = this.get('store').createRecord('client', this.currentModel);
           console.log("entro al action");
           client.save().then(function(record){
@@ -19,11 +23,11 @@ export default Route.extend({
             var order = store.createRecord('order', {
               orderdate: new Date(),
               client_id: record.id,
+              delivery_id: valor
             });
             console.log("crea cliente");
               order.save().then(function(record){
                 items.forEach(function(item){
-                  console.log(item.get('role'));
                   var cart = store.createRecord('cart', {
                     quantity: item.get('quantity'),
                     order_id: record.id,
@@ -35,8 +39,8 @@ export default Route.extend({
                 });
             });
            
-          });
-          this.transitionTo('/pay');
+            });
+          // this.transitionTo('/pay');
         },
         cancel() {
           this.transitionTo('/');
