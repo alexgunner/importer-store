@@ -31,10 +31,9 @@
                     </div>
                     <div class="form-group">
                         <label>Destino y Transporte:</label>
-                        {{!-- {{input type="number" class="form-control" value=delivery_id}} --}}
                         <select id="deliveries">
                             {{#each model.deliveries as |delivery|}}
-                                <option value="{{delivery.id}}">{{delivery.name}}</option>
+                                <option value="{{delivery.id}}">{{delivery.name}} Costo:{{delivery.cost}}</option>
                            {{/each}}
                         </select>
                     </div>

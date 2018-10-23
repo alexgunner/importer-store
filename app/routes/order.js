@@ -40,7 +40,7 @@ export default Route.extend({
             });
            
             });
-          // this.transitionTo('/pay');
+          this.transitionTo('/pay');
         },
         cancel() {
           this.transitionTo('/');
