@@ -5,7 +5,7 @@
                 <div class="single-products">
                      <div class="productinfo text-center">
                         <img src="{{product.picture}}" alt="" />
-                        <h2>{{product.code}}  </h2>
+                        <h2>{{product.code}}</h2>
                         <p>{{product.description}}</p>
                         <a href="#" class="btn btn-default add-to-cart"
 								data-toggle="modal" data-target="#product{{product.id}}"><span class="glyphicon glyphicon-eye-open"></span> Ver más</a>
@@ -44,8 +44,7 @@
 						    </p>
 						    {{#if (not-eq product.details "/details/original/missing.png")}}
 							    <p class="justified-text">
-							        <a target="_blank" href="http://localhost:3000/{{product.details}}" class="btn btn-primary">Descargar ficha técnica </a>
-									{{!-- <a target="_blank" href="http://todoconstruccion-api.herokuapp.com/{{product.details}}" class="btn btn-primary">Descargar ficha técnica </a> --}}
+							        <a target="_blank" href="{{host}}/{{product.details}}" class="btn btn-primary">Descargar ficha técnica</a>
 							    </p>
 							{{/if}}
 						</div>

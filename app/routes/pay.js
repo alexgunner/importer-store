@@ -6,7 +6,8 @@ export default Route.extend({
     return RSVP.hash({
         product_variants: this.get('store').findAll('product_variant'),
         items: this.get('store').findAll('item'),
-        orders: this.get('store').findAll('order')
+        orders: this.get('store').findAll('order'),
+        host: this.get('store').adapterFor('application').get('host')
       }); 
     }
     

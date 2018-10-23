@@ -1,5 +1,5 @@
 import Devise from 'ember-simple-auth/authenticators/devise';
 
 export default Devise.extend({
-  serverTokenEndpoint: 'http://todoconstruccion-api.herokuapp.com/api/users/sign_in'
+  serverTokenEndpoint: 'http://localhost:3000/api/users/sign_in'
 });
