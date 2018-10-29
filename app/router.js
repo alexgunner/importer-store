@@ -13,7 +13,7 @@ Router.map(function() {
   this.route('order', function() {});
 
   this.route('cart');
-  this.route('pay');
+  this.route('pay', {path: 'pay/:id'});
   this.route('about-us');
   this.route('category-products', {path: 'category-products/:id'});
   this.route('products-offer');

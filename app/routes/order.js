@@ -1,11 +1,11 @@
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
-
+var id;
 export default Route.extend({
     model() {
        return RSVP.hash({
          host: this.get('store').adapterFor('application').get('host'),
-         deliveries: this.get('store').findAll('delivery')
+         deliveries: this.get('store').findAll('delivery'),
         })
      },
     actions: {
@@ -37,13 +37,18 @@ export default Route.extend({
                   console.log("creo todo");
                   cart.save();
                 });
+              id = record.id
+              console.log(id);
             });
            
             });
-          this.transitionTo('/pay');
+         
         },
         cancel() {
           this.transitionTo('/');
+        },
+        ok(){
+          this.transitionTo('/pay/'+ id);
         }
     }
 });
