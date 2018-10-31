@@ -1,0 +1,33 @@
+{{#each orders as |order|}}
+    {{#if (eq order.client.mail session.data.authenticated.email)}}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="title text-center">Número de orden: {{order.id}}</h2>
+        </div>
+        <div class="panel-body">
+            <h4>Productos:</h4>
+            {{#each order.carts as |cart|}}
+                <p><strong>{{cart.product_variant.description}}</strong></p>
+                {{#if (eq cart.role "Mayorista")}}
+                    <p>Precio: {{cart.product_variant.wholesaleprice}}</p>
+                {{/if}}
+                {{#if (eq cart.role "Especialista")}}
+                    <p>Precio: {{cart.product_variant.specialistprice}}</p>
+                {{/if}}
+                {{#if (eq cart.role "Distribuidor")}}
+                    <p>Precio: {{cart.product_variant.importerprice}}</p>
+                {{/if}}
+                 <p>Cantidad: {{cart.quantity}}</p>
+            {{/each}}
+            <h4>Medio de envío:</h4>
+                <p>{{order.delivery.name}}</p>
+            <h4>Estado:</h4>
+                {{#if (eq order.state null)}}
+                    <p>No visto</p>
+                {{else}}
+                    <p>{{order.state}}</p>
+                {{/if}}
+        </div>
+    </div>
+    {{/if}}
+{{/each}}
