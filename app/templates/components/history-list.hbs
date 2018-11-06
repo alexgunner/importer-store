@@ -17,6 +17,9 @@
                 {{#if (eq cart.role "Distribuidor")}}
                     <p>Precio: {{cart.product_variant.importerprice}}</p>
                 {{/if}}
+                {{#if (eq cart.role "Minorista")}}
+                    <p>Precio: {{cart.product_variant.price}}</p>
+                {{/if}}
                  <p>Cantidad: {{cart.quantity}}</p>
             {{/each}}
             <h4>Medio de envío:</h4>
