@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 import swal from 'sweetalert';
-var link;
+var link = "no";
 export default Route.extend({
   firebaseApp: Ember.inject.service(),
     model() {
@@ -28,6 +28,10 @@ export default Route.extend({
   
         uploadTask.on('state_changed', function(snapshot){
           var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          progress = Math.round(progress);
+          var elMensaje = document.getElementById('mensaje');
+          var textoMensaje = '<p>Porcentaje de subida: ' + progress + '%</p>';
+          elMensaje.innerHTML = textoMensaje;
           console.log('Upload is ' + progress + '% done');
           console.log(snapshot.state);
           }, function(error) {

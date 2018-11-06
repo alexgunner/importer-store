@@ -41,11 +41,24 @@
                     {{/each}}
                 {{/each}}
             </div>
+            {{#if (eq model.items.length 0)}}
+                    <br/>
+                    <br/>
+                    <center>
+                        <h2>No se ha agregado productos.</h2>
+                        <br/>
+                     <a href ="/" type="button" class="btn btn-default">Volver</a>
+                    </center>
+                    <br/>
+                    <br/>
+                    <br/>
+            {{else}}
             <center>
                 <a href ="/" type="button" class="btn btn-default">Seguir Comprando</a>
                 <a href="/order" type="button" class="btn btn-info">Continuar con la Compra</a>
             </center>
             <br/>
+            {{/if}}
         </div>
     </div>
 </section>

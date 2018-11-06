@@ -42,13 +42,20 @@ export default Route.extend({
             });
            
             });
-         
+            swal({
+              title: "¡Hecho!",
+              text: "Tu orden fue registrada, por continua a proceder con el pago.",
+              type: "success",
+              confirmButtonText: "OK"
+            },
+            function(isConfirm){
+              if (isConfirm) {
+                window.location.href = '/pay/'+ id;
+              }
+            });
         },
         cancel() {
           this.transitionTo('/');
-        },
-        ok(){
-          this.transitionTo('/pay/'+ id);
         }
     }
 });
