@@ -15,20 +15,24 @@
                                     <h4>Descripción:</h4>
                                     <p>{{variant.description}}</p>
                                     <h4>Precio:</h4>
-                                    {{#if (eq item.role "Mayorista")}}
-                                        {{variant.wholesaleprice}} Bs.
-                                    {{/if}}
-                                     {{#if (eq item.role "Especialista")}}
-                                        {{variant.specialistprice}} Bs.
-                                    {{/if}}
-                                    {{#if (eq item.role "Distribuidor")}}
-                                        {{variant.importerprice}} Bs.
-                                    {{/if}}
-                                    {{#if (eq item.role "Minorista")}}
-                                        {{variant.price}} Bs.
-                                    {{/if}}
-                                    {{#if (eq item.role null )}}
-                                        {{variant.price}} Bs.
+                                    {{#if (eq variant.offerprice null)}}
+                                        {{#if (eq item.role "Mayorista")}}
+                                            {{variant.wholesaleprice}} Bs.
+                                        {{/if}}
+                                        {{#if (eq item.role "Especialista")}}
+                                            {{variant.specialistprice}} Bs.
+                                        {{/if}}
+                                        {{#if (eq item.role "Distribuidor")}}
+                                            {{variant.importerprice}} Bs.
+                                        {{/if}}
+                                        {{#if (eq item.role "Minorista")}}
+                                            {{variant.price}} Bs.
+                                        {{/if}}
+                                        {{#if (eq item.role null )}}
+                                            {{variant.price}} Bs.
+                                        {{/if}}
+                                    {{else}}
+                                        OFERTA: {{variant.offerprice}} Bs.
                                     {{/if}}
                                     <h4>Cantidad:</h4>
                                     {{item.quantity}}

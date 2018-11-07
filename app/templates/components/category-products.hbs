@@ -107,9 +107,9 @@
                                                         </td>
                                                         <td align="left">
                                                             {{#if variant.reposition}}
-                                                                {{variant.reposition_date}}
+                                                                Estará disponible: {{variant.repositiondate}}
                                                             {{else}}
-                                                                <button {{action 'addToCart' variant session.data.authenticated.role }} class="btn btn-default add-to-cart" onClick="history.go(0)">
+                                                                <button onClick="history.go(0)" {{action 'addToCart' variant session.data.authenticated.role }} class="btn btn-default add-to-cart">
                                                                 <i class="fa fa-shopping-cart"></i>Añadir al carrito</button>
                                                             {{/if}}
                                                         </td>

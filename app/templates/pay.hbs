@@ -14,21 +14,27 @@
                                 <div class="panel-body">
                                     <h4>Descripción:</h4>
                                     <p>{{variant.description}}</p>
+                                    <h4>Cantidad:</h4>
+                                    <p>{{item.quantity}}</p>
                                     <h4>Monto total cancelar:</h4>
-                                    {{#if (eq item.role "Mayorista")}}
-                                        {{mult variant.wholesaleprice item.quantity}} Bs.
-                                    {{/if}}
-                                    {{#if (eq item.role "Especialista")}}
-                                        {{mult variant.specialistprice item.quantity}} Bs.
-                                    {{/if}}
-                                    {{#if (eq item.role "Distribuidor")}}
-                                        {{mult variant.importerprice item.quantity}} Bs.
-                                    {{/if}}
-                                    {{#if (eq item.role null)}}
-                                        {{mult variant.price item.quantity}} Bs.
-                                    {{/if}}
-                                    {{#if (eq item.role "Minorista")}}
-                                        {{mult variant.price item.quantity}} Bs.
+                                    {{#if (eq variant.offerprice null)}}
+                                        {{#if (eq item.role "Mayorista")}}
+                                            {{mult variant.wholesaleprice item.quantity}} Bs.
+                                        {{/if}}
+                                        {{#if (eq item.role "Especialista")}}
+                                            {{mult variant.specialistprice item.quantity}} Bs.
+                                        {{/if}}
+                                        {{#if (eq item.role "Distribuidor")}}
+                                            {{mult variant.importerprice item.quantity}} Bs.
+                                        {{/if}}
+                                        {{#if (eq item.role null)}}
+                                            {{mult variant.price item.quantity}} Bs.
+                                        {{/if}}
+                                        {{#if (eq item.role "Minorista")}}
+                                            {{mult variant.price item.quantity}} Bs.
+                                        {{/if}}
+                                    {{else}}
+                                        {{mult variant.offerprice item.quantity}} Bs.
                                     {{/if}}
                                 </div>
                             </div>
