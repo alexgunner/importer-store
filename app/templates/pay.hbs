@@ -18,13 +18,16 @@
                                     {{#if (eq item.role "Mayorista")}}
                                         {{mult variant.wholesaleprice item.quantity}} Bs.
                                     {{/if}}
-                                     {{#if (eq item.role "Especialista")}}
+                                    {{#if (eq item.role "Especialista")}}
                                         {{mult variant.specialistprice item.quantity}} Bs.
                                     {{/if}}
                                     {{#if (eq item.role "Distribuidor")}}
                                         {{mult variant.importerprice item.quantity}} Bs.
                                     {{/if}}
-                                    {{#if (eq or item.role null "Minorista")}}
+                                    {{#if (eq item.role null)}}
+                                        {{mult variant.price item.quantity}} Bs.
+                                    {{/if}}
+                                    {{#if (eq item.role "Minorista")}}
                                         {{mult variant.price item.quantity}} Bs.
                                     {{/if}}
                                 </div>
