@@ -24,7 +24,7 @@
                                     {{#if (eq item.role "Distribuidor")}}
                                         {{variant.importerprice}} Bs.
                                     {{/if}}
-                                    {{#if (or item.role null or "Minorista")}}
+                                    {{#if (eq or item.role null "Minorista")}}
                                         {{variant.price}} Bs.
                                     {{/if}}
                                     <h4>Cantidad:</h4>

@@ -24,15 +24,15 @@
                                     {{#if (eq item.role "Distribuidor")}}
                                         {{mult variant.importerprice item.quantity}} Bs.
                                     {{/if}}
-                                    {{#if (or item.role null "Minorista")}}
+                                    {{#if (eq or item.role null "Minorista")}}
                                         {{mult variant.price item.quantity}} Bs.
                                     {{/if}}
                                 </div>
                             </div>
                         {{/if}}
-                    {{/each}}
+                    {{/each}} 
                 {{/each}}
-                <a href ="{{model.host}}/pay/{{model.order.id}}" type="button" class="btn btn-info">Pagar</a>
+                <a  type="button" class="btn btn-info" {{action 'clearCart' model.items model.host model.order.id}}>Pagar</a>
                 <br/>
                 <br/>
             </div>
