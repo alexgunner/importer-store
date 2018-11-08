@@ -1,0 +1,84 @@
+<form class="form-horizontal">
+    {{!-- {{#if session.isAuthenticated}}
+    <div class="form-group">
+    <label>Nombre: {{model.email}}</label>
+    {{input type="text" class="form-control" value=session.data.authenticated.name}}
+    </div>
+    <div class="form-group">
+        <label>Apellidos:</label>
+        {{input type="text" class="form-control" value=session.data.authenticated.lastname}}
+    </div>
+    <div class="form-group">
+        <label>Dirección:</label>
+        {{input type="text" class="form-control" value=session.data.authenticated.address}}
+    </div>
+    <div class="form-group">
+        <label>Teléfono:</label>
+        {{input type="number" class="form-control" value=session.data.authenticated.phone}}
+    </div>
+    <div class="form-group">
+        <label>Correo electrónico:</label>
+        {{input type="text" class="form-control" value=session.data.authenticated.email}}
+    </div>
+    <div class="form-group">
+        <label>CI/NIT:</label>
+        {{input type="number" class="form-control" value=session.data.authenticated.nit}}
+    </div>
+    {{else}} --}}
+    <div class="form-group">
+        <label>Nombre:</label>
+        {{input type="text" class="form-control" value=model.name}}
+    </div>
+    <div class="form-group">
+        <label>Apellidos:</label>
+        {{input type="text" class="form-control" value=model.lastname}}
+    </div>
+    <div class="form-group">
+        <label>Dirección:</label>
+        {{input type="text" class="form-control" value=model.address}}
+    </div>
+    <div class="form-group">
+        <label>Teléfono:</label>
+        {{input type="number" class="form-control" value=model.phone}}
+    </div>
+    <div class="form-group">
+        <label>Correo electrónico:</label>
+        {{input type="text" class="form-control" value=model.mail}}
+    </div>
+    <div class="form-group">
+        <label>NIT:</label>
+        {{input type="number" class="form-control" value=model.nit}}
+    </div>
+    {{!-- {{/if}} --}}
+    <div class="form-group">
+        <label>Forma de pago:</label>
+        <select id="pagos" name="pagos">
+            <option value="Tarjeta">Tarjeta débito o crédito</option>
+            <option value="Contraentrega">Al momento de la entrega</option>
+            <option value="Deposito">Depósito Bancario</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Entrega:</label>
+        <select {{action 'selected'}} id="opcion" name="opcion">
+            <option value="Tienda">Para recoger en tienda</option>
+            <option value="Domicilio">A domicilio</option>
+        </select>
+    </div>
+    <div id="deliv" style="display:none;" class="form-group">
+        <label>Destino y Transporte:</label>
+        <select id="deliveries">
+            {{#each model.deliveries as |delivery|}}
+                <option value="{{delivery.id}}">{{delivery.name}} Costo:{{delivery.cost}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div>
+        <center>
+            <button {{action 'save'}} class="btn btn-info">Aceptar</button>
+            <button {{action 'cancel'}} class="btn btn-default">Cancelar</button>
+        </center>
+        <br/>
+        <br/>
+    </div>
+</form>
