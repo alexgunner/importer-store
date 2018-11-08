@@ -9,13 +9,24 @@ export default Route.extend({
         })
      },
     actions: {
+        selected()
+        {
+          var opt = document.querySelector("#opcion");
+          console.log(opt.value);
+           if(opt.value=="Domicilio"){
+               $('#deliv').show();
+           }
+           else{
+             $('#deliv').hide();
+           }
+        },
         save() {
           var store = this.get('store');
           let items = this.get('store').findAll('item');
+          var pay = document.querySelector('#pagos');
+          var delivery = document.querySelector('#opcion')
           var select = document.querySelector("#deliveries");
-          var valor = select.value;
-          console.log(valor);
-
+          
           const client = this.get('store').createRecord('client', this.currentModel);
           console.log("entro al action");
           client.save().then(function(record){
@@ -23,7 +34,9 @@ export default Route.extend({
             var order = store.createRecord('order', {
               orderdate: new Date(),
               client_id: record.id,
-              delivery_id: valor
+              delivery_id: select.value,
+              typepay: pay.value,
+              typedelivery: delivery.value
             });
             console.log("crea cliente");
               order.save().then(function(record){

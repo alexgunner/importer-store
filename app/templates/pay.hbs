@@ -4,6 +4,7 @@
         <div class="row">
             <div class="col-sm-12 padding-right">
 				<h2 class="title text-center">Pagar productos</h2>
+                <h4>Número de orden: {{model.order.id}}</h4>
                 {{#each model.product_variants as |variant|}}
                     {{#each model.items as |item|}}
                         {{#if (is-equal variant.id item.variant_id) }}
@@ -41,7 +42,36 @@
                         {{/if}}
                     {{/each}} 
                 {{/each}}
-                <a  type="button" class="btn btn-info" {{action 'clearCart' model.items model.host model.order.id}}>Pagar</a>
+                {{#if (eq model.order.typepay "Tarjeta")}}
+                    <a  type="button" class="btn btn-info" {{action 'clearCart' model.items model.host model.order.id}}>Pagar</a>
+                {{/if}}
+                {{#if (eq model.order.typepay "Contraentrega")}}
+                    <h4>¡Muchas gracias por la confianza! Puedes ponerte en contacto con nosotros o revisar tu historial de compras (si tienes una cuenta) para ver el estado de tu pedido.
+                        Puedes imprimir esta página como recibo y comprobante dando click <a href="" onclick='window.print();'> aquí.</a></h4>
+                     <a href="/" class="btn btn-info" {{action 'clearCart2' model.items}}>Terminado</a>
+                {{/if}} 
+                {{#if (eq model.order.typepay "Deposito")}}
+                    <h4>Para completar tu compra, por favor realiza un deposito a nuestra cuenta:
+                        <b>DOMUS SRL 10000053763530.</b> Posteriormente sube una foto o captura del comprobante para que podamos preparar tu pedido.</h4>
+                    <center>
+                        <img id="output" height="400" width="350" hidden={{shouldHideImage}}>
+                        <p></p>
+                        {{x-file-input class="custom-class" multiple=false name="files" action='didSelectImage' accept="image/*" alt="Subir Imagen"}}
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100" style="width:100%" id="mensaje"></div>
+                    </center>
+                    <a href="/" class="btn btn-info" {{action 'clearCart2' model.items}}>Terminado</a>
+                {{/if}}
+                {{#if (eq model.order.typedelivery "Domicilio")}}
+                    <h4>Recuerda que los gastos de envio serán considerados en el cobro.</h4>
+                {{/if}}
+                {{#if (eq model.order.typedelivery "Tienda")}}
+                    <h4>Puedes pasar por tu pedido dentro de 24 horas, a partir de este momento. 
+                        Por favor revisa nuestra dirección y teléfonos, en la sección de <a  href="/contact">Contactos</a>.
+                        No olvides revisar tu numero de pedido, en el historial de compras, para hacer más facil la búsqueda de la entrega, o puedes impirmir esta pagina
+                        dando click <a href="" onclick='window.print();'> aquí.</a>
+                    </h4>
+                {{/if}}
                 <br/>
                 <br/>
             </div>

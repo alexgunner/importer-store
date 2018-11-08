@@ -8,5 +8,8 @@ export default DS.Model.extend({
     client: DS.belongsTo('client'),
     carts: DS.hasMany('carts'),
     delivery: DS.belongsTo('delivery'),
-    state: DS.attr()
+    state: DS.attr(),
+    typepay: DS.attr(),
+    typedelivery: DS.attr(),
+    image: DS.attr('string')
 });
