@@ -9,17 +9,8 @@ export default Route.extend({
 			category: this.get('store').findRecord('category', params.id),
 			products: this.get('store').findAll('product'),
 			product_variants: this.get('store').findAll('product_variant'),
+			items: this.get('store').findAll('item'),
 			host: this.get('store').adapterFor('application').get('host')
 		}); 
-	},
-	actions: {
-		addToCart(variant) {
-			var item = this.get('store').createRecord('item', {
-			variant_id: variant.id,
-			quantity: 1
-			});
-            item.save();
-			this.get('router').transitionTo('/cart');
-		}
 	}
 });
