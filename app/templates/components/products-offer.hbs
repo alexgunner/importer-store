@@ -81,7 +81,7 @@
                                                             {{#if variant.reposition}}
                                                                Estará disponible: {{variant.repositiondate}} 
                                                             {{else}}
-                                                                <button onClick="history.go(0)" {{action 'addToCart' variant}} class="btn btn-default add-to-cart">
+                                                                <button onClick="history.go(0)" {{action 'addToCart' variant items}} class="btn btn-default add-to-cart">
                                                                 <i class="fa fa-shopping-cart"></i>Añadir al carrito</button>
                                                             {{/if}}
                                                         </td>
