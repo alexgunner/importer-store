@@ -33,7 +33,7 @@ export default Route.extend({
         {
           const client = store.createRecord('client', {
             name: this.get('session.data.authenticated.name'),
-            lastame: this.get('session.data.authenticated.lastname'),
+            lastname: this.get('session.data.authenticated.lastname'),
             nit: this.get('session.data.authenticated.nit'),
             address: this.get('session.data.authenticated.address'),
             phone: this.get('session.data.authenticated.phone'),
