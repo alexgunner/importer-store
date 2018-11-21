@@ -80,6 +80,18 @@ export default Route.extend({
         }
       else{
         const client = this.get('store').createRecord('client', this.currentModel);
+        if (client.get('name') == null || client.get('lastname') == null
+      || client.get('nit') == null || client.get('address') == null
+    || client.get('phone') == null || client.get('mail') == null)
+      { 
+        swal({
+          title: "¡Error!",
+          text: "Por favor completa todos los datos.",
+          type: "error"
+        })
+      }
+      else
+      {
         console.log("entro al action");
         client.save().then(function(record){
           console.log("hizo el save");
@@ -118,6 +130,10 @@ export default Route.extend({
               window.location.href = '/pay/'+ id;
             }
           });
+        
+        
+      }
+        
       }
         
       },
