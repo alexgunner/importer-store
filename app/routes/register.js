@@ -58,23 +58,59 @@ export default Route.extend({
           var u_email = this.get('controller').get('email');
           var u_password = this.get('controller').get('password');
           var u_password_confirmation = this.get('controller').get('password_confirmation');
-  
-          var new_user = store.createRecord('user', {
-              name : u_name,
-              lastname: u_lastname,
-              ci: u_ci,
-              nit: u_nit,
-              address: u_address,
-              phone: u_phone,
-              email: u_email,
-              password: u_password,
-              password_confirmation: u_password_confirmation,
-              image: link
-            });
-          new_user.save();
-          console.log("guardo usuario");
-          swal("¡Hecho!", "Gracias por registrarte. Por favor espera unos minutos antes de sesión para que verifiquemos tus datos.", "success");
-          this.transitionTo('/');
+          
+          if(u_name == null || u_lastname == null || u_ci == null || u_nit == null || 
+          u_address == null || u_phone == null || u_email == null || u_password == null || u_password_confirmation == null)
+          {
+            swal({
+              title: "¡Error!",
+              text: "Por favor completa todos los campos requeridos.",
+              type: "error"
+            })
+
+          }else{
+            if(u_password != u_password_confirmation)
+            {
+              swal({
+                title: "¡Error!",
+                text: "Las contraseñas no coinciden.",
+                type: "error"
+              })
+            }
+            else{
+              var re = new RegExp("((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).{6,})");
+              if(!re.test(u_password))
+              {
+                swal({
+                  title: "¡Error!",
+                  text: "Tu contraseña debe tener 6 caracteres o más, donde debe haber una mayúscula, una minúscula, un digito y un caracter especial.",
+                  type: "error"
+                })
+
+              }else{
+                var new_user = store.createRecord('user', {
+                  name : u_name,
+                  lastname: u_lastname,
+                  ci: u_ci,
+                  nit: u_nit,
+                  address: u_address,
+                  phone: u_phone,
+                  email: u_email,
+                  password: u_password,
+                  password_confirmation: u_password_confirmation,
+                  image: link
+                });
+              new_user.save();
+              console.log("guardo usuario");
+              swal("¡Hecho!", "Gracias por registrarte. Por favor espera unos minutos antes de sesión para que verifiquemos tus datos.", "success");
+              this.transitionTo('/');
+                
+              }
+              
+            }
+           
+          }
+          
           },
          cancel() {
            this.transitionTo('/');
