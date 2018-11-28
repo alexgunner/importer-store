@@ -21,6 +21,7 @@ Router.map(function() {
   this.route('register');
   this.route('login');
   this.route('history');
+  this.route('product-details', {path: 'product-details/:id'});
 });
 
 export default Router;

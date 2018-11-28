@@ -6,10 +6,35 @@
 			<!-- Left sideBar -->
 			{{left-sidebar categories=model.categories manufacturers=model.manufacturers extras=model.extras}}
 			<!-- Left sideBar -->
-			{{category-products categories=model.categories manufacturers=model.manufacturers
-			extras=model.extras category=model.category
-			products=model.products product_variants=model.product_variants
-			host=model.host items=model.items}}
+			<div class="col-sm-9 padding-right">
+			<div class="features_items"><!--features_items-->
+				<h2 class="title text-center">{{model.category.name}}</h2>
+				<p class="justified-text">
+				{{model.category.description}}</p>
+
+				{{#each model.category.subcategories as |subcategory|}}
+					<h4 class="title">{{subcategory.name}}</h4>
+					<p class="justified-text">
+					{{subcategory.description}}</p>
+				
+					{{#each subcategory.products as |product|}}
+					<div class="col-sm-3">
+						<div class="product-image-wrapper" href="/">
+							<div class="single-products">
+								<div class="productinfo text-center">
+									<img src="{{product.picture}}" alt="" />
+									<h2>{{product.code}}</h2>
+									<p>{{product.description}}</p>
+									<a href="/product-details/{{product.id}}" class="btn btn-default add-to-cart"><span class="glyphicon glyphicon-eye-open"></span> Ver más</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				{{/each}}
+				</div>
+			</div>
+
 		</div>
 	</div>
 </section>
