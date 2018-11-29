@@ -586,7 +586,7 @@ ul.sub-menu {
 }
 
 .carousel-indicators li {
-  background: #C4C4BE;
+  background: orange;
 }
 
 .carousel-indicators li.active {
@@ -655,7 +655,7 @@ ul.sub-menu {
   position: absolute;
   top: 50%;
   font-size: 60px;
-  color: #C2C2C1;
+  color: white;
 }
 
 .control-carousel:hover{

@@ -8,37 +8,13 @@
                     <div class="product-image-wrapper">
                         <div class="single-products">
                             <div class="photoslider" id="default"></div> 
-                            <h2>{{model.product.code}}</h2>
+                            <h2>{{model.product.name}}</h2>
+                            <p>{{model.product.product_variants.lastObject.code}}</p>
                             <p>{{model.product.description}}</p>
                             <button {{action 'addToCart' variant items}} class="btn btn-default add-to-cart">
                             <i class="fa fa-shopping-cart"></i>Añadir al carrito</button>
-                             
-  
-                            <script type="text/javascript">  
-                                $(document).ready(function(){  
-                                //change the 'baseURL' to reflect the host and or path to your images  
-                                FOTO.Slider.baseURL = 'http://opiefoto.com/articles/assets/slider/';  
 
-                                //set images by filling our bucket directly  
-                                FOTO.Slider.bucket = {  
-                                'default': {  
-                                    0: {'thumb': 't_0.jpg', 'main': '0.jpg', 'caption': 'Opie'},  
-                                    1: {'thumb': 't_1.jpg', 'main': '1.jpg'},  
-                                    2: {'thumb': 't_2.jpg', 'main': '2.jpg', 'caption': 'Trash the Dress'},  
-                                    3: {'thumb': 't_3.jpg', 'main': '3.jpg'}  
-                                }  
-                                };  
-
-                                //or set our images by the bucket importer  
-                                var ids = new Array(0,1,2,3);  
-                                FOTO.Slider.importBucketFromIds('default',ids);  
-                                FOTO.Slider.reload('default');  
-                                FOTO.Slider.preloadImages('default');  
-                                FOTO.Slider.enableSlideshow('default');  
-                            });  
-                            </script>  
-
-                            {{!-- <div class="col-xs-6 col-xs-offset-3 tamano" >
+                            <div class="col-xs-6 col-xs-offset-3 tamano" >
                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                     <!-- Indicators -->
                                     <ol class="carousel-indicators">
@@ -50,18 +26,18 @@
 
                                     <!-- Wrapper for slides -->
                                     <div class="carousel-inner" role="listbox">
-                                    <div class="item active">
-                                        <img src="{{model.product.picture}}" lass="img-responsive">
-                                    </div>
-                                    <div class="item">
-                                        <img src="http://unsplash.s3.amazonaws.com/batch%209/barcelona-boardwalk.jpg" alt="Geolocalisacion" class="img-responsive">
-                                    </div>
-                                    <div class="item">
-                                        <img src="http://unsplash.s3.amazonaws.com/batch%209/barcelona-boardwalk.jpg" alt="Pedir" class="img-responsive">
-                                    </div>
-                                    <div class="item">
-                                        <img src="http://unsplash.s3.amazonaws.com/batch%209/barcelona-boardwalk.jpg" alt="Recibir" class="img-responsive">
-                                    </div>
+                                        <div class="item active">
+                                            <img src="{{model.product.picture}}" width="230" height="330" class="img-thumbnail">
+                                        </div>
+                                        <div class="item">
+                                            <img src="{{model.product.product_variants.lastObject.picture}}" class="img-thumbnail">
+                                        </div>
+                                        <div class="item">
+                                            <img src="{{model.product.picture}}" class="img-thumbnail">
+                                        </div>
+                                        <div class="item">
+                                            <img src="{{model.product.picture}}" class="img-thumbnail">
+                                        </div>
                                     </div>
 
                                     <!-- Left and right controls -->
@@ -74,7 +50,7 @@
                                     <span class="sr-only">Next</span>
                                     </a>
                                 </div>
-                            </div> --}}
+                            </div>
                          </div>
                     </div>
 				</div>
