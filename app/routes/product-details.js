@@ -7,6 +7,6 @@ export default Route.extend({
 			manufacturers: this.get('store').findAll('manufacturer'),
             extras: this.get('store').findAll('extra'),
 			product: this.get('store').findRecord('product', params.id)
-		}); 
+        }); 
 	}
 });
