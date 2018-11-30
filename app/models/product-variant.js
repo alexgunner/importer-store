@@ -7,9 +7,10 @@ export default DS.Model.extend({
     wholesaleprice: DS.attr(),
     description: DS.attr(),
     code: DS.attr(),
-    reposition: DS.attr(),
-    repositiondate: DS.attr(),
+    available: DS.attr(),
+    picture: DS.attr('image'),
     offerprice: DS.attr(),
+    weight: DS.attr(),
     product: DS.belongsTo('product'),
     carts: DS.hasMany('carts'),
     importerprice: DS.attr()
