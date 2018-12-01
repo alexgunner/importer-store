@@ -34,8 +34,13 @@
                                     {{else}}
                                         OFERTA: {{variant.offerprice}} Bs.
                                     {{/if}}
+                                   
+                                    
                                     <h4>Cantidad:</h4>
-                                    {{item.quantity}}
+                                    <div class="col-xs-2">
+                                            {{input type="number" class="form-control" value=item.quantity}}
+                                             <button {{action 'actu' item item.quantity}} type="button" class="btn btn-default">Actualizar</button>
+                                    </div>
                                     <button {{action 'addQuantity' item}} type="button" class="btn btn-default">
                                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                                     <button {{action 'restQuantity' item}}type="button" class="btn btn-default">
@@ -48,6 +53,7 @@
                     {{/each}}
                 {{/each}}
             </div>
+            
             {{#if (eq model.items.length 0)}}
                     <br/>
                     <br/>
@@ -59,7 +65,12 @@
                     <br/>
                     <br/>
                     <br/>
+                    <br/>
+                    <br/>
+                    <br/>
             {{else}}
+            <button {{action 'deleteAll' model.items}} type="button" class="btn btn-danger">
+            <span class="glyphicon glyphicon-trash"></span> Eiminar todo</button>
             <center>
                 <a href ="/" type="button" class="btn btn-default">Seguir Comprando</a>
                 <a href="/order" type="button" class="btn btn-info">Continuar con la Compra</a>

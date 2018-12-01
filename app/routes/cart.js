@@ -24,5 +24,17 @@ export default Route.extend({
         item.deleteRecord();
         item.save();
       },
+
+      deleteAll(items){
+        items.forEach(function(item){
+          item.deleteRecord();
+          item.save();
+        })
+      },
+      actu(item, quantity){
+        this.set(item.get('quantity'),quantity);
+       
+        item.save();
+      }
     }
 });
