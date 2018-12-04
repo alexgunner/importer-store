@@ -31,9 +31,8 @@ export default Route.extend({
           item.save();
         })
       },
-      actu(item, quantity){
+      updateQuantity(item, quantity){
         this.set(item.get('quantity'),quantity);
-       
         item.save();
       }
     }

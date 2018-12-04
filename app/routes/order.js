@@ -111,7 +111,7 @@ export default Route.extend({
                   product_variant_id: item.get('variant_id'),
                   role: item.get('role')
                 });
-                console.log("creo todo");
+                console.log("creo cart");
                 cart.save();
               });
             id = record.id

@@ -6,7 +6,6 @@ export default Component.extend({
 	actions: {
 		addToCart(variant, role_user, items) {
 			var state = false;
-			console.log(items.length);
 			items.forEach(function(item){
 				if (variant.id == item.get('variant_id')){
 					state = true;
