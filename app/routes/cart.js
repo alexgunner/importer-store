@@ -8,32 +8,13 @@ export default Route.extend({
         items: this.get('store').findAll('item')
       }); 
     },
-
+    
     actions: {
-      addQuantity(item){
-        item.incrementProperty('quantity');
-        item.save();
-      },
-
-      restQuantity(item){
-        item.decrementProperty('quantity');
-        item.save();
-      },
-
-      deleteToCart(item){
-        item.deleteRecord();
-        item.save();
-      },
-
       deleteAll(items){
         items.forEach(function(item){
           item.deleteRecord();
           item.save();
         })
-      },
-      updateQuantity(item, quantity){
-        this.set(item.get('quantity'),quantity);
-        item.save();
       }
     }
 });

@@ -8,10 +8,8 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('categories');
-
   this.route('order', function() {});
-
-  this.route('cart');
+  this.route('cart', function() {});
   this.route('pay', {path: 'pay/:id'});
   this.route('about-us');
   this.route('category-products', {path: 'category-products/:id'});
