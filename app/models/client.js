@@ -6,7 +6,9 @@ export default DS.Model.extend({
     address: DS.attr('string'),
     phone: DS.attr('number'),
     mail: DS.attr('string'),
+    ci: DS.attr('number'),
     nit: DS.attr('number'),
+    nameinvoice: DS.attr('string'),
     count: DS.attr('number'),
     orders: DS.hasMany('orders')
 });

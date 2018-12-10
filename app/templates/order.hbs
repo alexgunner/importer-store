@@ -28,13 +28,21 @@
                     {{input type="text" class="form-control" value=model.mail}}
                 </div>
                 <div class="form-group">
-                    <label>NIT:</label>
-                    {{input type="number" class="form-control" value=model.nit}}
+                    <label>CI:</label>
+                    {{input type="number" class="form-control" value=model.ci}}
                 </div>
                 {{/if}}
                 <div class="form-group">
+                    <label>Nombre y Apellido para Facturación:</label>
+                    {{input type="text" class="form-control" value=model.nameinvoice}}
+                </div>
+                <div class="form-group">
+                    <label>NIT:</label>
+                    {{input type="number" class="form-control" value=model.nit}}
+                </div>
+                <div class="form-group">
                     <label>Forma de pago:</label>
-                    <select id="pagos" name="pagos">
+                    <select id="pagos" name="pagos" class="form-control">
                         <option value="Tarjeta">Tarjeta débito o crédito</option>
                         <option value="Contraentrega">Al momento de la entrega</option>
                         <option value="Deposito">Depósito Bancario</option>
@@ -42,14 +50,14 @@
                 </div>
                 <div class="form-group">
                     <label>Entrega:</label>
-                    <select {{action 'selected'}} id="opcion" name="opcion">
+                    <select {{action 'selected'}} id="opcion" name="opcion" class="form-control">
                         <option value="Tienda">Para recoger en tienda</option>
-                        <option value="Domicilio">A domicilio</option>
+                        <option value="Domicilio">A domicilio o en Transportista</option>
                     </select>
                 </div>
                 <div id="deliv" style="display:none;" class="form-group">
                     <label>Destino y Transporte:</label>
-                    <select id="deliveries">
+                    <select id="deliveries" class="form-control">
                         {{#each model.deliveries as |delivery|}}
                             <option value="{{delivery.id}}">{{delivery.name}} Costo:{{delivery.cost}}</option>
                         {{/each}}
