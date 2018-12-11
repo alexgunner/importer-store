@@ -90,10 +90,21 @@ export default Route.extend({
         },
         cancelAll(id){
             var store = this.get('store');
-            store.findRecord('order', id, { backgroundReload: false }).then(function(order) {
-                order.destroyRecord(); // => DELETE to /posts/2
+            store.findRecord('order', id).then(function(order) {
+                order.set('state', "Cancelado");
+                order.save();
+            })
+            swal({
+                title: "¡Bueno!",
+                text: "Tu orden fue cancelada. Esperamos que continues navegando por nuestra tienda.",
+                type: "success",
+                confirmButtonText: "OK"
+              },
+              function(isConfirm){
+                if (isConfirm) {
+                  window.location.href = '/';
+                }
               });
-            console.log("chau");
         }
         
     }

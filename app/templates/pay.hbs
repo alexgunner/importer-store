@@ -72,7 +72,7 @@
                         dando click <a href="" onclick='window.print();'> aquí.</a>
                     </h4>
                 {{/if}}
-                <button {{action 'cancelAll' model.order.id}}type="button" class="btn btn-danger">Cancelar orden</button>
+                <button {{action 'cancelAll' model.items model.order.id}}type="button" class="btn btn-danger">Cancelar orden</button>
                 <br/>
                 <br/>
             </div>
