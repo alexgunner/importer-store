@@ -13,19 +13,15 @@ export default Route.extend({
     },
     actions: {
         clearCart(items, host, id){
-        
         swal({
             title: "¡Hecho!",
             text: "Espera un momento. Te estamos redirigiendo a la terminal de pago con tarjeta.",
             type: "success",
-            confirmButtonText: "OK",
-            timer:3000
-            },
-            function(isConfirm){
-            if (isConfirm) {
-                window.location.href = host + '/pay/'+ id;
-            }
-        });
+            timer: 8000,
+            showConfirmButton: false
+            }, function() {
+            window.location.href = host + '/pay/'+ id;
+        }); 
         items.forEach(function(item){
             item.deleteRecord();
             item.save();
@@ -71,7 +67,6 @@ export default Route.extend({
             reader.readAsDataURL(files[0]);        
         },
         clearCart2(items){
-
             swal({
                 title: "¡Hecho!",
                 type: "success",

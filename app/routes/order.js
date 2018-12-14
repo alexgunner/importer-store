@@ -80,14 +80,12 @@ export default Route.extend({
           });
           swal({
             title: "¡Hecho!",
-            text: "Tu orden fue registrada, por favor continua a proceder con el pago.",
+            text: "Tu orden fue registrada, por favor espera mientras te reedigirimos para proceder con el pago.",
             type: "success",
-            confirmButtonText: "OK"
-          },
-          function(isConfirm){
-            if (isConfirm) {
-              window.location.href = '/pay/'+ id;
-            }
+            timer: 8000,
+            showConfirmButton: false
+          }, function() {
+            window.location.href = '/pay/'+ id;
           });
         }
       else
@@ -137,17 +135,13 @@ export default Route.extend({
           });
           swal({
             title: "¡Hecho!",
-            text: "Tu orden fue registrada, por continua a proceder con el pago.",
+            text: "Tu orden fue registrada, por favor espera mientras te reedigirimos para proceder con el pago.",
             type: "success",
-            confirmButtonText: "OK"
-          },
-          function(isConfirm){
-            if (isConfirm) {
-              window.location.href = '/pay/'+ id;
-            }
-          });
-        
-        
+            timer: 8000,
+            showConfirmButton: false
+          }, function() {
+            window.location.href = '/pay/'+ id;
+          }); 
       }
         
       }
