@@ -106,28 +106,31 @@ export default Route.extend({
           }
       else
       {
-        console.log("entro al action");
+        console.log("guardo el cliente");
         client.save().then(function(record){
-          console.log("hizo el save");
-          var order = store.createRecord('order', {
+
+           //create order
+           var order = store.createRecord('order', {
             orderdate: new Date(),
             client_id: record.id,
             delivery_id: select.value,
             typepay: pay.value,
             typedelivery: delivery.value
           });
-          console.log("crea cliente");
-            order.save().then(function(record){
-              items.forEach(function(item){
-                var cart = store.createRecord('cart', {
-                  quantity: item.get('quantity'),
-                  order_id: record.id,
-                  product_variant_id: item.get('variant_id'),
-                  role: item.get('role')
-                });
-                console.log("creo cart");
-                cart.save();
-              });
+          console.log("guardo orden");
+          order.save().then(function(record){
+          
+          //create cart with items
+          items.forEach(function(item){
+            var cart = store.createRecord('cart', {
+              quantity: item.get('quantity'),
+              order_id: record.id,
+              product_variant_id: item.get('variant_id'),
+              role: item.get('role')
+            });
+            console.log("guardo todo");
+            cart.save();
+          });
             id = record.id
             console.log(id);
           });
