@@ -48,6 +48,8 @@ export default Route.extend({
          
          },
          save() {
+
+          //recover values
           var store = this.get('store');
           var u_name = this.get('controller').get('name');
           var u_lastname = this.get('controller').get('lastname');
@@ -59,6 +61,7 @@ export default Route.extend({
           var u_password = this.get('controller').get('password');
           var u_password_confirmation = this.get('controller').get('password_confirmation');
           
+          //check if some is null
           if(u_name == null || u_lastname == null || u_ci == null || u_nit == null || 
           u_address == null || u_phone == null || u_email == null || u_password == null || u_password_confirmation == null)
           {
@@ -69,6 +72,8 @@ export default Route.extend({
             })
 
           }else{
+
+            //check password is the same
             if(u_password != u_password_confirmation)
             {
               swal({
@@ -78,12 +83,13 @@ export default Route.extend({
               })
             }
             else{
-              var re = new RegExp("((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).{6,})");
+              //expresion to password
+              var re = new RegExp("((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16})");
               if(!re.test(u_password))
               {
                 swal({
                   title: "¡Error!",
-                  text: "Tu contraseña debe tener 6 caracteres o más, donde debe haber una mayúscula, una minúscula, un digito y un caracter especial.",
+                  text: "Tu contraseña debe tener entre 6 a 16 caracteres, donde debe haber una mayúscula, una minúscula y al menos un número.",
                   type: "error"
                 })
 

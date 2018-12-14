@@ -31,6 +31,8 @@ export default Route.extend({
         var pay = document.querySelector('#pagos');
         var delivery = document.querySelector('#opcion')
         var select = document.querySelector("#deliveries");
+        var c_nameinvoice = this.get('controller').get('model.nameinvoice');
+        var c_nit = this.get('controller').get('model.nit');
 
         //check if user
         if(this.get('session.isAuthenticated'))
@@ -42,7 +44,9 @@ export default Route.extend({
           ci: this.get('session.data.authenticated.ci'),
           address: this.get('session.data.authenticated.address'),
           phone: this.get('session.data.authenticated.phone'),
-          mail: this.get('session.data.authenticated.email')
+          mail: this.get('session.data.authenticated.email'),
+          nit: c_nit,
+          nameinvoice: c_nameinvoice,
           })
           console.log("guardo cliente");
           client.save().then(function(record){
@@ -76,7 +80,7 @@ export default Route.extend({
           });
           swal({
             title: "¡Hecho!",
-            text: "Tu orden fue registrada, por continua a proceder con el pago.",
+            text: "Tu orden fue registrada, por favor continua a proceder con el pago.",
             type: "success",
             confirmButtonText: "OK"
           },
@@ -93,7 +97,7 @@ export default Route.extend({
        
         //check if values are correct
         if (client.get('name') == null || client.get('lastname') == null
-            || client.get('nit') == null || client.get('address') == null
+            || client.get('ci') == null || client.get('address') == null
             || client.get('phone') == null || client.get('mail') == null)
           { 
             swal({
