@@ -51,8 +51,13 @@
                      <a href="/" class="btn btn-info" {{action 'clearCart2' model.items}}>Terminado</a>
                 {{/if}} 
                 {{#if (eq model.order.typepay "Deposito")}}
-                    <h4>Para completar tu compra, por favor realiza un deposito a nuestra cuenta:
-                        <b>DOMUS SRL 10000053763530.</b> Posteriormente sube una foto o captura del comprobante para que podamos preparar tu pedido.</h4>
+                    <h4>Para completar tu compra, por favor realiza un deposito a una de las cuentas indicadas:<br/><br/>
+                        <ul>
+                            {{#each model.banks as |bank|}}
+                                <li><b>{{bank.name}} {{bank.acount}}</b></li>
+                            {{/each}}
+                        </ul>
+                        Posteriormente sube una foto o captura del comprobante para que podamos preparar tu pedido.</h4>
                     <center>
                         <img id="output" height="400" width="350" hidden={{shouldHideImage}}>
                         <p></p>

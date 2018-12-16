@@ -62,7 +62,7 @@ export default Route.extend({
           var u_password_confirmation = this.get('controller').get('password_confirmation');
           
           //check if some is null
-          if(u_name == null || u_lastname == null || u_ci == null || u_nit == null || 
+          if(u_name == null || u_lastname == null || u_ci == null  || 
           u_address == null || u_phone == null || u_email == null || u_password == null || u_password_confirmation == null)
           {
             swal({

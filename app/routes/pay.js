@@ -8,6 +8,7 @@ export default Route.extend({
         product_variants: this.get('store').findAll('product_variant'),
         items: this.get('store').findAll('item'),
         order: this.get('store').findRecord('order', ido=params.id),
+        banks: this.get('store').findAll('bank'),
         host: this.get('store').adapterFor('application').get('host')
       }); 
     },

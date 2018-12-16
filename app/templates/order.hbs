@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
 			<div class="col-sm-12 padding-right">
-				<h2 class="title text-center">Datos Personales</h2>
+				<h2 class="title text-center">Datos Personales de Envío</h2>
                 {{#if (not-eq model.items.firstObject.role null)}}
                 {{form-order}}
                 {{else}}
@@ -28,7 +28,7 @@
                     {{input type="text" class="form-control" value=model.mail}}
                 </div>
                 <div class="form-group">
-                    <label>CI:</label>
+                    <label>CI/NIT:</label>
                     {{input type="number" class="form-control" value=model.ci}}
                 </div>
                 {{/if}}
@@ -37,7 +37,7 @@
                     {{input type="text" class="form-control" value=model.nameinvoice}}
                 </div>
                 <div class="form-group">
-                    <label>NIT:</label>
+                    <label>CI/NIT:</label>
                     {{input type="number" class="form-control" value=model.nit}}
                 </div>
                 <div class="form-group">
