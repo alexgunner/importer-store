@@ -84,12 +84,12 @@ export default Route.extend({
             }
             else{
               //expresion to password
-              var re = new RegExp("((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,16})");
+              var re = new RegExp(/^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16})/);
               if(!re.test(u_password))
               {
                 swal({
                   title: "¡Error!",
-                  text: "Tu contraseña debe tener entre 6 a 16 caracteres, donde debe haber una mayúscula, una minúscula y al menos un número.",
+                  text: "Tu contraseña debe tener entre 8 a 16 caracteres, donde debe haber una mayúscula, una minúscula y al menos un número.",
                   type: "error"
                 })
 
