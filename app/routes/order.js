@@ -54,6 +54,7 @@ export default Route.extend({
             //create order
             var order = store.createRecord('order', {
                 orderdate: new Date(),
+                state: "Nuevo",
                 client_id: record.id,
                 delivery_id: select.value,
                 typepay: pay.value,
@@ -112,6 +113,7 @@ export default Route.extend({
            //create order
            var order = store.createRecord('order', {
             orderdate: new Date(),
+            state: "Nuevo",
             client_id: record.id,
             delivery_id: select.value,
             typepay: pay.value,

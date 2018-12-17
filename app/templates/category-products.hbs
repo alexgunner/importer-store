@@ -19,7 +19,7 @@
 				
 					{{#each subcategory.products as |product|}}
 					<div class="col-sm-3">
-						<div class="product-image-wrapper" href="/">
+						<a class="product-image-wrapper" href="/product-details/{{product.id}}">
 							<div class="single-products">
 								<div class="productinfo text-center">
 									<img src="{{product.picture}}" alt="" />
@@ -28,7 +28,7 @@
 									<a href="/product-details/{{product.id}}" class="btn btn-default add-to-cart"><span class="glyphicon glyphicon-eye-open"></span> Ver más</a>
 								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					{{/each}}
 				{{/each}}
