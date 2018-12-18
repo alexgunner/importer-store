@@ -14,7 +14,11 @@
 					<div class="social-icons pull-right">
 						<ul class="nav navbar-nav">
 							<li>
-								<a href="/"><i class="fa fa-user"></i> {{session.data.authenticated.name}} {{session.data.authenticated.lastname}}</a>
+								{{#if session.isAuthenticated}}
+									<a href="/"><i class="fa fa-user"></i> {{session.data.authenticated.name}} {{session.data.authenticated.lastname}}</a>
+								{{else}}
+									<a href="/login"><i class="fa fa-user"></i> {{session.data.authenticated.name}} {{session.data.authenticated.lastname}}</a>
+								{{/if}}
 							</li>
 							<li><a href="{{contact.lastObject.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
 						</ul>
