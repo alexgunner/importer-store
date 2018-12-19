@@ -52,17 +52,20 @@ export default Route.extend({
           //recover values
           var store = this.get('store');
           var u_name = this.get('controller').get('name');
-          var u_lastname = this.get('controller').get('lastname');
+          var u_namecompany = this.get('controller').get('namecompany');
           var u_ci = this.get('controller').get('ci');
           var u_nit = this.get('controller').get('nit');
+          var u_nameinvoice = this.get('controller').get('nameinvoice');
           var u_address = this.get('controller').get('address');
           var u_phone = this.get('controller').get('phone');
+          var u_cellphone = this.get('controller').get('cellphone');
+          var u_cellwsp = this.get('controller').get('cellwsp');
           var u_email = this.get('controller').get('email');
           var u_password = this.get('controller').get('password');
           var u_password_confirmation = this.get('controller').get('password_confirmation');
           
           //check if some is null
-          if(u_name == null || u_lastname == null || u_ci == null  || 
+          if(u_name == null || u_ci == null  || u_cellphone == null || u_cellwsp == null ||
           u_address == null || u_phone == null || u_email == null || u_password == null || u_password_confirmation == null)
           {
             swal({
@@ -96,11 +99,14 @@ export default Route.extend({
               }else{
                 var new_user = store.createRecord('user', {
                   name : u_name,
-                  lastname: u_lastname,
+                  namecompany: u_namecompany,
                   ci: u_ci,
+                  nameinvoice: u_nameinvoice,
                   nit: u_nit,
                   address: u_address,
                   phone: u_phone,
+                  cellphone: u_cellphone,
+                  cellwsp: u_cellwsp,
                   email: u_email,
                   password: u_password,
                   password_confirmation: u_password_confirmation,

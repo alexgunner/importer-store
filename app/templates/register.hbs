@@ -7,16 +7,20 @@
                 <p>Los campos sin asterisco son obligatorios.</p>
                 <form class="form-horizontal" >
                     <div class="form-group">
-                        <label>Nombres:</label>
+                        <label>Nombre Completo Cliente/Representante Legal:</label>
                         {{input type="text" class="form-control" value=name maxlength=100 required=true}}
                     </div>
                     <div class="form-group">
-                        <label>Apellidos:</label>
-                        {{input type="text" class="form-control" value=lastname maxlength=100 required=true}}
+                        <label>*Nombre de la Empresa: (En caso de contar con negocio del rubro)</label>
+                        {{input type="text" class="form-control" value=namecompany maxlength=100 required=true}}
                     </div>
                     <div class="form-group">
-                        <label>CI:</label>
+                        <label>CI Cliente/Representate Legal:</label>
                         {{input type="number" class="form-control" value=ci maxlength=50 required=true}}
+                    </div>
+                    <div class="form-group">
+                        <label>*Nombre para la Factura:</label>
+                        {{input type="text" class="form-control" value=nameinvoice maxlength=100 required=true}}
                     </div>
                     <div class="form-group">
                         <label>*NIT:</label>
@@ -29,6 +33,14 @@
                     <div class="form-group">
                         <label>Teléfono:</label>
                         {{input type="number" class="form-control" value=phone maxlength=50 required=true}}
+                    </div>
+                    <div class="form-group">
+                        <label>Celular:</label>
+                        {{input type="number" class="form-control" value=cellphone maxlength=50 required=true}}
+                    </div>
+                    <div class="form-group">
+                        <label>Celular de WhatsApp:</label>
+                        {{input type="number" class="form-control" value=cellwsp maxlength=50 required=true}}
                     </div>
                     <div class="form-group">
                         <label>Correo electrónico:</label>
@@ -45,8 +57,7 @@
                     
                     <div class="form-group">
                          <label>* CI/NIT (Si usted no cuentan con una profesión o negocio del rubro, omita este dato)</label>
-                         <p>Por favor suba una imagen de su carnet de identidad o el nit de su negocio/empresa,
-                             el nombre de la imagen debe ser el del propietario o del su negocio/empresa. <br/>
+                         <p>Carnet de identidad o NIT es necesario unicamente para obtener los precios de especialista y mayorista, según corresponda el caso uno o ambos. <br/>
                              Para cargar una imagen click en el texto 'Subir Imagen'.
                          </p>
                         <center>
