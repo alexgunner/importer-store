@@ -12,16 +12,16 @@
                     {{#each model.products as |product|}}
 						{{#if (eq product.offer true)}}
 							<div class="col-sm-3">
-								<div class="product-image-wrapper">
+								<a class="product-image-wrapper" href="/product-details/{{product.id}}" >
 									<div class="single-products">
 										<div class="productinfo text-center">
 											<img src="{{product.picture}}" alt="" />
 											<h2>{{product.code}}</h2>
 											<p>{{product.description}}</p>
-											<a href="/product-details/{{product.id}}" class="btn btn-default add-to-cart"><span class="glyphicon glyphicon-eye-open"></span> Ver más</a>
+											<a href="/product-details/{{product.id}}" class="btn btn-default add-to-cart"> Ver más</a>
 										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						{{/if}}
 					{{/each}}
