@@ -15,9 +15,9 @@
 						<ul class="nav navbar-nav">
 							<li>
 								{{#if session.isAuthenticated}}
-									<a href="/"><i class="fa fa-user"></i> {{session.data.authenticated.name}} {{session.data.authenticated.lastname}}</a>
+									<a href="/"><i class="fa fa-user"></i> {{session.data.authenticated.name}}</a>
 								{{else}}
-									<a href="/login"><i class="fa fa-user"></i> {{session.data.authenticated.name}} {{session.data.authenticated.lastname}}</a>
+									<a href="/login"><i class="fa fa-user"></i></a>
 								{{/if}}
 							</li>
 							<li><a href="{{contact.lastObject.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>

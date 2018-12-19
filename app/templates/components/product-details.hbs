@@ -30,19 +30,19 @@
 						</td>
 						<td align="left">
 							{{#if session.isAuthenticated}}
-								{{#if (eq session.data.authenticated.role 'Mayorista')}}
+								{{#if (eq session.data.authenticated.role 'Mayorista ')}}
 									Bs. {{variant.wholesaleprice}}
 								{{/if}}
 						
-								{{#if (eq session.data.authenticated.role 'Especialista')}}
+								{{#if (eq session.data.authenticated.role 'Especialista ')}}
 									Bs. {{variant.specialistprice}}
 								{{/if}}		
 
-								{{#if (eq session.data.authenticated.role 'Distribuidor')}}
+								{{#if (eq session.data.authenticated.role 'Distribuidor ')}}
 									Bs. {{variant.importerprice}}
 								{{/if}}
 
-								{{#if (eq session.data.authenticated.role 'Minorista')}}
+								{{#if (eq session.data.authenticated.role 'Minorista ')}}
 									Bs. {{variant.price}}
 								{{/if}}
 							{{else}}

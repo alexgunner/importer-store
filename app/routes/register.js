@@ -2,6 +2,7 @@ import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 import swal from 'sweetalert';
 var link = "no";
+var link_ci = "no";
 export default Route.extend({
   firebaseApp: Ember.inject.service(),
     model() {
@@ -22,7 +23,7 @@ export default Route.extend({
           contentType: 'image/png'
           };
 
-        var storageRef = this.get('firebaseApp').storage().ref(`/usuarios/`);
+        var storageRef = this.get('firebaseApp').storage().ref(`/usuarios/nit/`);
         var path = this.get(`file`).name;
         var uploadTask = storageRef.child(path).put(this.get(`file`), metadata);
   
@@ -47,6 +48,40 @@ export default Route.extend({
          
          
          },
+         didSelectImage2(files){
+          let reader = new FileReader();
+          // Ember.run.bind
+           reader.onloadend = Ember.run.bind(this, function(){
+           var dataURL = reader.result;
+           var output = document.getElementById('output2');
+           output.src = dataURL;
+           this.set('file', files[0]);
+           var metadata = {
+            contentType: 'image/png'
+            };
+  
+          var storageRef = this.get('firebaseApp').storage().ref(`/usuarios/ci/`);
+          var path = this.get(`file`).name;
+          var uploadTask = storageRef.child(path).put(this.get(`file`), metadata);
+    
+          uploadTask.on('state_changed', function(snapshot){
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            progress = Math.round(progress);
+            var elMensaje = document.getElementById('mensaje2');
+            var textoMensaje = '<p>Porcentaje de subida: ' + progress + '%</p>';
+            elMensaje.innerHTML = textoMensaje;
+            console.log('Upload is ' + progress + '% done');
+            console.log(snapshot.state);
+            }, function(error) {
+            }, function() {
+           var downloadURL = uploadTask.snapshot.downloadURL;
+            console.log(downloadURL);
+            link_ci = downloadURL;
+            });
+           });
+           //debugger;
+           reader.readAsDataURL(files[0]);
+           },
          save() {
 
           //recover values
@@ -110,7 +145,8 @@ export default Route.extend({
                   email: u_email,
                   password: u_password,
                   password_confirmation: u_password_confirmation,
-                  image: link
+                  image: link,
+                  imageci: link_ci
                 });
               new_user.save();
               console.log("guardo usuario");

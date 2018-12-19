@@ -12,6 +12,7 @@ export default DS.Model.extend({
     nit: DS.attr(),
     address: DS.attr(),
     image: DS.attr(),
+    imageci: DS.attr(),
     password: DS.attr(),
     password_confirmation: DS.attr()
 });
