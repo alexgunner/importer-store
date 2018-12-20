@@ -20,6 +20,7 @@ Router.map(function() {
   this.route('login');
   this.route('history');
   this.route('product-details', {path: 'product-details/:id'});
+  this.route('reset');
 });
 
 export default Router;
