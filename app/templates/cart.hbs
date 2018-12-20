@@ -16,19 +16,19 @@
                                     <p>{{variant.description}}</p>
                                     <h4>Precio:</h4>
                                     {{#if (not-eq item.role null)}}
-                                        {{#if (eq item.role 'Mayorista')}}
+                                        {{#if (eq item.role 'Mayorista ')}}
                                             Bs. {{mult variant.wholesaleprice item.quantity}}
                                         {{/if}}
                                 
-                                        {{#if (eq item.role 'Especialista')}}
+                                        {{#if (eq item.role 'Especialista ')}}
                                             Bs. {{mult variant.specialistprice item.quantity}}
                                         {{/if}}		
 
-                                        {{#if (eq item.role 'Distribuidor')}}
+                                        {{#if (eq item.role 'Distribuidor ')}}
                                             Bs. {{mult variant.importerprice item.quantity}}
                                         {{/if}}
 
-                                        {{#if (eq item.role 'Minorista')}}
+                                        {{#if (eq item.role 'Minorista ')}}
                                             Bs. {{mult variant.price item.quantity}}
                                         {{/if}}
                                     {{else}}

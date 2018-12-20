@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
       this.get('model.items').forEach(function(item){
         variants.forEach(function(variant){
           if(variant.get('id') == item.get('variant_id')){
-            if(item.get('role') == "Minorista" || item.get('role') == null)
+            if(item.get('role') == "Minorista " || item.get('role') == null)
             {
               if(variant.get('offerprice') == null)
               {
@@ -20,15 +20,15 @@ export default Ember.Controller.extend({
             }
             else
             {
-              if(item.get('role') == "Mayorista")
+              if(item.get('role') == "Mayorista ")
               {
                 total += (variant.get('wholesaleprice')*(item).get('quantity'));
               }
-              if(item.get('role') == "Especialista")
+              if(item.get('role') == "Especialista ")
               {
                 total += (variant.get('specialistprice')*(item).get('quantity'));
               }
-              if(item.get('role') == "Distribuidor")
+              if(item.get('role') == "Distribuidor ")
               {
                 total += (variant.get('importerprice')*(item).get('quantity'));
               }
@@ -48,7 +48,7 @@ export default Ember.Controller.extend({
         //updating the total
         var total = this.get('suma');
         total = parseFloat(total);
-        if(item.get('role') == "Minorista" || item.get('role') == null)
+        if(item.get('role') == "Minorista " || item.get('role') == null)
         {
           if(variant.get('offerprice') == null)
           {
@@ -61,15 +61,15 @@ export default Ember.Controller.extend({
         }
         else
         {
-          if(item.get('role') == "Mayorista")
+          if(item.get('role') == "Mayorista ")
           {
             this.set('suma', (total + variant.get('wholesaleprice')).toFixed(2));
           }
-          if(item.get('role') == "Especialista")
+          if(item.get('role') == "Especialista ")
           {
             this.set('suma', (total + variant.get('specialistprice')).toFixed(2));
           }
-          if(item.get('role') == "Distribuidor")
+          if(item.get('role') == "Distribuidor ")
           {
             this.set('suma', (total + variant.get('importerprice')).toFixed(2));
           }
@@ -85,7 +85,7 @@ export default Ember.Controller.extend({
         //updating the total
         var total = this.get('suma');
         total = parseFloat(total);
-        if(item.get('role') == "Minorista" || item.get('role') == null)
+        if(item.get('role') == "Minorista " || item.get('role') == null)
         {
           if(variant.get('offerprice') == null)
           {
@@ -98,15 +98,15 @@ export default Ember.Controller.extend({
         }
         else
         {
-          if(item.get('role') == "Mayorista")
+          if(item.get('role') == "Mayorista ")
           {
             this.set('suma', (total - variant.get('wholesaleprice')).toFixed(2));
           }
-          if(item.get('role') == "Especialista")
+          if(item.get('role') == "Especialista ")
           {
             this.set('suma', (total - variant.get('specialistprice')).toFixed(2));
           }
-          if(item.get('role') == "Distribuidor")
+          if(item.get('role') == "Distribuidor ")
           {
             this.set('suma', (total - variant.get('importerprice')).toFixed(2));
           }
@@ -121,7 +121,7 @@ export default Ember.Controller.extend({
       //updating the total
       var total = this.get('suma');
       total = parseFloat(total);
-      if(item.get('role') == "Minorista" || item.get('role') == null)
+      if(item.get('role') == "Minorista " || item.get('role') == null)
       {
         if(variant.get('offerprice') == null)
         {
@@ -134,15 +134,15 @@ export default Ember.Controller.extend({
       }
       else
       {
-        if(item.get('role') == "Mayorista")
+        if(item.get('role') == "Mayorista ")
         {
           this.set('suma', (total - variant.get('wholesaleprice')* item.get('quantity')).toFixed(2));
         }
-        if(item.get('role') == "Especialista")
+        if(item.get('role') == "Especialista ")
         {
           this.set('suma', (total - variant.get('specialistprice')* item.get('quantity')).toFixed(2));
         }
-        if(item.get('role') == "Distribuidor")
+        if(item.get('role') == "Distribuidor ")
         {
           this.set('suma', (total - variant.get('importerprice')* item.get('quantity')).toFixed(2));
         }
@@ -159,7 +159,7 @@ export default Ember.Controller.extend({
       this.get('model.items').forEach(function(item){
         variants.forEach(function(variant){
           if(variant.get('id') == item.get('variant_id')){
-            if(item.get('role') == "Minorista" || item.get('role') == null)
+            if(item.get('role') == "Minorista " || item.get('role') == null)
             {
               if(variant.get('offerprice') == null)
               {
@@ -172,15 +172,15 @@ export default Ember.Controller.extend({
             }
             else
             {
-              if(item.get('role') == "Mayorista")
+              if(item.get('role') == "Mayorista ")
               {
                 total += (variant.get('wholesaleprice')*(item).get('quantity'));
               }
-              if(item.get('role') == "Especialista")
+              if(item.get('role') == "Especialista ")
               {
                 total += (variant.get('specialistprice')*(item).get('quantity'));
               }
-              if(item.get('role') == "Distribuidor")
+              if(item.get('role') == "Distribuidor ")
               {
                 total += (variant.get('importerprice')*(item).get('quantity'));
               }
