@@ -1,19 +1,63 @@
 <div class="form-group">
-    <label>Nombre Completo Cliente/Representate Legal: {{session.data.authenticated.name}}</label>
-</div>
-<div class="form-group">
-    <label>Nombre de la Empresa: {{session.data.authenticated.namecompany}}</label>
-</div> 
-<div class="form-group">
-    <label>Dirección: {{session.data.authenticated.address}}</label>
-</div>
-<div class="form-group">
-    <label>Teléfono: {{session.data.authenticated.phone}}</label>
-</div>
-<div class="form-group">
     <label>Correo electrónico: {{session.data.authenticated.email}}</label>
 </div>
 <div class="form-group">
-    <label>CI Cliente/Representate Legal: {{session.data.authenticated.ci}}</label>
+    <label>Nombre Completo Cliente/Representate Legal:</label>
+    {{input type="text" class="form-control" value=form_name id="new_name"}}
 </div>
-    
+<div class="form-group">
+    <label>CI Cliente/Representate Legal:</label>
+    {{input type="number" class="form-control" value=form_ci id="new_ci"}}
+</div>
+<div class="form-group">
+    <label>Dirección:</label>
+    {{input type="text" class="form-control" value=form_address id="new_address"}}
+</div>
+<div class="form-group">
+    <label>Teléfono:</label>
+    {{input type="number" class="form-control" value=form_phone id="new_phone"}}
+</div>
+<div class="form-group">
+    <label>Celular:</label>
+    {{input type="number" class="form-control" value=form_cellphone id="new_cellphone"}}
+</div>
+<div class="form-group">
+    <label>Celular de WhatsApp:</label>
+    {{input type="number" class="form-control" value=form_cellwsp id="new_cellwsp"}}
+</div>
+<div class="form-group">
+    <label>Nombre para la Factura:</label>
+    {{input type="text" class="form-control" value=form_nameinvoice id="new_nameinvoice"}}
+</div>
+<div class="form-group">
+    <label>NIT Factura Cliente/Representate Legal:</label>
+    {{input type="text" class="form-control" value=form_nit id="new_nit"}}
+</div>
+<div class="form-group">
+    <label>Forma de pago:</label>
+    <select id="pagos" name="pagos" class="form-control">
+        <option value="Tarjeta">Tarjeta débito o crédito</option>
+        <option value="Contraentrega">Al momento de la entrega</option>
+        <option value="Deposito">Depósito Bancario</option>
+    </select>
+</div>
+<div class="form-group">
+    <label>Entrega:</label>
+    <select {{action 'selected'}} id="opcion" name="opcion" class="form-control">
+        <option value="Tienda">Para recoger en tienda</option>
+        <option value="Domicilio">A domicilio o en Transportista</option>
+    </select>
+</div>
+<div id="deliv" style="display:none;" class="form-group">
+    <label>Destino y Transporte:</label>
+    <select id="deliveries" class="form-control">
+        {{#each deliveries as |delivery|}}
+            <option value="{{delivery.id}}">{{delivery.name}} Costo:{{delivery.cost}}</option>
+        {{/each}}
+    </select>
+</div>
+<center>
+    <button {{action 'save'}} class="btn btn-info">Aceptar</button>
+    <button {{action 'cancel'}} class="btn btn-default">Cancelar</button>
+</center>
+

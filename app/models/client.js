@@ -2,9 +2,10 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
     name: DS.attr('string'),
-	lastname: DS.attr('string'),
     address: DS.attr('string'),
     phone: DS.attr('number'),
+    cellphone: DS.attr('number'),
+    cellwsp: DS.attr('number'),
     mail: DS.attr('string'),
     ci: DS.attr('number'),
     nit: DS.attr('number'),
