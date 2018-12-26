@@ -59,13 +59,39 @@
 		</div>
 	</div>
 
+    <div class="container">
+		<div class="row">
+			<div class="col-sm-12 padding-right">
+                <div class="features_items">
+                    <h2 class="title text-center">Productos Relacionados</h2>
+                    {{#each model.product.category.products as |product|}}
+                        {{#if (not-eq model.product.id product.id) }}
+                        <div class="col-sm-3">
+                            <a class="product-image-wrapper" href="/product-details/{{product.id}}">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{product.picture}}" alt="" />
+                                        <h2>{{product.code}}</h2>
+                                        <p>{{product.description}}</p>
+                                        <a href="/product-details/{{product.id}}" class="btn btn-default add-to-cart"> Ver más</a>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Picture 1 Modal -->
     <div class="modal fade" id="product-picture-1" tabindex="-1" role="dialog" aria-labelledby="pictureModal">
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <center><h4>{{model.product.name}}</h4></center>
+            <h2 class="title text-center">{{model.product.name}}</h2>
             </div>
             <div class="modal-body">
             <div class="row">
@@ -90,7 +116,7 @@
         <div class="modal-content">
             <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <center><h4>{{model.product.name}}</h4></center>
+            <h2 class="title text-center">{{model.product.name}}</h2>
             </div>
             <div class="modal-body">
             <div class="row">
@@ -115,7 +141,7 @@
         <div class="modal-content">
             <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <center><h4>{{model.product.name}}</h4></center>
+            <h2 class="title text-center">{{model.product.name}}</h2>
             </div>
             <div class="modal-body">
             <div class="row">
@@ -140,7 +166,7 @@
         <div class="modal-content">
             <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <center><h4>{{model.product.name}}</h4></center>
+            <h2 class="title text-center">{{model.product.name}}</h2>
             </div>
             <div class="modal-body">
             <div class="row">
