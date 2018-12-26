@@ -12,9 +12,8 @@
 					<h2 class="title text-center">Nuestras Categorías</h2>
 					{{categories-list categories=model.categories}} 
 				</div>
-			</div>
-			<div class="col-sm-9 padding-right">
-				<div class="features_items">
+		
+				<div class="recommended_items">
 					<h2 class="title text-center">Productos en Oferta</h2>
 					{{#each model.products as |product|}}
 						{{#if (eq product.offer true)}}
