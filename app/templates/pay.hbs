@@ -42,13 +42,9 @@
                         {{/if}}
                     {{/each}} 
                 {{/each}}
-                <h4>Costos de envío o entrega: {{model.order.delivery.cost}}</h4>
-                {{!-- <h2 align="right">Total: </h2>
-myVariable: {{model.myVariable}}
-<br>
-myWrappedVariable: {{model.myWrappedVariable.myVariable}}
-<br>
-<button {{action 'increaseVariables' model.order.id}} >increase both variables</button> --}}
+                <h4>Costos de envío o entrega: {{model.order.delivery.cost}} Bs. </h4>
+                <h2 align="right">Total: {{model.order.total}} Bs. </h2>
+
                 {{#if (eq model.order.typepay "Tarjeta")}}
                     <a  type="button" class="btn btn-info" {{action 'clearCart' model.items model.host model.order.id}}>Pagar</a>
                 {{/if}}

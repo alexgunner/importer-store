@@ -9,13 +9,8 @@ export default Route.extend({
         items: this.get('store').findAll('item'),
         order: this.get('store').findRecord('order', ido=params.id),
         banks: this.get('store').findAll('bank'),
-        host: this.get('store').adapterFor('application').get('host'),
-
-        myVariable: this.set('myVariable', 1),
-        myWrappedVariable: this.set('myWrappedVariable', {myVariable: 1}),
-        modelResult: {myVariable:this.get('myVariable'),
-                      myWrappedVariable: this.get('myWrappedVariable')}
-      }); 
+        host: this.get('store').adapterFor('application').get('host')
+    })
     },
     actions: {
         clearCart(items, host, id){
@@ -106,25 +101,6 @@ export default Route.extend({
                   window.location.href = '/';
                 }
               });
-        },
-
-        increaseVariables(id){
-            var total = 0;
-            // var store = this.get('store');
-            // store.query('cart', {
-            //     filter: {
-            //       order_id: id
-            //     }
-            //   }).then(function(carts) {
-            //     carts.forEach(function(cart){
-            //         //var variant = 
-            //         console.log(cart.get('product-variant-id'));
-            //         console.log(cart.get('quantity'));
-            //     })
-            //   });
-            this.set('myVariable', this.get('myVariable')+1);
-            Ember.set(this.get('myWrappedVariable'), 'myVariable', this.get('myWrappedVariable.myVariable')+total);
         }
-        
     }
 });

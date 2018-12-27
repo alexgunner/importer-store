@@ -11,5 +11,6 @@ export default DS.Model.extend({
     state: DS.attr(),
     typepay: DS.attr(),
     typedelivery: DS.attr(),
-    image: DS.attr('string')
+    image: DS.attr('string'),
+    total: DS.attr()
 });
