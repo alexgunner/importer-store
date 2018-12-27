@@ -146,7 +146,8 @@ export default Route.extend({
                   password: u_password,
                   password_confirmation: u_password_confirmation,
                   image: link,
-                  imageci: link_ci
+                  imageci: link_ci,
+                  role: "Cliente Minorista "
                 });
               new_user.save();
               console.log("guardo usuario");
@@ -171,7 +172,7 @@ export default Route.extend({
             "<br/><br/><b>Minorista (Ventas por unidades  docenas a clientes no frecuentes, omitir datos de rubro)</b>" + 
             "<br/><br/><b>Especialista (Profesionales del rubro; constructores, arquitectos, plomeros, carpinteros)</b>"+
             "<br/><br/><b>Mayorista (Negocios del rubo; Ferreterias, comerciales, supermerados y grandes superficies)</b>"+
-            "<br/><br/><b>Distribuidor (Mayoristas especiales y franquicias, se require mismos datos que para mayoristas)</b></h3>",
+            "<br/><br/><b>Cliente DOMUS (Cliente especial con beneficios de descuentos)</b></h3>",
             type: "warning",
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "¡Entendido!",

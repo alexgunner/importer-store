@@ -14,5 +14,6 @@ export default DS.Model.extend({
     image: DS.attr(),
     imageci: DS.attr(),
     password: DS.attr(),
-    password_confirmation: DS.attr()
+    password_confirmation: DS.attr(),
+    role: DS.attr()
 });

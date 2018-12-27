@@ -38,11 +38,11 @@
 									Bs. {{variant.specialistprice}}
 								{{/if}}		
 
-								{{#if (eq session.data.authenticated.role 'Distribuidor ')}}
+								{{#if (eq session.data.authenticated.role 'Cliente DOMUS ')}}
 									Bs. {{variant.importerprice}}
 								{{/if}}
 
-								{{#if (eq session.data.authenticated.role 'Minorista ')}}
+								{{#if (eq session.data.authenticated.role 'Cliente Minorista ')}}
 									Bs. {{variant.price}}
 								{{/if}}
 							{{else}}

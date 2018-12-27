@@ -96,7 +96,7 @@ export default Component.extend({
             title: "¡Hecho!",
             text: "Tu orden fue registrada, por favor espera mientras te reedigirimos para proceder con el pago.",
             type: "success",
-            timer: 8000,
+            timer: 10000,
             showConfirmButton: false
           }, function() {
             window.location.href = '/pay/'+ id;

@@ -8,16 +8,16 @@
             <h4>Productos:</h4>
             {{#each order.carts as |cart|}}
                 <p><strong>{{cart.product_variant.description}}</strong></p>
-                {{#if (eq cart.role "Mayorista")}}
+                {{#if (eq cart.role "Mayorista ")}}
                     <p>Precio: {{cart.product_variant.wholesaleprice}}</p>
                 {{/if}}
-                {{#if (eq cart.role "Especialista")}}
+                {{#if (eq cart.role "Especialista ")}}
                     <p>Precio: {{cart.product_variant.specialistprice}}</p>
                 {{/if}}
-                {{#if (eq cart.role "Distribuidor")}}
+                {{#if (eq cart.role "Cliente DOMUS ")}}
                     <p>Precio: {{cart.product_variant.importerprice}}</p>
                 {{/if}}
-                {{#if (eq cart.role "Minorista")}}
+                {{#if (eq cart.role "Cliente Minorista ")}}
                     <p>Precio: {{cart.product_variant.price}}</p>
                 {{/if}}
                  <p>Cantidad: {{cart.quantity}}</p>
