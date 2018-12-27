@@ -56,7 +56,7 @@
                     <h4>Para completar tu compra, por favor realiza un deposito a una de las cuentas indicadas:<br/><br/>
                         <ul>
                             {{#each model.banks as |bank|}}
-                                <li><b>{{bank.name}} {{bank.acount}}</b></li>
+                                <li><b>{{bank.name}} {{bank.acount}} Nombre del Titular de la cuenta: {{bank.nameaccount}} Moneda de Cuenta: {{bank.typemoney}}</b></li>
                             {{/each}}
                         </ul>
                         Posteriormente sube una foto o captura del comprobante para que podamos preparar tu pedido.</h4>
