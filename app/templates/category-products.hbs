@@ -7,34 +7,32 @@
 			{{left-sidebar categories=model.categories manufacturers=model.manufacturers extras=model.extras}}
 			<!-- Left sideBar -->
 			<div class="col-sm-9 padding-right">
-			<div class="features_items"><!--features_items-->
 				<h2 class="title text-center">{{model.category.name}}</h2>
 				<p class="justified-text">
-				{{model.category.description}}</p>
+					{{model.category.description}}</p>
 
-				{{#each model.category.subcategories as |subcategory|}}
-					<h4 class="title">{{subcategory.name}}</h4>
-					<p class="justified-text">
-					{{subcategory.description}}</p>
-				
-					{{#each subcategory.products as |product|}}
-					<div class="col-sm-3">
-						<a class="product-image-wrapper" href="/product-details/{{product.id}}">
-							<div class="single-products">
-								<div class="productinfo text-center">
-									<img src="{{product.picture}}" alt="" />
-									<h2>{{product.code}}</h2>
-									<p>{{product.description}}</p>
-									<a href="/product-details/{{product.id}}" class="btn btn-default add-to-cart"> Ver más</a>
+					{{#each model.category.subcategories as |subcategory|}}
+						<h4 class="title">{{subcategory.name}}</h4>
+						<p class="justified-text">
+						{{subcategory.description}}</p>
+					<div class="recommended_items"><!--features_items-->
+						{{#each subcategory.products as |product|}}
+						<div class="col-sm-3">
+							<a class="product-image-wrapper" href="/product-details/{{product.id}}">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img class="img-responsive" src="{{product.picture}}" alt="" />
+										<h4>{{product.code}}</h4>
+										<p>{{product.description}}</p>
+										<a href="/product-details/{{product.id}}" class="btn btn-default add-to-cart"> Ver más</a>
+									</div>
 								</div>
-							</div>
-						</a>
+							</a>
+						</div>
+						{{/each}}
 					</div>
 					{{/each}}
-				{{/each}}
 				</div>
 			</div>
-
 		</div>
-	</div>
 </section>
