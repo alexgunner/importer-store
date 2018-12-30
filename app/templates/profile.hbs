@@ -1,0 +1,54 @@
+{{outlet}}
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 padding-right">
+				<h2 class="title text-center">Perfil de usuario</h2>
+                <div class="form-group">
+                    <label>Correo electrónico: {{model.email}}</label>
+                </div>
+                <div class="form-group">
+                    <label>*Nombre de la Empresa: </label>
+                    {{input type="text" class="form-control" value=model.namecompany id="new_namecompany"}}
+                </div>
+                <div class="form-group">
+                    <label>Nombre Completo Cliente/Representate Legal:</label>
+                    {{input type="text" class="form-control" value=model.name id="new_name"}}
+                </div>
+                <div class="form-group">
+                    <label>CI Cliente/Representate Legal:</label>
+                    {{input type="number" class="form-control" value=form_ci id="new_ci"}}
+                </div>
+                <div class="form-group">
+                    <label>Dirección:</label>
+                    {{input type="text" class="form-control" value=form_address id="new_address"}}
+                </div>
+                <div class="form-group">
+                    <label>Teléfono:</label>
+                    {{input type="number" class="form-control" value=form_phone id="new_phone"}}
+                </div>
+                <div class="form-group">
+                    <label>Celular:</label>
+                    {{input type="number" class="form-control" value=form_cellphone id="new_cellphone"}}
+                </div>
+                <div class="form-group">
+                    <label>Celular de WhatsApp:</label>
+                    {{input type="number" class="form-control" value=form_cellwsp id="new_cellwsp"}}
+                </div>
+
+                <div class="form-group">
+                    <label>Nombre para la Factura:</label>
+                    {{input type="text" class="form-control" value=form_nameinvoice id="new_nameinvoice"}}
+                </div>
+                <div class="form-group">
+                    <label>NIT Factura Cliente/Representate Legal:</label>
+                    {{input type="text" class="form-control" value=form_nit id="new_nit"}}
+                </div>
+                <center>
+                    <button {{action 'save' model.id}} class="btn btn-info">Guardar cambios</button>
+                    <button {{action 'cancel'}} class="btn btn-default">Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</section>

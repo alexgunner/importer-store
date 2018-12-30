@@ -21,6 +21,7 @@ Router.map(function() {
   this.route('history');
   this.route('product-details', {path: 'product-details/:id'});
   this.route('reset');
+  this.route('profile', {path: 'profile/:id'});
 });
 
 export default Router;

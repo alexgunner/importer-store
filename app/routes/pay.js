@@ -60,7 +60,7 @@ export default Route.extend({
                 console.log(downloadURL);
                 store.findRecord('order', ido).then(function(order) {
                     order.set('image', downloadURL);
-                    order.save(); // => PATCH to '/posts/1'
+                    order.save(); // => PATCH to '/orders/1'
                 });
             });
             });

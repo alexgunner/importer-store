@@ -88,7 +88,7 @@ export default Component.extend({
                 console.log("guardo todo");
                 cart.save().then(function(){
                     Ember.$.ajax({
-                        url: "http://api.domusbolivia.com/total",
+                        url: "http://localhost:3000/total",
                         type: "POST",
                         contentType: 'application/json',
                         data: JSON.stringify({

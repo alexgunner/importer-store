@@ -15,7 +15,7 @@
 						<ul class="nav navbar-nav">
 							<li>
 								{{#if session.isAuthenticated}}
-									<a href="/"><i class="fa fa-user"></i> {{session.data.authenticated.name}}</a>
+									<a href="/profile/{{session.data.authenticated.id}}"><i class="fa fa-user"></i> {{session.data.authenticated.name}}</a>
 								{{else}}
 									<a href="/login"><i class="fa fa-user"></i></a>
 								{{/if}}
