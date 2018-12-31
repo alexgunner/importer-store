@@ -49,12 +49,17 @@
         <option value="Domicilio">A domicilio o en Transportista</option>
     </select>
 </div>
-<div id="deliv" style="display:none;" class="form-group">
-    <label>Destino y Transporte:</label>
-    <select id="deliveries" class="form-control">
-        {{#each deliveries as |delivery|}}
-            <option value="{{delivery.id}}">{{delivery.name}} Costo:{{delivery.cost}}</option>
+<div id="dest" style="display:none;" class="form-group">
+    <label>Destinos:</label>
+    <select {{action 'loadDeliveries'}} id="destinos" class="form-control" >
+        {{#each model.destinations as |destination|}}
+            <option value="{{destination.id}}">{{destination.name}} - {{destination.city}}</option>
         {{/each}}
+    </select>
+</div>
+<div id="deliv" style="display:none;" class="form-group">
+    <label>Delivery y Costo:</label>
+    <select id="deliveries" class="form-control">
     </select>
 </div>
 <center>
