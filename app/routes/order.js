@@ -92,7 +92,7 @@ export default Route.extend({
             console.log("guardo todo");
             cart.save().then(function(){
               Ember.$.ajax({
-                  url: "http://localhost:3000/total",
+                  url: "http://api.domusbolivia.com/total",
                   type: "POST",
                   contentType: 'application/json',
                   data: JSON.stringify({
