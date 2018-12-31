@@ -33,16 +33,11 @@
                                     </div>
                                    
                                     <div class="col-sm-5">
-                                        <h4>Nombre:</h4>
-                                        {{model.product.name}}
-                                        <h4>Descripción:</h4>
-                                        {{model.product.description}}
-                                        <h4>Fabricante:</h4>
-                                        <p>{{model.product.manufacturer.name}}</p>
-                                        <h4>Proveedor:</h4>
-                                        <p>{{model.product.provider.name}}</p>
-                                        <h4>Medida:</h4>
-                                        <p>{{model.product.measure.name}}</p>
+                                        <h4 style="display:inline;">Nombre:</h4> {{model.product.name}} <br/><br/>
+                                        <h4 style="display:inline;">Fabricante:</h4> {{model.product.manufacturer.name}} <br/><br/>
+                                        <h4 style="display:inline;">Proveedor:</h4> {{model.product.provider.name}} <br/><br/>
+                                        <h4 style="display:inline;">Unidad:</h4> {{model.product.measure.name}} <br/><br/>
+                                        <h4 style="display:inline;">Descripción:</h4> {{model.product.description}} <br/><br/>
                                         {{#if (not-eq model.product.details "/details/original/missing.png")}}
                                             <p class="justified-text">
                                                 <a target="_blank" href="{{model.host}}/{{model.product.details}}" class="btn btn-primary">Descargar ficha técnica </a>
