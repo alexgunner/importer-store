@@ -72,8 +72,7 @@
                                     <div class="productinfo text-center">
                                         <img src="{{product.picture}}" alt="" />
                                         <h2>{{product.code}}</h2>
-                                        <p>{{product.description}}</p>
-                                        <a href="/product-details/{{product.id}}" class="btn btn-default add-to-cart"> Ver más</a>
+                                        <p>{{truncate-text product.description limit=65}}</p>
                                     </div>
                                 </div>
                             </a>
