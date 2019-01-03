@@ -11,8 +11,18 @@ export default Route.extend({
                 data: JSON.stringify({
                     email: mail 
                 })
+            }).then(function(){
+                console.log("post");
+                swal({
+                    title: "¡Espera!",
+                    text: "En unos minutos revisa tu bandeja de entrada, hemos enviado un correo con un link para poder ayudarte.",
+                    type: "success",
+                    showConfirmButton: true
+                  }, function() {
+                    window.location.href = '/';
+                  }); 
             });
-            console.log("post");
+            
         }
     }
 });
