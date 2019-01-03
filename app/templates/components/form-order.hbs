@@ -52,6 +52,7 @@
 <div id="dest" style="display:none;" class="form-group">
     <label>Destinos:</label>
     <select {{action 'loadDeliveries'}} id="destinos" class="form-control" >
+        <option value="0">Selecciona departamento y ciudad</option>
         {{#each destinations as |destination|}}
             <option value="{{destination.id}}">{{destination.name}} - {{destination.city}}</option>
         {{/each}}

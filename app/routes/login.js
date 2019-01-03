@@ -3,9 +3,15 @@ import swal from 'sweetalert';
 const { service } = Ember.inject;
 export default Route.extend({
     session: service('session'),
-
+    model(){
+      return this.get('store').findAll('item');
+    },
     actions: {
-      authenticate () {
+      authenticate (items) {
+        items.forEach(function(item){
+          item.deleteRecord();
+          item.save();
+        })
         var identification = this.get('controller').get('identification');
         var password = this.get('controller').get('password');
         return this.get('session').authenticate('authenticator:devise',

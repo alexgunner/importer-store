@@ -91,29 +91,30 @@ export default Route.extend({
             console.log("guardo todo");
             cart.save().then(function(){
               Ember.$.ajax({
-                  url: "http://localhost:3000/total",
+                  url: "http://api.domusbolivia.com/total",
                   type: "POST",
                   contentType: 'application/json',
                   data: JSON.stringify({
                       id: record.id
                   })
+              }).then(function(){
+                id = record.id
+                console.log(id);
+                swal({
+                  title: "¡Espera!",
+                  text: "Tu orden fue registrada, por favor espera mientras te reedigirimos para proceder con el pago.",
+                  type: "success",
+                  timer: 8000,
+                  showConfirmButton: false
+                }, function() {
+                  window.location.href = '/pay/'+ record.id;
+                }); 
               });
             });
           });
-            id = record.id
-            console.log(id);
           });
          
           });
-          swal({
-            title: "¡Espera!",
-            text: "Tu orden fue registrada, por favor espera mientras te reedigirimos para proceder con el pago.",
-            type: "success",
-            timer: 8000,
-            showConfirmButton: false
-          }, function() {
-            window.location.href = '/pay/'+ id;
-          }); 
         
       }
         
