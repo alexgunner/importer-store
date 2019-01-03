@@ -20,11 +20,8 @@ export default Route.extend({
         swal({ 
           html:true,
           title: "Instructivo de registro",
-          text: "<h3 align='justify'>Estas a punto de crear una cuenta en nuestro portal, por favor toma en cuenta las siguientes indicaciones para que ingreses los datos según el tipo de cliente al cual correspondes." +
-          "<br/><br/><b>Minorista (Ventas por unidades  docenas a clientes no frecuentes, omitir datos de rubro)</b>" + 
-          "<br/><br/><b>Especialista (Profesionales del rubro; constructores, arquitectos, plomeros, carpinteros)</b>"+
-          "<br/><br/><b>Mayorista (Negocios del rubo; Ferreterias, comerciales, supermerados y grandes superficies)</b>"+
-          "<br/><br/><b>Cliente DOMUS (Cliente especial con beneficios de descuentos)</b></h3>",
+          text: "<h3 align='justify'>La información que ingresaras es confidencial, será utilizada para identificarte como Cliente DOMUS, hacer llegar tus compras al domicilio que definas y contar con la información necesaria para emitir la Factura Fiscal correspondiente." +
+          "<br/><br/>Muchas gracias por tu confianza.",
           type: "warning",
           confirmButtonColor: "#DD6B55",
           confirmButtonText: "¡Entendido!",

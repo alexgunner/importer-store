@@ -15,7 +15,7 @@ export default Route.extend({
     actions: {
         clearCart(items, host, id){
         swal({
-            title: "¡Hecho!",
+            title: "¡Espera!",
             text: "Espera un momento. Te estamos redirigiendo a la terminal de pago con tarjeta.",
             type: "success",
             timer: 8000,
@@ -69,7 +69,7 @@ export default Route.extend({
         },
         clearCart2(items){
             swal({
-                title: "¡Hecho!",
+                title: "¡Espera!",
                 type: "success",
                 confirmButtonText: "OK",
                 timer:3000

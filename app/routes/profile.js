@@ -104,7 +104,7 @@ export default Route.extend({
                 user.save(); // => PATCH to '/users/1'
             }).then(function() {
                 swal({
-                    title: "¡Hecho!",
+                    title: "¡Espera!",
                     text: "Tu información ha sido actualizada.",
                     type: "success",
                     confirmButtonText: "OK"

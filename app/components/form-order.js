@@ -118,7 +118,7 @@ export default Component.extend({
         });
        
         swal({
-            title: "¡Hecho!",
+            title: "¡Espera!",
             text: "Tu orden fue registrada, por favor espera mientras te reedigirimos para proceder con el pago.",
             type: "success",
             timer: 10000,

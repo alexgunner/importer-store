@@ -57,10 +57,13 @@
                         <label>Confirmar contraseña:</label>
                         {{input type="password" class="form-control" value=password_confirmation}}
                     </div>
-                    <p>Carnet de identidad o NIT es necesario unicamente para obtener los precios de especialista y mayorista, según corresponda el caso uno o ambos. <br/>
-                        Para cargar una imagen click en el texto 'Subir Imagen'.</p>
+                    <h4 class="justify">NOTA: Las imágenes del documento de identidad y/o NIT que serán subidas al Sistema, 
+                        tienen que estar en formato grafico (JPG, JPEG, PNG, BMP, GIF….), son necesarias únicamente 
+                        para aquellos clientes que desean contar con los beneficios y privilegios de
+                        PROFESIONAL ESPECIALISTA o DISTRIBUIDOR MAYORISTA. <br/><br/>
+                        Para cargar una imagen click en el texto 'Subir Imagen'.</h4>
                     <div class="form-group">
-                         <label>*NIT (Si usted no cuentan con una profesión o negocio del rubro, omita este dato)</label>
+                         <label>*NIT (Incluir la imagen del certificado de su Número de Identificación Tributaria)</label>
                          
                         <center>
                             <img id="output" height="400" width="350" hidden={{shouldHideImage}}>
@@ -71,7 +74,7 @@
                         </center>
                     </div>
                     <div class="form-group">
-                         <label>*CI (Si usted no cuentan con una profesión o negocio del rubro, omita este dato)</label>
+                         <label>*CI (Incluir la imagen de su Carnet de Identidad o Pasaporte)</label>
                         <center>
                             <img id="output2" height="400" width="350" hidden={{shouldHideImage}}>
                             <p></p>
