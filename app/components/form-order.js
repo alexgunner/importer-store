@@ -48,14 +48,13 @@ export default Component.extend({
       loadDeliveries(){
         var store = this.get('store');
         var dest = document.querySelector('#destinos');
-        store.query('delivery', {
-          filter: {
-            destination_id: dest.value
-          }
-        }).then(function(deliveries) {
-          deliveries.forEach(function(delivery){
-            $('#deliveries').append('<option value="'+delivery.get('id')+'">'+delivery.get('name')+' '+'Costo:'+delivery.get('cost')+'</option>');
-          });
+        //find destination
+        store.findRecord('destination', dest.value).then(function(destination){
+            $('#deliveries').empty();
+            //show deliveries of destination
+            destination.get('deliveries').forEach(function(delivery){
+                $('#deliveries').append('<option value="'+delivery.get('id')+'">'+delivery.get('name')+' '+'Costo:'+delivery.get('cost')+'</option>');
+            });
         });
       },
         save()
@@ -104,7 +103,7 @@ export default Component.extend({
                 console.log("guardo todo");
                 cart.save().then(function(){
                     Ember.$.ajax({
-                        url: "http://api.domusbolivia.com/total",
+                        url: "http://localhost:3000/total",
                         type: "POST",
                         contentType: 'application/json',
                         data: JSON.stringify({

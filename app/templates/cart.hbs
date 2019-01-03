@@ -29,7 +29,7 @@
                                         {{/if}}
 
                                         {{#if (eq item.role 'Cliente Minorista ')}}
-                                            Bs. {{format-number (mult variant.price item.quantity) }}
+                                            Bs. {{mult variant.price item.quantity}}
                                         {{/if}}
                                     {{else}}
                                         {{#if (eq variant.offerprice null)}}
