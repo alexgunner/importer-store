@@ -11,8 +11,8 @@
 					<a href="#">{{category.name}}</a>
 				{{else}}
 					<a data-toggle="collapse" data-parent="#accordian" href="#category{{category.id}}">
-						<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-						{{category.name}}
+						<span class="glyphicon glyphicon-chevron-down"></span>
+						<a href="/category-products/{{category.id}}">{{category.name}}</a>
 					</a>
 				{{/if}}
 				</h4>
@@ -23,7 +23,7 @@
 					<div class="panel-body">
 					<ul>
 					{{#each category.subcategories as |subcategory|}}
-						<li><a href="/subcategory_products/{{subcategory.id}}">{{subcategory.name}}</a></li>
+						<li><a href="#">{{subcategory.name}}</a></li>
 					{{/each}}
 					</ul>
 				</div>
@@ -38,7 +38,7 @@
       <div class="brands-name">
         <ul class="nav nav-pills nav-stacked">
         {{#each manufacturers as |manufacturer|}}
-            <li><a href="/manufacturer_products/{{manufacturer.id}}">{{manufacturer.name}}</a></li>
+            <li><a href="#">{{manufacturer.name}}</a></li>
         {{/each}}
         </ul>
       </div>

@@ -270,15 +270,15 @@ a#scrollUp i{
   border: medium none;
   color: #B2B2B2;
   font-family: 'roboto';
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 300;
   height: 35px;
   outline: medium none;
   padding-left: 10px;
-  width: 155px;
+  width: 400px;
   background-image: url(images/home/searchicon.png);
   background-repeat: no-repeat;
-  background-position: 130px;
+  background-position: 360px;
 }
 
 
@@ -909,7 +909,7 @@ h2.title {
 
 .productinfo{
  position:relative;
- min-height: 350px; 
+ min-height: 230px; 
 
 }
 

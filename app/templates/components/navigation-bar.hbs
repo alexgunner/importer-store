@@ -87,9 +87,8 @@
 				</div>
 				<div class="col-sm-3">
 					<div class="search_box pull-right">
-						<form action="/search" accept-charset="UTF-8" method="get">
-							<input name="utf8" type="hidden">
-							<input type="text" name="name" id="name" placeholder="Buscar">
+						<form {{action "searchProduct" on="submit"}} accept-charset="UTF-8">
+							{{input type="text" name="name" value=name id="name" placeholder="Buscar"}}
 						</form>
 					</div>
 				</div>
