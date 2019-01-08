@@ -54,17 +54,20 @@
     <select {{action 'loadDeliveries'}} id="destinos" class="form-control" >
         <option value="0">Selecciona departamento y ciudad</option>
         {{#each destinations as |destination|}}
+            {{#if (not-eq destination.id "1")}}
             <option value="{{destination.id}}">{{destination.name}} - {{destination.city}}</option>
+            {{/if}}
         {{/each}}
     </select>
 </div>
 <div id="deliv" style="display:none;" class="form-group">
     <label>Delivery y Costo:</label>
     <select id="deliveries" class="form-control">
+        <option value="1">Selecciona delivery</option>
     </select>
 </div>
 <center>
-    <button {{action 'save'}} class="btn btn-info">Aceptar</button>
+    <button {{action 'save'}} id="save-button" class="btn btn-info">Aceptar</button>
     <button {{action 'cancel'}} class="btn btn-default">Cancelar</button>
 </center>
 

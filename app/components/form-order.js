@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-var id;
+var ido;
 const { service } = Ember.inject;
 export default Component.extend({
     store: Ember.inject.service(),
@@ -31,6 +31,14 @@ export default Component.extend({
     }),
 
     actions: {
+        sleep: function (milliseconds) {
+            var start = new Date().getTime();
+            for (var i = 0; i < 1e7; i++) {
+              if ((new Date().getTime() - start) > milliseconds){
+                break;
+              }
+            }
+        },
         selected()
       {
         var opt = document.querySelector("#opcion");
@@ -57,79 +65,69 @@ export default Component.extend({
             });
         });
       },
-        save()
-        {
-            var store = this.get('store');
-            let items = this.get('store').findAll('item');
-            var pay = document.querySelector('#pagos');
-            var delivery = document.querySelector('#opcion')
-            var select = document.querySelector("#deliveries");
+    save()
+    {
+        //initialize values 
+        document.getElementById("save-button").disabled = true
+        var store = this.get('store');
+        let items = this.get('store').findAll('item');
+        var pay = document.querySelector('#pagos');
+        var delivery = document.querySelector('#opcion')
+        var select = document.querySelector("#deliveries");
 
-            //recover values
-            const client = store.createRecord('client', {
-                name: document.getElementById('new_name').value,
-                ci: document.getElementById('new_ci').value,
-                address: document.getElementById('new_address').value,
-                phone: document.getElementById('new_phone').value,
-                cellphone: document.getElementById('new_cellphone').value,
-                cellwsp:document.getElementById('new_cellwsp').value,
-                mail: this.get('session.data.authenticated.email'),
-                nit: document.getElementById('new_nit').value,
-                nameinvoice: document.getElementById('new_nameinvoice').value
-                })
-            console.log("guardo cliente");
+       
+        //recover values for create client
+        const client = store.createRecord('client', {
+            name: document.getElementById('new_name').value,
+            ci: document.getElementById('new_ci').value,
+            address: document.getElementById('new_address').value,
+            phone: document.getElementById('new_phone').value,
+            cellphone: document.getElementById('new_cellphone').value,
+            cellwsp:document.getElementById('new_cellwsp').value,
+            mail: this.get('session.data.authenticated.email'),
+            nit: document.getElementById('new_nit').value,
+            nameinvoice: document.getElementById('new_nameinvoice').value
+            })
             client.save().then(function(record){
-
-             //create order
-             var order = store.createRecord('order', {
-                orderdate: new Date(),
-                state: "Nuevo",
-                client_id: record.id,
-                delivery_id: select.value,
-                typepay: pay.value,
-                typedelivery: delivery.value
-              });
-            console.log("guardo orden");
-            order.save().then(function(record){
-            
-            //create cart with items
-            items.forEach(function(item){
-                var cart = store.createRecord('cart', {
-                quantity: item.get('quantity'),
-                order_id: record.id,
-                product_variant_id: item.get('variant_id'),
-                role: item.get('role')
-                });
-                console.log("guardo todo");
-                cart.save().then(function(){
+                //create order
+                var order = store.createRecord('order', {
+                    orderdate: new Date(),
+                    state: "Nuevo",
+                    client_id: record.id,
+                    delivery_id: select.value,
+                    typepay: pay.value,
+                    typedelivery: delivery.value
+                })
+                order.save().then(function(record){
+                    items.forEach(function(item){
+                        //create cart with items
+                        var cart = store.createRecord('cart', {
+                            quantity: item.get('quantity'),
+                            order_id: record.id,
+                            product_variant_id: item.get('variant_id'),
+                            role: item.get('role')
+                        })
+                        cart.save();
+                        ido = record.id;
+                    });
+                }).then(function(){
+                    //calculate total
                     Ember.$.ajax({
-                        url: "http://api.domusbolivia.com/total",
+                        url: "http://localhost:3000/total",
                         type: "POST",
                         contentType: 'application/json',
                         data: JSON.stringify({
-                            id: record.id
-                        })
+                            id: ido
+                            })
                     }).then(function(){
-                        id = record.id
-                        console.log(id);
-                        swal({
-                          title: "¡Espera!",
-                          text: "Tu orden fue registrada, por favor espera mientras te reedigirimos para proceder con el pago.",
-                          type: "success",
-                          timer: 8000,
-                          showConfirmButton: false
-                        }, function() {
-                          window.location.href = '/pay/'+ record.id;
-                        }); 
+                        window.location.href = '/pay/'+ record.id;
                     });
                 });
-            });
-            });
-        });
+            }); 
         },
 
         cancel() {
-            this.transitionTo('/');
+            this.get('router').transitionTo('/');
         }
     }
 });

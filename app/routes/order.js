@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 const { service } = Ember.inject;
-var id;
+var ido;
 export default Route.extend({
     session: service('session'),
     model() {
@@ -65,60 +65,49 @@ export default Route.extend({
         }
       else
       {
-        console.log("guardo el cliente");
         client.save().then(function(record){
-
-           //create order
-           var order = store.createRecord('order', {
-            orderdate: new Date(),
-            state: "Nuevo",
-            client_id: record.id,
-            delivery_id: select.value,
-            typepay: pay.value,
-            typedelivery: delivery.value
+          console.log("guardo cliente");
+          //create order
+          var order = store.createRecord('order', {
+              orderdate: new Date(),
+              state: "Nuevo",
+              client_id: record.id,
+              delivery_id: select.value,
+              typepay: pay.value,
+              typedelivery: delivery.value
           });
-          console.log("guardo orden");
           order.save().then(function(record){
-          
-          //create cart with items
-          items.forEach(function(item){
-            var cart = store.createRecord('cart', {
-              quantity: item.get('quantity'),
-              order_id: record.id,
-              product_variant_id: item.get('variant_id'),
-              role: item.get('role')
-            });
-            console.log("guardo todo");
-            cart.save().then(function(){
-              Ember.$.ajax({
-                  url: "http://api.domusbolivia.com/total",
-                  type: "POST",
-                  contentType: 'application/json',
-                  data: JSON.stringify({
-                      id: record.id
-                  })
-              }).then(function(){
-                id = record.id
-                console.log(id);
-                swal({
-                  title: "¡Espera!",
-                  text: "Tu orden fue registrada, por favor espera mientras te reedigirimos para proceder con el pago.",
-                  type: "success",
-                  timer: 8000,
-                  showConfirmButton: false
-                }, function() {
-                  window.location.href = '/pay/'+ record.id;
-                }); 
-              });
-            });
+              console.log("guardo orden");
+              //create cart with items
+              items.forEach(function(item){
+                  console.log("item");
+                  var cart = store.createRecord('cart', {
+                      quantity: item.get('quantity'),
+                      order_id: record.id,
+                      product_variant_id: item.get('variant_id'),
+                      role: item.get('role')
+                  });
+                  cart.save();
+              }).
+              ido = record.id;
           });
-          });
-         
-          });
-        
-      }
-        
-      },
+        }).then(function(){
+          //calculate total
+          Ember.$.ajax({
+              url: "http://localhost:3000/total",
+              type: "POST",
+              contentType: 'application/json',
+              data: JSON.stringify({
+                  id: ido
+              })
+          }).then(function(){
+          window.location.href = '/pay/'+ record.id;
+
+          }); 
+      });
+    }
+      console.log("guardo todo");
+    },
       cancel() {
         this.transitionTo('/');
       }

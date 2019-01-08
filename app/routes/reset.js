@@ -5,7 +5,7 @@ export default Route.extend({
         reset(){
             var mail = this.get('controller').get('mail');
             Ember.$.ajax({
-                url: "http://api.domusbolivia.com/password_resets",
+                url: "http://localhost:3000/password_resets",
                 type: "POST",
                 contentType: 'application/json',
                 data: JSON.stringify({
