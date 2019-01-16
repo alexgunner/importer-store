@@ -87,22 +87,21 @@ export default Route.extend({
                       product_variant_id: item.get('variant_id'),
                       role: item.get('role')
                   });
-                  cart.save();
-              }).
-              ido = record.id;
-          });
-        }).then(function(){
-          //calculate total
-          Ember.$.ajax({
-              url: "http://localhost:3000/total",
-              type: "POST",
-              contentType: 'application/json',
-              data: JSON.stringify({
-                  id: ido
-              })
-          }).then(function(){
-          window.location.href = '/pay/'+ record.id;
-
+                  cart.save().then(function(){
+                    //calculate total
+                    Ember.$.ajax({
+                        url: "http://localhost:3000/total",
+                        type: "POST",
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            id: record.id
+                            })
+                    });
+                      ido = record.id;
+                  }).then(function(){
+                      window.location.href = '/pay/'+ ido;
+                  });
+            });
           }); 
       });
     }
