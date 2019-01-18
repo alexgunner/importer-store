@@ -6,8 +6,8 @@
             <div class="col-sm-12 padding-right">
 				<h2 class="title text-center">Productos en el carrito</h2>
                 <div class="border-panel">
-                {{#each model.product_variants as |variant|}}
-                    {{#each model.items as |item|}}
+                {{#each model.items as |item|}}
+                    {{#each model.product_variants as |variant|}}
                         {{#if (is-equal variant.id item.variant_id) }}
                         <div {{action 'changeBorder'}}>
                             <div class="panel panel-default">
@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <h4>Descripción:</h4>
-                                    <p>{{variant.description}} precio: {{item.price}}</p>
+                                    <p>{{variant.description}}</p>
                                     <h4>Precio:</h4>
                                     {{#if (not-eq item.role null)}}
                                         {{#if (eq item.role 'Mayorista ')}}

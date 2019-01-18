@@ -27,8 +27,7 @@ export default Component.extend({
 				var item = this.get('store').createRecord('item', {
 					variant_id: variant.id,
 					quantity: 1,
-					role: role_user,
-					price: variant.price.toString()
+					role: role_user
 				});
 			item.save();
 			this.get('router').transitionTo('/cart');
