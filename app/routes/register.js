@@ -101,7 +101,8 @@ export default Route.extend({
           
           //check if some is null
           if(u_name == null || u_ci == null  || u_cellphone == null || u_cellwsp == null ||
-          u_address == null || u_phone == null || u_email == null || u_password == null || u_password_confirmation == null)
+          u_address == null || u_phone == null || u_email == null || u_password == null ||
+          u_password_confirmation == null || u_namecompany == null)
           {
             swal({
               title: "¡Error!",
