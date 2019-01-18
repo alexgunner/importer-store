@@ -2549,4 +2549,9 @@ h2.title {
   color: #FE980F;
 }
 
+.active-panel{
+  border-style: solid;
+  border-color: dodgerblue;
+}     
+
 

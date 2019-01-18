@@ -1,6 +1,5 @@
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
-
 export default Route.extend({
     model() { 
       return RSVP.hash({
@@ -15,6 +14,18 @@ export default Route.extend({
           item.deleteRecord();
           item.save();
         })
+      },
+
+      changeBorder(){
+        $(function() {
+          $(".border-panel > div").click(function() {
+          //Busca todos los elementos del Div asociado a la clase select que tengan la clase active y los elimina
+        $(this).closest('.border-panel').find('div').removeClass('active-panel');
+        //Al elemento seleccionado agrega la clase active
+                $(this).addClass('active-panel');
+            });
+        });
+    
       }
     }
 });

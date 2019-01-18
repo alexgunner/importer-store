@@ -1,19 +1,22 @@
 {{outlet}}
+
 <section>
 	<div class="container">
         <div class="row">
             <div class="col-sm-12 padding-right">
 				<h2 class="title text-center">Productos en el carrito</h2>
+                <div class="border-panel">
                 {{#each model.product_variants as |variant|}}
                     {{#each model.items as |item|}}
                         {{#if (is-equal variant.id item.variant_id) }}
+                        <div {{action 'changeBorder'}}>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h2 class="title text-center">{{variant.code}}</h2>
                                 </div>
                                 <div class="panel-body">
                                     <h4>Descripción:</h4>
-                                    <p>{{variant.description}}</p>
+                                    <p>{{variant.description}} precio: {{item.price}}</p>
                                     <h4>Precio:</h4>
                                     {{#if (not-eq item.role null)}}
                                         {{#if (eq item.role 'Mayorista ')}}
@@ -51,9 +54,11 @@
                                     <span class="glyphicon glyphicon-trash"></span> Quitar del carrito</button>
                                 </div>
                             </div>
+                        </div>
                         {{/if}}
                     {{/each}}
                 {{/each}}
+                </div>
             </div>
             
             {{#if (eq model.items.length 0)}}
