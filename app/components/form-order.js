@@ -86,7 +86,8 @@ export default Component.extend({
             cellwsp:document.getElementById('new_cellwsp').value,
             mail: this.get('session.data.authenticated.email'),
             nit: document.getElementById('new_nit').value,
-            nameinvoice: document.getElementById('new_nameinvoice').value
+            nameinvoice: document.getElementById('new_nameinvoice').value,
+            role: this.get('session.data.authenticated.role')
             })
             client.save().then(function(record){
                 //create order
@@ -110,7 +111,7 @@ export default Component.extend({
                         cart.save().then(function(){
                             //calculate total
                             Ember.$.ajax({
-                                url: "http://localhost:3000/total",
+                                url: "http://api.domusbolivia.com/total",
                                 type: "POST",
                                 contentType: 'application/json',
                                 data: JSON.stringify({

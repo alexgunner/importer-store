@@ -90,7 +90,7 @@ export default Route.extend({
                   cart.save().then(function(){
                     //calculate total
                     Ember.$.ajax({
-                        url: "http://localhost:3000/total",
+                        url: "http://api.domusbolivia.com/total",
                         type: "POST",
                         contentType: 'application/json',
                         data: JSON.stringify({

@@ -11,5 +11,6 @@ export default DS.Model.extend({
     nit: DS.attr('number'),
     nameinvoice: DS.attr('string'),
     count: DS.attr('number'),
+    role: DS.attr('string'),
     orders: DS.hasMany('orders')
 });
