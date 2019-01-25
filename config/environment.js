@@ -35,6 +35,17 @@ module.exports = function(environment) {
     authenticationRoute: 'login',
     routeAfterAuthentication: 'index',
     routeIfAlreadyAuthenticated: 'index'
+  },
+  ENV['ember-google-maps'] = {
+    key: 'AIzaSyC03U6aSw6GJ4_1U4A7wujCjfVisFsMHYo', // Using .env files in this example
+    language: 'en',
+    region: 'GB',
+    protocol: 'https',
+    version: '3.35',
+    libraries: ['geometry', 'places'], // Optional libraries
+    // client: undefined,
+    // channel: undefined,
+    // baseUrl: '//maps.googleapis.com/maps/api/js'
   }
 
   if (environment === 'development') {

@@ -2520,4 +2520,8 @@ h2.title {
   color: #FE980F;
 }
 
+.ember-google-map {
+  width: 500px;
+  height: 500px;
+}
 
