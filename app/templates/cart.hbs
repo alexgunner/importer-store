@@ -83,8 +83,12 @@
             <button {{action 'deleteAll' model.items}} type="button" class="btn btn-danger">
             <span class="glyphicon glyphicon-trash"></span> Eiminar todo</button>
             <center>
-                <a href ="/" type="button" class="btn btn-default">Seguir Comprando</a>
-                <a href="/order" type="button" class="btn btn-info">Continuar con la Compra</a>
+                <a href ="javascript:history.back(-1);" type="button" class="btn btn-default">Seguir Comprando</a>
+                {{#if (not-eq model.items.firstObject.role null)}}
+                    <a href="/order" type="button" class="btn btn-info">Continuar con la Compra</a>
+                {{else}}
+                     <a href="/register" type="button" class="btn btn-info">Continuar con la Compra</a>
+                {{/if}}
             </center>
             <br/>
             {{/if}}

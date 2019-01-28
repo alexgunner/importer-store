@@ -10,12 +10,22 @@
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/importer-store.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/carousel.css">  
     <link rel="icon" href="/assets/favicon.png">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
 
     {{content-for "head-footer"}}
   </head>
   <body>
     {{content-for "body"}}
-
+    <div class="se-pre-con"><h2 class="title-loader">Cargando...</h2></div>
+    <script>
+      $(window).load(function() {
+      // Animate loader off screen
+      $(".se-pre-con").fadeOut(12000);
+    });
+    </script>
+    
+    
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/importer-store.js"></script>
     {{content-for "body-footer"}}
