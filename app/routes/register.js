@@ -92,6 +92,7 @@ export default Route.extend({
           var u_nit = this.get('controller').get('nit');
           var u_nameinvoice = this.get('controller').get('nameinvoice');
           var u_address = this.get('controller').get('address');
+          var u_city = this.get('controller').get('city');
           var u_phone = this.get('controller').get('phone');
           var u_cellphone = this.get('controller').get('cellphone');
           var u_cellwsp = this.get('controller').get('cellwsp');
@@ -102,7 +103,7 @@ export default Route.extend({
           //check if some is null
           if(u_name == null || u_ci == null  || u_cellphone == null || u_cellwsp == null ||
           u_address == null || u_phone == null || u_email == null || u_password == null ||
-          u_password_confirmation == null || u_namecompany == null)
+          u_password_confirmation == null || u_namecompany == null || u_city == null)
           {
             swal({
               title: "¡Error!",
@@ -140,6 +141,7 @@ export default Route.extend({
                   nameinvoice: u_nameinvoice,
                   nit: u_nit,
                   address: u_address,
+                  city: u_city,
                   phone: u_phone,
                   cellphone: u_cellphone,
                   cellwsp: u_cellwsp,
