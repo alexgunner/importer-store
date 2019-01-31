@@ -34,7 +34,7 @@ export default Component.extend({
     }),
 
     actions: {
-        
+
     loadSends(){
         var store = this.get('store');
         var destino = document.querySelector('#destinos');
@@ -54,8 +54,6 @@ export default Component.extend({
         var entrega = document.querySelector('#entrega');
         var store = this.get('store');
         var dest = document.querySelector('#destinos');
-        var offices = store.findAll('office');
-        console.log(entrega.value);
         if(entrega.value=="Tienda"){
             $('#tien').show();
             $('#deliv').hide();
@@ -76,15 +74,6 @@ export default Component.extend({
                     }
                 });
             });  
-        }else{
-            store.findRecord('destination', dest.value).then(function(destination){
-                console.log(offices.get('length'));
-                offices.forEach(function(office){
-                    if(office.city == destination.name){
-                        $('#tiendas').append('<option value="'+office.get('id')+'">'+office.get('name')+'-'+office.get('city')+'</option>');
-                    }
-                });
-            });
         }  
     },
 
@@ -95,10 +84,10 @@ export default Component.extend({
         var store = this.get('store');
         let items = this.get('store').findAll('item');
         var pay = document.querySelector('#pagos');
-        var delivery = document.querySelector('#opcion')
+        var delivery = document.querySelector('#entrega');
         var select = document.querySelector("#deliveries");
-
-       
+        var tienda = document.querySelector('#tiendas');
+        
         //recover values for create client
         const client = store.createRecord('client', {
             name: document.getElementById('new_name').value,
@@ -113,6 +102,7 @@ export default Component.extend({
             role: this.get('session.data.authenticated.role')
             })
             client.save().then(function(record){
+                console.log("cliente guardado");
                 //create order
                 var order = store.createRecord('order', {
                     orderdate: new Date(),
@@ -120,7 +110,8 @@ export default Component.extend({
                     client_id: record.id,
                     delivery_id: select.value,
                     typepay: pay.value,
-                    typedelivery: delivery.value
+                    typedelivery: delivery.value,
+                    office: tienda.value
                 })
                 order.save().then(function(record){
                     items.forEach(function(item){
@@ -134,7 +125,7 @@ export default Component.extend({
                         cart.save().then(function(){
                             //calculate total
                             Ember.$.ajax({
-                                url: "http://localhost:3000/total",
+                                url: "http://api.domusbolivia.com/total",
                                 type: "POST",
                                 contentType: 'application/json',
                                 data: JSON.stringify({

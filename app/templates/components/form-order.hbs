@@ -51,14 +51,17 @@
     <div id="tien" style="display:none;" class="form-group">
         <label>Tiendas o Sucursales:</label>
         <select id="tiendas" class="form-control">
-            <option value="0">Selecciona una tienda o sucursal</option>
+            <option value="0">Elige una tienda o sucursal</option>
+            {{#each offices as |office|}}
+                <option value="{{office.name}}">{{office.name}} - {{office.city}}</option>
+            {{/each}}
         </select>
     </div>
 
     <div id="deliv" style="display:none;" class="form-group">
         <label>Delivery y Costo:</label>
         <select id="deliveries" class="form-control">
-            <option value="0">Elige un delivery</option>
+            <option value="2">Elige un delivery</option>
         </select>
     </div>
 

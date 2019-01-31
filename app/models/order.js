@@ -11,5 +11,7 @@ export default DS.Model.extend({
     typepay: DS.attr(),
     typedelivery: DS.attr(),
     image: DS.attr('string'),
-    total: DS.attr()
+    total: DS.attr(),
+    userid: DS.attr(),
+    office: DS.attr()
 });
