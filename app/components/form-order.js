@@ -29,42 +29,65 @@ export default Component.extend({
     form_nit: Ember.computed(function(){
         return this.get('session.data.authenticated.nit');
     }),
+    form_city: Ember.computed(function(){
+        return this.get('session.data.authenticated.city');
+    }),
 
     actions: {
-        sleep: function (milliseconds) {
-            var start = new Date().getTime();
-            for (var i = 0; i < 1e7; i++) {
-              if ((new Date().getTime() - start) > milliseconds){
-                break;
-              }
-            }
-        },
-        selected()
-      {
-        var opt = document.querySelector("#opcion");
-        console.log(opt.value);
-         if(opt.value=="Domicilio"){
-             $('#dest').show();
-             $('#deliv').show();
-         }
-         else{
-           $('#dest').hide();
-           $('#deliv').hide();
-         }       
-      },
+        
+    loadSends(){
+        var store = this.get('store');
+        var destino = document.querySelector('#destinos');
+        store.findRecord('destination', destino.value).then(function(destination){
+            $("#entrega option[value='Tienda']").remove();
+            $("#pagos option[value='Contraentrega']").remove();
+            console.log(destination.get('cash'));
+            if(destination.get('cash')){
+                $('#entrega').append('<option value="Tienda">Para recoger en tienda o sucursal</option>');
+                $('#pagos').append('<option value="Contraentrega">Al momento de la entrega</option>');
+            }  
+        })
+    },
 
-      loadDeliveries(){
+    selected()
+    {
+        var entrega = document.querySelector('#entrega');
         var store = this.get('store');
         var dest = document.querySelector('#destinos');
-        //find destination
-        store.findRecord('destination', dest.value).then(function(destination){
-            $('#deliveries').empty();
-            //show deliveries of destination
-            destination.get('deliveries').forEach(function(delivery){
-                $('#deliveries').append('<option value="'+delivery.get('id')+'">'+delivery.get('name')+' '+'Costo:'+delivery.get('cost')+'</option>');
+        var offices = store.findAll('office');
+        console.log(entrega.value);
+        if(entrega.value=="Tienda"){
+            $('#tien').show();
+            $('#deliv').hide();
+        }
+        else{
+            $('#tien').hide();
+            $('#deliv').show();
+        }
+        
+        if(entrega.value != "Tienda"){
+             //find destination
+            store.findRecord('destination', dest.value).then(function(destination){
+                $('#deliveries').empty();
+                //show deliveries of destination
+                destination.get('deliveries').forEach(function(delivery){
+                    if(delivery.get('shipping') == entrega.value){
+                        $('#deliveries').append('<option value="'+delivery.get('id')+'">'+delivery.get('name')+' '+'Costo:'+delivery.get('cost')+'</option>');
+                    }
+                });
+            });  
+        }else{
+            store.findRecord('destination', dest.value).then(function(destination){
+                console.log(offices.get('length'));
+                offices.forEach(function(office){
+                    if(office.city == destination.name){
+                        $('#tiendas').append('<option value="'+office.get('id')+'">'+office.get('name')+'-'+office.get('city')+'</option>');
+                    }
+                });
             });
-        });
-      },
+        }  
+    },
+
     save()
     {
         //initialize values 
@@ -111,7 +134,7 @@ export default Component.extend({
                         cart.save().then(function(){
                             //calculate total
                             Ember.$.ajax({
-                                url: "http://api.domusbolivia.com/total",
+                                url: "http://localhost:3000/total",
                                 type: "POST",
                                 contentType: 'application/json',
                                 data: JSON.stringify({
