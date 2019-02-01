@@ -46,7 +46,7 @@
 						</ul>
 						<ul class="nav navbar-nav">
 							{{#if session.isAuthenticated}}
-								<li><a href="/history/{{session.data.authenticated.id}}"><span class="glyphicon glyphicon-list-alt"></span> Historial de compras</a></li>
+								<li><a href="/history"><span class="glyphicon glyphicon-list-alt"></span> Historial de compras</a></li>
 								<li><a href="/"{{action 'logout' items}}><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
 							{{else}}
 								<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
