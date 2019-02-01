@@ -87,6 +87,7 @@ export default Component.extend({
         var delivery = document.querySelector('#entrega');
         var select = document.querySelector("#deliveries");
         var tienda = document.querySelector('#tiendas');
+        var id = this.get('session.data.authenticated.id');
         
         //recover values for create client
         const client = store.createRecord('client', {
@@ -125,7 +126,7 @@ export default Component.extend({
                         cart.save().then(function(){
                             //calculate total
                             Ember.$.ajax({
-                                url: "http://api.domusbolivia.com/total",
+                                url: "http://localhost:3000/total",
                                 type: "POST",
                                 contentType: 'application/json',
                                 data: JSON.stringify({

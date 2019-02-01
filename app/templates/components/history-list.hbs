@@ -6,30 +6,53 @@
         </div>
         <div class="panel-body">
             <h4>Productos:</h4>
-            {{#each order.carts as |cart|}}
-                <p><strong>{{cart.product_variant.description}}</strong></p>
-                {{#if (eq cart.role "Mayorista ")}}
-                    <p>Precio: {{cart.product_variant.wholesaleprice}}</p>
-                {{/if}}
-                {{#if (eq cart.role "Especialista ")}}
-                    <p>Precio: {{cart.product_variant.specialistprice}}</p>
-                {{/if}}
-                {{#if (eq cart.role "Cliente DOMUS ")}}
-                    <p>Precio: {{cart.product_variant.importerprice}}</p>
-                {{/if}}
-                {{#if (eq cart.role "Cliente Minorista ")}}
-                    <p>Precio: {{cart.product_variant.price}}</p>
-                {{/if}}
-                 <p>Cantidad: {{cart.quantity}}</p>
-            {{/each}}
+            <div class="table-responsive">
+                <table class="table table-stripped table-hover">
+                <thead>
+                    <tr>
+                    <th>Código</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {{#each order.carts as |cart|}}
+                    <tr>
+                        <td>{{cart.product_variant.code}}</td>
+                        <td>{{cart.quantity}}</td>
+                        {{#if (eq cart.role "Mayorista ")}}
+                        <td>Bs. {{cart.product_variant.wholesaleprice}}</td>
+                        {{/if}}
+                        {{#if (eq cart.role "Especialista ")}}
+                        <td>Bs. {{cart.product_variant.specialistprice}}</td>
+                        {{/if}}
+                        {{#if (eq cart.role "Cliente DOMUS ")}}
+                        <td>Bs. {{cart.product_variant.importerprice}}</td>
+                        {{/if}}
+                        {{#if (eq cart.role "Cliente Minorista ")}}
+                            {{#if (eq cart.product_variant.offerprice null)}}
+                                <td>Bs. {{cart.product_variant.price}}</td>
+                            {{else}}
+                                <td>Bs. {{cart.product_variant.offerprice}}</td>
+                            {{/if}}
+                        {{/if}}
+                        <td><img src="{{cart.product_variant.product.picture}}" height="80" width="80"></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                </table>
+            </div>
+            <h4>Forma de pago:</h4><p>{{order.typepay}}</p>
+            <h4>Forma de entrega:</h4><p>{{order.typedelivery}}</p>
+            {{#if (eq order.typedelivery "Tienda")}}
+                <h4>Tienda:</h4><p>{{order.office}}</p>
+            {{/if}}
             <h4>Medio de envío:</h4>
-                <p>{{order.delivery.name}}</p>
+            <p>{{order.delivery.name}}</p>
             <h4>Estado:</h4>
-                {{#if (eq order.state null)}}
-                    <p>No visto</p>
-                {{else}}
-                    <p>{{order.state}}</p>
-                {{/if}}
+            <p>{{order.state}}</p>
         </div>
     </div>
     {{/if}}

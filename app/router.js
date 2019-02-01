@@ -18,7 +18,7 @@ Router.map(function() {
   this.route('contact');
   this.route('register');
   this.route('login');
-  this.route('history');
+  this.route('history', {path: 'history/:id'});
   this.route('product-details', {path: 'product-details/:id'});
   this.route('reset');
   this.route('profile', {path: 'profile/:id'});
