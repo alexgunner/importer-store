@@ -8,59 +8,76 @@
                     <button {{action 'showModal'}} class="btn btn-warning"><span class="glyphicon glyphicon-new-window"></span> Ver ayuda registro</button>
                 </div>
                 <p>Los campos sin asterisco son obligatorios.</p>
-                <form class="form-horizontal" >
-                    <div class="form-group">
-                        <label>Nombre Completo Cliente/Representante Legal:</label>
-                        {{input type="text" class="form-control" value=name maxlength=100 required=true}}
+               
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Nombre Completo Cliente/Representante Legal:</label>
+                            {{input type="text" class="form-control" value=name maxlength=100 required=true}}
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre de Usuario/Nombre de la Empresa:</label>
+                            {{input type="text" class="form-control" value=namecompany maxlength=100 required=true}}
+                        </div>
+                        <div class="form-group">
+                            <label>CI Cliente/Representate Legal:</label>
+                            {{input type="number" class="form-control" value=ci maxlength=50 required=true}}
+                        </div>
+                        <div class="form-group">
+                            <label>*Nombre para la Factura:</label>
+                            {{input type="text" class="form-control" value=nameinvoice maxlength=100 required=true}}
+                        </div>
+                        <div class="form-group">
+                            <label>*NIT:</label>
+                            {{input type="number" class="form-control" value=nit maxlength=50 required=true}}
+                        </div>
+                        <div class="form-group">
+                            <label>Dirección:</label>
+                            {{textarea type="text" rows="5" class="form-control" value=address maxlength=200 required=true}}
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Nombre de Usuario/Nombre de la Empresa:</label>
-                        {{input type="text" class="form-control" value=namecompany maxlength=100 required=true}}
-                    </div>
-                    <div class="form-group">
-                        <label>CI Cliente/Representate Legal:</label>
-                        {{input type="number" class="form-control" value=ci maxlength=50 required=true}}
-                    </div>
-                    <div class="form-group">
-                        <label>*Nombre para la Factura:</label>
-                        {{input type="text" class="form-control" value=nameinvoice maxlength=100 required=true}}
-                    </div>
-                    <div class="form-group">
-                        <label>*NIT:</label>
-                        {{input type="number" class="form-control" value=nit maxlength=50 required=true}}
-                    </div>
-                    <div class="form-group">
-                        <label>Dirección:</label>
-                        {{input type="text" class="form-control" value=address maxlength=100 required=true}}
-                    </div>
-                    <div class="form-group">
-                        <label>Departamento:</label>
-                        {{input type="text" class="form-control" value=city maxlength=100 required=true}}
-                    </div>
-                    <div class="form-group">
-                        <label>Teléfono:</label>
-                        {{input type="number" class="form-control" value=phone maxlength=50 required=true}}
-                    </div>
-                    <div class="form-group">
-                        <label>Celular:</label>
-                        {{input type="number" class="form-control" value=cellphone maxlength=50 required=true}}
-                    </div>
-                    <div class="form-group">
-                        <label>Celular de WhatsApp:</label>
-                        {{input type="number" class="form-control" value=cellwsp maxlength=50 required=true}}
-                    </div>
-                    <div class="form-group">
-                        <label>Correo electrónico:</label>
-                        {{input type="email" class="form-control" value=email maxlength=50 required=true}}
-                    </div>
-                    <div class="form-group">
-                        <label>Contraseña:</label>
-                        {{input type="password" class="form-control" value=password}}
-                    </div>
-                     <div class="form-group">
-                        <label>Confirmar contraseña:</label>
-                        {{input type="password" class="form-control" value=password_confirmation}}
-                    </div>
+                    
+                   <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Departamento:</label>
+                             <select id="departamento" class="form-control">
+                                <option value="Beni">Beni</option>
+                                <option value="Chuquisaca">Chuquisaca</option>
+                                <option value="Cochabamba">Cochabamba</option>
+                                <option value="La Paz">La Paz</option>
+                                <option value="Oruro">Oruro</option>
+                                <option value="Pando">Pando</option>
+                                <option value="Potosi">Potosí</option>
+                                <option value="Santa Cruz">Santa Cruz</option>
+                                <option value="Tarija">Tarija</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono:</label>
+                            {{input type="number" class="form-control" value=phone maxlength=50 required=true}}
+                        </div>
+                        <div class="form-group">
+                            <label>Celular:</label>
+                            {{input type="number" class="form-control" value=cellphone maxlength=50 required=true}}
+                        </div>
+                        <div class="form-group">
+                            <label>Celular de WhatsApp:</label>
+                            {{input type="number" class="form-control" value=cellwsp maxlength=50 required=true}}
+                        </div>
+                        <div class="form-group">
+                            <label>Correo electrónico:</label>
+                            {{input type="email" class="form-control" value=email maxlength=50 required=true}}
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña:</label>
+                            {{input type="password" class="form-control" value=password}}
+                            <p>Debe ser de 8-16 caracteres y contener al menos una mayúscula, una minúscula y un número.</p>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirmar contraseña:</label>
+                            {{input type="password" class="form-control" value=password_confirmation}}
+                        </div>
+                   </div>
+                   
                     <h4 class="justify">NOTA:</h4>Las imágenes del documento de identidad y/o NIT que serán subidas al Sistema, 
                         tienen que estar en formato gráfico (JPG, JPEG, PNG, BMP o GIF), son necesarias únicamente 
                         para aquellos clientes que desean contar con los beneficios y privilegios de
@@ -68,34 +85,39 @@
                         Para cargar una imagen click en el texto 'Subir Imagen'.
                         <br/>
                         <br/>
-                    <div class="form-group">
-                         <label>*NIT (Incluir la imagen del certificado de su Número de Identificación Tributaria)</label>
-                         
-                        <center>
-                            <img id="output" height="400" width="350" hidden={{shouldHideImage}}>
-                            <p></p>
-                            {{x-file-input class="custom-class" multiple=false name="files" action='didSelectImage' accept="image/*" alt="Subir Imagen"}}
-                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100"
-                            aria-valuemin="0" aria-valuemax="100" style="width:100%" id="mensaje"></div>
-                        </center>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>*NIT (Incluir la imagen del certificado de su Número de Identificación Tributaria)</label>
+                            
+                            <center>
+                                <img id="output" height="400" width="350" hidden={{shouldHideImage}}>
+                                <p></p>
+                                {{x-file-input class="custom-class" multiple=false name="files" action='didSelectImage' accept="image/*" alt="Subir Imagen"}}
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100"
+                                aria-valuemin="0" aria-valuemax="100" style="width:100%" id="mensaje"></div>
+                            </center>
+                        </div>
                     </div>
-                    <div class="form-group">
-                         <label>*CI (Incluir la imagen de su Carnet de Identidad o Pasaporte)</label>
-                        <center>
-                            <img id="output2" height="400" width="350" hidden={{shouldHideImage}}>
-                            <p></p>
-                            {{x-file-input class="custom-class" multiple=false name="files" action='didSelectImage2' accept="image/*" alt="Subir Imagen"}}
-                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100"
-                            aria-valuemin="0" aria-valuemax="100" style="width:100%" id="mensaje2"></div>
-                        </center>
+                    
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>*CI (Incluir la imagen de su Carnet de Identidad o Pasaporte)</label>
+                            <center>
+                                <img id="output2" height="400" width="350" hidden={{shouldHideImage}}>
+                                <p></p>
+                                {{x-file-input class="custom-class" multiple=false name="files" action='didSelectImage2' accept="image/*" alt="Subir Imagen"}}
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100"
+                                aria-valuemin="0" aria-valuemax="100" style="width:100%" id="mensaje2"></div>
+                            </center>
+                        </div>
                     </div>
+                    
                     <center>
                         <button {{action 'save'}} class="btn btn-info">Aceptar</button>
                         <button {{action 'cancel'}} class="btn btn-default">Cancelar</button>
                         <br/>
                         <br/>
                     </center>
-                </form>
 			</div>
 		</div>
 	</div>
