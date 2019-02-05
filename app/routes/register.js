@@ -92,7 +92,7 @@ export default Route.extend({
           var u_nit = this.get('controller').get('nit');
           var u_nameinvoice = this.get('controller').get('nameinvoice');
           var u_address = this.get('controller').get('address');
-          var u_city = document.querySelector('#departamentos');;
+          var u_city = document.querySelector('#departamento');
           var u_phone = this.get('controller').get('phone');
           var u_cellphone = this.get('controller').get('cellphone');
           var u_cellwsp = this.get('controller').get('cellwsp');
@@ -141,7 +141,7 @@ export default Route.extend({
                   nameinvoice: u_nameinvoice,
                   nit: u_nit,
                   address: u_address,
-                  city: u_city,
+                  city: u_city.value,
                   phone: u_phone,
                   cellphone: u_cellphone,
                   cellwsp: u_cellwsp,
