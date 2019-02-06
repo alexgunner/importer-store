@@ -3,25 +3,16 @@ import swal from 'sweetalert';
 const { service } = Ember.inject;
 export default Route.extend({
     session: service('session'),
-    model(){
-      return this.get('store').findAll('item');
-    },
     actions: {
-      authenticate (items) {
-        items.forEach(function(item){
-          item.deleteRecord();
-          item.save();
-        })
+      authenticate () {
         var identification = this.get('controller').get('identification');
         var password = this.get('controller').get('password');
         return this.get('session').authenticate('authenticator:devise',
          identification, password).catch(
              (reason) => {
-                swal("Revisa tu correo o contraseña, por favor.")
+                swal("Si ya estás registrado por favor revisa si tu correo o contraseña estan correctos.")
         });
-        
       },
-
       showModal(){
         swal({ 
           html:true,

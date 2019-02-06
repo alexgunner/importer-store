@@ -85,6 +85,7 @@ export default Route.extend({
          save() {
 
           //recover values
+          document.getElementById("save-button").disabled = true
           var store = this.get('store');
           var u_name = this.get('controller').get('name');
           var u_namecompany = this.get('controller').get('namecompany');
@@ -152,11 +153,21 @@ export default Route.extend({
                   imageci: link_ci,
                   role: "Cliente Minorista "
                 });
-              new_user.save();
-              console.log("guardo usuario");
-              swal("¡Espera!", "Gracias por registrarte. Por favor espera unos minutos antes de sesión para que verifiquemos tus datos.", "success");
-              this.transitionTo('/');
-                
+              new_user.save().then(function() {
+                console.log("guardo usuario");
+                swal({
+                  title: "Gracias por registrarte. Ahora puedes iniciar sesión y comenzar a comprar.",
+                  type: "success",
+                  confirmButtonText: "OK",
+                  showConfirmButton : true,
+                  },
+                  function(isConfirm){
+                    if (isConfirm) {
+                      window.location.href = '/login';
+                    }
+                  })
+              });
+             
               }
               
             }

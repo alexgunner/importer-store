@@ -6,14 +6,13 @@ export default Route.extend({
     model(params){
     return RSVP.hash({
         product_variants: this.get('store').findAll('product_variant'),
-        items: this.get('store').findAll('item'),
         order: this.get('store').findRecord('order', ido=params.id),
         banks: this.get('store').findAll('bank'),
         host: this.get('store').adapterFor('application').get('host')
     })
     },
     actions: {
-        clearCart(items, host, id){
+        creditPay(host, id){
         swal({
             title: "¡Espera!",
             text: "Espera un momento. Te estamos redirigiendo a la terminal de pago con tarjeta.",
@@ -22,12 +21,7 @@ export default Route.extend({
             showConfirmButton: false
             }, function() {
             window.location.href = host + '/pay/'+ id;
-        }); 
-        items.forEach(function(item){
-            item.deleteRecord();
-            item.save();
-        })
-
+        });
         },
         didSelectImage(files){
             var store = this.get('store');
