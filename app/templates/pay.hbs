@@ -49,6 +49,12 @@
                 {{/if}}
                 <h2 align="right">Total: {{model.order.total}} Bs. </h2>
 
+                <a href="#" {{action 'pruebaDivAPdf'}} class="button">Pasar a PDF</a>
+                    <div id="imprimir">
+    <h1>  
+        Esto es un DIV impreso en PDF
+    </h1>
+</div>
                 {{#if (eq model.order.typepay "Contraentrega")}}
                     <h4>¡Muchas gracias por la confianza! Puedes ponerte en contacto con nosotros o revisar tu historial de compras para ver el estado de tu pedido.
                         Puedes imprimir esta página como recibo y comprobante dando click <a href="" onclick='window.print();'> aquí.</a></h4>
