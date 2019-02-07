@@ -23,6 +23,7 @@ Router.map(function() {
   this.route('reset');
   this.route('profile', {path: 'profile/:id'});
   this.route('results');
+  this.route('training');
 });
 
 export default Router;

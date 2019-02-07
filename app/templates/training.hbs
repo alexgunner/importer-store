@@ -1,0 +1,26 @@
+<section>
+	<div class="container">
+		<div class="row">
+			<!-- Left sideBar -->
+			{{left-sidebar categories=model.categories manufacturers=model.manufacturers extras=model.extras}}
+			<!-- Left sideBar -->
+			
+			<div class="row">
+                
+                <div class="col-lg-8">
+                    <h4>Mira nuestros documentos de capacitación, puedes descargar cualquiera de ellos.</h4>
+                        {{#each model.training as |document|}}
+                            <h3>{{document.name}}</h3>
+                            <p>{{document.description}}</p>
+                            
+                            <a href="{{model.host}}{{document.url}}" target="_blank">Descargar</a>
+                        {{/each}}
+                </div>
+            </div>
+        </div>
+	</div>
+</section>
+
+
+
+{{model.training.lastObject.name}}
