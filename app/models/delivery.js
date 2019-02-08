@@ -6,6 +6,7 @@ export default DS.Model.extend({
     address: DS.attr(),
     cost: DS.attr(),
     shipping: DS.attr(),
+    costmin: DS.attr(),
     destinations: DS.belongsTo('destination'),
     orders: DS.hasMany('orders')
 });

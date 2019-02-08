@@ -23,25 +23,25 @@
                                     <h4>Precio:</h4>
                                     {{#if (not-eq item.role null)}}
                                         {{#if (eq item.role 'Mayorista ')}}
-                                            Bs. {{mult variant.wholesaleprice item.quantity}}
+                                            Bs. {{multiplication variant.wholesaleprice item.quantity}}
                                         {{/if}}
                                 
                                         {{#if (eq item.role 'Especialista ')}}
-                                            Bs. {{mult variant.specialistprice item.quantity}}
+                                            Bs. {{multiplication variant.specialistprice item.quantity}}
                                         {{/if}}		
 
                                         {{#if (eq item.role 'Cliente DOMUS ')}}
-                                            Bs. {{mult variant.importerprice item.quantity}}
+                                            Bs. {{multiplication variant.importerprice item.quantity}}
                                         {{/if}}
 
                                         {{#if (eq item.role 'Cliente Minorista ')}}
-                                            Bs. {{mult variant.price item.quantity}}
+                                            Bs. {{multiplication variant.price item.quantity}}
                                         {{/if}}
                                     {{else}}
                                         {{#if (eq variant.offerprice null)}}
-                                            Bs. {{mult variant.price item.quantity}}
+                                            Bs. {{multiplication variant.price item.quantity}}
                                         {{else}}  
-                                            OFERTA: Bs. {{mult variant.offerprice item.quantity}}
+                                            OFERTA: Bs. {{multiplication variant.offerprice item.quantity}}
                                         {{/if}}
                                     {{/if}}
                                     <h4>Cantidad:</h4>
