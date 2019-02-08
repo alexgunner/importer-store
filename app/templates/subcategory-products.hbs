@@ -1,0 +1,31 @@
+{{outlet}}
+
+<section>
+	<div class="container">
+		<div class="row">
+			<!-- Left sideBar -->
+			{{left-sidebar categories=model.categories manufacturers=model.manufacturers extras=model.extras}}
+			<!-- Left sideBar -->
+			<div class="col-sm-9 padding-right">
+				<h2 class="title text-center">{{model.subcategory.name}}</h2>
+				<p class="justified-text">
+					{{model.subcategory.description}}</p>
+					<div class="recommended_items"><!--features_items-->
+						{{#each model.subcategory.products as |product|}}
+						<div class="col-sm-3">
+							<a class="product-image-wrapper" href="/product-details/{{product.id}}">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img class="img-responsive" src="{{product.picture}}" alt="" />
+										<h4>{{product.name}}</h4>
+										<p>{{truncate-text product.description limit=65}}</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		</div>
+</section>

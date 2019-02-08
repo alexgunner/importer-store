@@ -24,6 +24,7 @@ Router.map(function() {
   this.route('profile', {path: 'profile/:id'});
   this.route('results');
   this.route('training');
+  this.route('subcategory-products',  {path: 'subcategory-products/:id'});
 });
 
 export default Router;
