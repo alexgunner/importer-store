@@ -9,5 +9,11 @@ export default Route.extend({
             extras: this.get('store').findAll('extra'),
             contact: this.get('store').findAll('contact')
 		}); 
+	},
+	
+	
+	actions:
+	{
+	
 	}
 });

@@ -30,6 +30,7 @@ module.exports = function(environment) {
       databaseURL: '',
       storageBucket: 'importer-store-1537766216237.appspot.com',
     }
+    
   };
   ENV['ember-simple-auth'] = {
     authenticationRoute: 'login',
@@ -37,15 +38,15 @@ module.exports = function(environment) {
     routeIfAlreadyAuthenticated: 'index'
   },
   ENV['ember-google-maps'] = {
-    key: 'AIzaSyC03U6aSw6GJ4_1U4A7wujCjfVisFsMHYo', // Using .env files in this example
-    language: 'en',
+    key: 'AIzaSyDJwvU00aaViCPvuN4k4bZZAi76GY_GNSg', // Using .env files in this example
+    language: 'es',
     region: 'GB',
     protocol: 'https',
     version: '3.35',
     libraries: ['geometry', 'places'], // Optional libraries
     // client: undefined,
     // channel: undefined,
-    // baseUrl: '//maps.googleapis.com/maps/api/js'
+    baseUrl: 'https://maps.googleapis.com/maps/api/js'
   }
 
   if (environment === 'development') {
@@ -77,7 +78,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    
+  
   }
   
   return ENV;
