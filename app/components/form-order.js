@@ -70,7 +70,7 @@ export default Component.extend({
                 //show deliveries of destination
                 destination.get('deliveries').forEach(function(delivery){
                     if(delivery.get('shipping') == entrega.value){
-                        $('#deliveries').append('<option value="'+delivery.get('id')+'">'+delivery.get('name')+'->'+'Costo mínimo 1 kg:'+delivery.get('costmin')+' '+'Costo por kg:'+delivery.get('cost')+'</option>');
+                        $('#deliveries').append('<option value="'+delivery.get('id')+'">'+delivery.get('name')+'->'+'Costo mínimo:'+delivery.get('costmin')+' '+'Costo por kg:'+delivery.get('cost')+'</option>');
                     }
                 });
             });  
