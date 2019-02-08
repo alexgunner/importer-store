@@ -13,6 +13,9 @@
                                     <h2 class="title text-center">{{variant.code}}</h2>
                                 </div>
                                 <div class="panel-body">
+                                    <div class="col-sm-4">
+                                        <img src="{{variant.product.picture}}" height="200" width="200">
+                                    </div>
                                     <h4>Descripción:</h4>
                                     <p>{{variant.description}}</p>
                                     <h4>Cantidad:</h4>
@@ -48,18 +51,6 @@
                  <h4>Costos de envío o entrega: {{model.order.delivery.cost}} Bs. </h4>
                 {{/if}}
                 <h2 align="right">Total: {{model.order.total}} Bs. </h2>
-
-                <a href="#" {{action 'pruebaDivAPdf'}} class="button">Pasar a PDF</a>
-                    <div id="imprimir">
-    <h1>  
-        Esto es un DIV impreso en PDF
-    </h1>
-</div>
-                {{#if (eq model.order.typepay "Contraentrega")}}
-                    <h4>¡Muchas gracias por la confianza! Puedes ponerte en contacto con nosotros o revisar tu historial de compras para ver el estado de tu pedido.
-                        Puedes imprimir esta página como recibo y comprobante dando click <a href="" onclick='window.print();'> aquí.</a></h4>
-                     <a href="/" class="btn btn-info" {{action 'clearCart2' model.items}}>Terminado</a>
-                {{/if}} 
                 
                 {{#if (eq model.order.typedelivery "Domicilio")}}
                     <h4>Recuerda que los gastos de envio serán considerados en el cobro.</h4>
@@ -67,10 +58,14 @@
                 {{#if (eq model.order.typedelivery "Tienda")}}
                     <h4>Puedes pasar por tu pedido dentro de 24 horas, a partir de este momento. 
                         Por favor revisa nuestra dirección y teléfonos, en la sección de <a  href="/contact">Contactos</a>.
-                        No olvides revisar tu numero de pedido, en el historial de compras, para hacer más facil la búsqueda de la entrega, o puedes impirmir esta pagina
-                        dando click <a href="" onclick='window.print();'> aquí.</a>
+                        No olvides revisar tu número de pedido, en el historial de compras, para hacer más facil la búsqueda de la entrega, o puedes exportar en PDF los detalles de tú pedido
+                        dando click <a href="#" target="_blank" {{action 'exportPDF'}}> aquí.</a>
                     </h4>
                 {{/if}}
+                {{#if (eq model.order.typepay "Contraentrega")}}
+                    <h4>¡Muchas gracias por la confianza! Puedes ponerte en contacto con nosotros o revisar tu historial de compras para ver el estado de tu pedido.</h4>
+                     <a href="/" class="btn btn-info">Entendido</a>
+                {{/if}} 
                 {{#if (eq model.order.typepay "Deposito")}}
                     <h4>Para completar tu compra, por favor realiza un deposito a una de las cuentas indicadas:<br/><br/></h4>
                         <b><div class="table-responsive">
@@ -112,7 +107,7 @@
                             <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100"
                         aria-valuemin="0" aria-valuemax="100" style="width:100%" id="mensaje"></div>
                     </center>
-                    <a href="/" class="btn btn-info" {{action 'clearCart2' model.items}}>Aceptar</a>
+                    <a href="/" class="btn btn-info">Aceptar</a>
                 {{/if}}
                 {{#if (eq model.order.typepay "Tarjeta")}}
                     <a  type="button" class="btn btn-info" {{action 'creditPay' model.host model.order.id}}>Pagar</a>
@@ -124,3 +119,48 @@
         </div>
     </div>
 </section>
+ <div  style="display:none;" class="col-sm-7 padding-right" id="imprimir">
+        <h4><center>PRODUCTOS ADQUIRIDOS</center></h4>
+        <h4>Número de orden: {{model.order.id}}</h4>
+        {{#each model.product_variants as |variant|}}
+            {{#each model.order.carts as |cart|}}
+                {{#if (is-equal variant.id cart.product_variant.id) }}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="title text-center">{{variant.code}}</h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-sm-4">
+                                <img src="{{variant.product.picture}}" height="160" width="160">
+                            </div>
+                            <h4>Descripción:</h4>
+                            <p>{{variant.description}}</p>
+                            <h4>Cantidad:</h4>
+                            <p>{{cart.quantity}}</p>
+                            <h4>Monto total cancelar por producto:</h4>
+                            {{#if (eq variant.offerprice null)}}
+                                {{#if (eq cart.role "Mayorista ")}}
+                                    {{mult variant.wholesaleprice cart.quantity}} Bs.
+                                {{/if}}
+                                {{#if (eq cart.role "Especialista ")}}
+                                    {{mult variant.specialistprice cart.quantity}} Bs.
+                                {{/if}}
+                                {{#if (eq cart.role "Cliente DOMUS ")}}
+                                    {{mult variant.importerprice cart.quantity}} Bs.
+                                {{/if}}
+                                {{#if (eq cart.role null)}}
+                                    {{mult variant.price cart.quantity}} Bs.
+                                {{/if}}
+                                {{#if (eq cart.role "Cliente Minorista ")}}
+                                    {{mult variant.price cart.quantity}} Bs.
+                                {{/if}}
+                            {{else}}
+                                {{mult variant.offerprice cart.quantity}} Bs.
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}} 
+        {{/each}}
+        <h2 align="right">Total: {{model.order.total}} Bs. </h2>
+    </div>

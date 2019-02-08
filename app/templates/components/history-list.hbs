@@ -46,8 +46,10 @@
             </div>
             <h4>Forma de pago:</h4><p>{{order.typepay}}</p>
             {{#if (eq order.typepay "Deposito")}}
-                {{#if (eq order.image)}}
+                {{#if (eq order.state "Nuevo")}}
                     <a type="button" href="/pay/{{order.id}}" class="btn btn-info">Subir depósito</a>
+                {{else}}
+                    <p><b>Comprobante subido</b></p>
                 {{/if}}
             {{/if}}
             <h4>Forma de entrega:</h4><p>{{order.typedelivery}}</p>
@@ -62,3 +64,4 @@
     </div>
     {{/if}}
 {{/each}}
+ <center><a href ="/" type="button" class="btn btn-default">Volver</a></center>

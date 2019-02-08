@@ -96,34 +96,22 @@ export default Route.extend({
                 }
               });
         },
-        pruebaDivAPdf() {
-            var pdf = new jsPDF('p', 'pt', 'letter');
-            var source = $('#imprimir')[0];
-    
-            var specialElementHandlers = {
-                '#bypassme': function (element, renderer) {
-                    return true
+        exportPDF() {
+            $('#imprimir').show();
+            var imgData; 
+            html2canvas($("#imprimir"), {
+                useCORS: true,
+                onrendered: function (canvas) {
+                    imgData = canvas.toDataURL(
+                       'image/png');
+                    var doc = new jsPDF('p', 'pt', 'a4');
+                    doc.addImage(imgData, 'PNG', 10, 10);
+                    doc.output('datauri');
+                    doc.save('Productos-Comprados.pdf').open();
                 }
-            };
-            var margins = {
-                top: 80,
-                bottom: 60,
-                left: 40,
-                width: 522
-            };
-    
-            pdf.fromHTML(
-                source, 
-                margins.left, // x coord
-                margins.top, { // y coord
-                    'width': margins.width, 
-                    'elementHandlers': specialElementHandlers
-                },
-    
-                function (dispose) {
-                    pdf.save('Prueba.pdf');
-                }, margins
-            );
+                
+             });
+             this.transitionTo('/');
         }
     }
 });
