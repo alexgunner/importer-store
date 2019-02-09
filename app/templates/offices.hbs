@@ -1,4 +1,87 @@
 {{outlet}}
+<style type="text/css" media="all">
+   h4,p {display: inline;}
+</style>
+<script>
+    function initMap1() {
+        var latitud = parseFloat(document.getElementById('map1').getAttribute("data-lat"));
+        var longitud = parseFloat(document.getElementById('map1').getAttribute("data-lng"));
+        var uluru = {lat: latitud, lng: longitud };
+        var map = new google.maps.Map(document.getElementById('map1'), {
+        zoom: 17,
+        center: uluru
+        });
+        var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+        });
+    }
+    function initMap2() {
+        var latitud = parseFloat(document.getElementById('map2').getAttribute("data-lat"));
+        var longitud = parseFloat(document.getElementById('map2').getAttribute("data-lng"));
+        var uluru = {lat: latitud, lng: longitud };
+        var map = new google.maps.Map(document.getElementById('map2'), {
+        zoom: 17,
+        center: uluru
+        });
+        var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+        });
+    }
+    function initMap3() {
+        var latitud = parseFloat(document.getElementById('map3').getAttribute("data-lat"));
+        var longitud = parseFloat(document.getElementById('map3').getAttribute("data-lng"));
+        var uluru = {lat: latitud, lng: longitud };
+        var map = new google.maps.Map(document.getElementById('map3'), {
+        zoom: 17,
+        center: uluru
+        });
+        var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+        });
+    }
+    function initMap4() {
+        var latitud = parseFloat(document.getElementById('map4').getAttribute("data-lat"));
+        var longitud = parseFloat(document.getElementById('map4').getAttribute("data-lng"));
+        var uluru = {lat: latitud, lng: longitud };
+        var map = new google.maps.Map(document.getElementById('map4'), {
+        zoom: 17,
+        center: uluru
+        });
+        var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+        });
+    }
+    function initMap5() {
+        var latitud = parseFloat(document.getElementById('map5').getAttribute("data-lat"));
+        var longitud = parseFloat(document.getElementById('map5').getAttribute("data-lng"));
+        var uluru = {lat: latitud, lng: longitud };
+        var map = new google.maps.Map(document.getElementById('map5'), {
+        zoom: 17,
+        center: uluru
+        });
+        var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+        });
+    }
+    function initMap6() {
+        var latitud = parseFloat(document.getElementById('map6').getAttribute("data-lat"));
+        var longitud = parseFloat(document.getElementById('map6').getAttribute("data-lng"));
+        var uluru = {lat: latitud, lng: longitud };
+        var map = new google.maps.Map(document.getElementById('map6'), {
+        zoom: 17,
+        center: uluru
+        });
+        var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+        });
+    }
+</script>
 <section>
 	<div class="container">
 		<div class="row">
@@ -10,33 +93,40 @@
                     <h2 class="title text-center">Tiendas y Sucursales</h2>
                     <div class="row">
                         {{#each model.offices as |office|}}
-                        {{model.office.name}}
-                        <div class="col-lg-8">
-                            <script>
-                                function initMap() {
-                                    var latitud = parseFloat(document.getElementById('map').getAttribute("data-lat"));
-                                    var longitud = parseFloat(document.getElementById('map').getAttribute("data-lng"));
-                                    console.log(latitud);
-                                    var uluru = {lat: latitud, lng: longitud};
-                                    var map = new google.maps.Map(document.getElementById('map'), {
-                                    zoom: 17,
-                                    center: uluru
-                                    });
-                                    var marker = new google.maps.Marker({
-                                    position: uluru,
-                                    map: map
-                                    });
-                                }
-                            </script>
                         <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy4PzSIG77OtqMciXyhMuTD9tQSICh0LM&callback=initMap">
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy4PzSIG77OtqMciXyhMuTD9tQSICh0LM&callback=initMap{{office.id}}">
                         </script>
                         <div class="col-lg-8">
-                            <div id="map" style="width: 550px; height: 400px;" data-lat="{{office.lat}}" data-lng="{{office.long}}"></div>
+                            <div id="map{{office.id}}" style="width: 550px; height: 400px;" data-lat="{{office.lat}}" data-lng="{{office.long}}"></div>
+                            <br/>
+                            <br/>
                         </div>
+                        <div class="col-lg-4">
+                            <h4>Nombre: </h4><p>{{office.name}}</p>
+                            <br/>
+                            <br/>
+                            <h4>Ciudad: </h4><p>{{office.city}}</p>
+                            <br/>
+                            <br/>
+                            <h4>Dirección: </h4><p>{{office.address}}</p>
+                            <br/>
+                            <br/>
+                            <h4>Teléfono: </h4><p>{{office.phone}}</p>
+                            <br/>
+                            <br/>
+                            <h4>Celular: </h4><p>{{office.cellphone}}</p>
+                            <br/>
+                            <br/>
+                            <h4>WhatsApp: </h4><p>{{office.cellwsp}}</p>
+                            <br/>
+                            <br/>
+                            <h4>Correo electrónico: </h4><p>{{office.email}}</p>
+                            <img class="img-responsive" src="{{office.picture}}" alt="" />
+                            <br/>
+                            <br/>
+                        </div>
+                        {{/each}}
                     </div>
-                    {{/each}}
-                </div>
                 </div>
             </div>
         </div>
