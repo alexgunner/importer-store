@@ -12,7 +12,7 @@
                         {{#each model.training as |document|}}
                             <h3>{{document.name}}</h3>
                             <p>{{document.description}}</p>
-                            
+                            <iframe width="420" height="315" src="{{document.videourl}}"></iframe>
                             <a href="{{model.host}}{{document.url}}" target="_blank">Descargar</a>
                         {{/each}}
                 </div>
