@@ -80,17 +80,26 @@ export default Component.extend({
     save()
     {
         //initialize values 
-        document.getElementById("save-button").disabled = true
         var store = this.get('store');
         let items = this.get('store').findAll('item');
         var pay = document.querySelector('#pagos');
+        var destino = document.querySelector('#destinos');
         var delivery = document.querySelector('#entrega');
         var select = document.querySelector("#deliveries");
         var tienda = document.querySelector('#tiendas');
         var id = this.get('session.data.authenticated.id');
         
-        //recover values for create client
-        const client = store.createRecord('client', {
+        if(destino.value == "0" || delivery.value == "0" || pay.value == "0"){
+            swal({
+                title: "¡Error!",
+                text: "Por favor elige tu destino, entrega y forma de pago.",
+                type: "error"
+              })
+
+        }else{
+            //recover values for create client
+            document.getElementById("save-button").disabled = true
+            const client = store.createRecord('client', {
             name: document.getElementById('new_name').value,
             ci: document.getElementById('new_ci').value,
             address: document.getElementById('new_address').value,
@@ -115,6 +124,7 @@ export default Component.extend({
                     office: tienda.value
                 })
                 order.save().then(function(record){
+                    console.log("orden guardada");
                     items.forEach(function(item){
                         //create cart with items
                         var cart = store.createRecord('cart', {
@@ -124,9 +134,10 @@ export default Component.extend({
                             role: item.get('role')
                         })
                         cart.save().then(function(){
+                            console.log("calcula total");
                             //calculate total
                             Ember.$.ajax({
-                                url: "http://localhost:3000/total",
+                                url: "http://api.domusbolivia.com/total",
                                 type: "POST",
                                 contentType: 'application/json',
                                 data: JSON.stringify({
@@ -144,6 +155,9 @@ export default Component.extend({
                     });
                 });
             }); 
+
+        }
+        
         },
 
         cancel() {

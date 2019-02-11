@@ -13,5 +13,6 @@ export default DS.Model.extend({
     image: DS.attr('string'),
     total: DS.attr(),
     userid: DS.attr(),
-    office: DS.attr()
+    office: DS.attr(),
+    cost: DS.attr()
 });
