@@ -22,7 +22,7 @@ Router.map(function() {
   this.route('product-details', {path: 'product-details/:id'});
   this.route('reset');
   this.route('profile', {path: 'profile/:id'});
-  this.route('results');
+  this.route('results', function() {});
   this.route('training');
   this.route('subcategory-products',  {path: 'subcategory-products/:id'});
   this.route('offices');

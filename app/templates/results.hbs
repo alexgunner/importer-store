@@ -1,6 +1,9 @@
 {{outlet}}
 <h1> resultados </h1>
-{{#each model as |product| }}
-<h1>hi</h1>
-{{product.name}}
+{{input value=query on-key-press=(action (mut query))}}
+ 
+<ul>
+{{#each (search query model.products properties=searchProperties) as |fruit|}}
+  <li>{{fruit.name}}</li>
 {{/each}}
+</ul>

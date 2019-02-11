@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "bower": "^1.8.8",
-    "ember-cli-html5-validation": "^0.2.4"
+    "ember-cli-html5-validation": "^0.2.4",
+    "ember-search-helper": "^1.0.7"
   }
 }

@@ -1,9 +1,9 @@
 import Route from '@ember/routing/route';
-
+import RSVP from 'rsvp';
 export default Route.extend({
     model(){
-        return this.get('store').query('product', { filter: 
-            { name: 'AL-A' }
-        });
+        return RSVP.hash({
+            products: this.get('store').findAll('product')
+          });
     }
 });
