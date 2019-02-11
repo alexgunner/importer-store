@@ -10,12 +10,6 @@ export default Component.extend({
                 item.save();
             })
             this.get('session').invalidate();
-        },
-
-        searchProduct() {
-            var productname = this.get('name').toLowerCase();
-            productname = productname.replace(/ /g, "%20" );
-            console.log("El nombre es:", productname);
         }
     }
 });
