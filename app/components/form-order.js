@@ -68,9 +68,10 @@ export default Component.extend({
             store.findRecord('destination', dest.value).then(function(destination){
                 $('#deliveries').empty();
                 //show deliveries of destination
+                $('#deliveries').append('<option value="0">Elige un delivery</option>');
                 destination.get('deliveries').forEach(function(delivery){
                     if(delivery.get('shipping') == entrega.value){
-                        $('#deliveries').append('<option value="'+delivery.get('id')+'">'+delivery.get('name')+'->'+'Costo mínimo:'+delivery.get('costmin')+' '+'Costo por kg:'+delivery.get('cost')+'</option>');
+                        $('#deliveries').append('<option value="'+delivery.get('id')+'">'+delivery.get('name')+' // '+'Costo mínimo:'+delivery.get('costmin')+' Bs.'+'Costo por (kg) o distancia:'+delivery.get('cost')+' Bs.'+'</option>');
                     }
                 });
             });  
@@ -91,11 +92,17 @@ export default Component.extend({
         
         if(destino.value == "0" || delivery.value == "0" || pay.value == "0"){
             swal({
-                title: "¡Error!",
-                text: "Por favor elige tu destino, entrega y forma de pago.",
-                type: "error"
-              })
-
+                title: "Por favor elige tu destino, entrega y forma de pago.",
+                type: "error",
+                confirmButtonText: "Entendido",
+                showConfirmButton : true,
+                cancelButtonText: "¿Eres nuevo?",
+                },
+                function(isConfirm){
+                    if (isConfirm) {
+                        window.location.href = '/order';
+                    }
+            });
         }else{
             //recover values for create client
             document.getElementById("save-button").disabled = true

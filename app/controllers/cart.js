@@ -79,7 +79,7 @@ export default Ember.Controller.extend({
 
     restQuantity(item, variant){
       //updating the quantity
-      if (item.decrementProperty('quantity') >= 0){
+      if (item.decrementProperty('quantity') > 0){
         item.save();
 
         //updating the total
@@ -150,6 +150,17 @@ export default Ember.Controller.extend({
     },
 
     updateQuantity(item, quantity){
+      console.log(item.get('variant_id'));
+      let variant = this.get('store').findRecord('product_variant', 48);
+      console.log(variant.id);
+      // var stock = this.get('store').query('stock', {
+      //   filter: {
+      //     variant_id
+      //   }
+      // }).then(function(variant){
+      //   console.log(variant.firstObject.get('quantity'));
+      // });
+      
       this.set(item.get('quantity'),quantity);
       item.save();
 
