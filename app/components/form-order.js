@@ -153,10 +153,10 @@ export default Component.extend({
                                 })
                             
                             });
-                        }).then(function(){
-                            window.location.href = '/pay/'+ido;
-                        });
+                        })
                             
+                    }).then(function(){
+                        window.location.href = '/pay/'+ido;
                     });
                 });
             });
