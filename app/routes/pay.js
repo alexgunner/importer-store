@@ -112,6 +112,21 @@ export default Route.extend({
                 
              });
              this.transitionTo('/');
+        },
+
+        total(ido)
+        {
+            Ember.$.ajax({
+                url: "http://api.domusbolivia.com/total",
+                type: "POST",
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    id: ido
+                })
+            }).then(function(){
+                $('#total').show();
+            });
+            
         }
     }
 });

@@ -45,9 +45,9 @@
                         {{/if}}
                     {{/each}} 
                 {{/each}}
-                <h4>Costos de envío: {{model.order.cost}} Bs. </h4>
-                <h2 align="right">Total: {{model.order.total}} Bs. </h2>
-                
+                {{!-- <h4>Costos de envío: {{model.order.cost}} Bs. </h4> --}}
+                <h2 id="total" style="display:none;" align="right">Total: {{model.order.total}} Bs. </h2>
+                <button {{action 'total' model.order.id}} type="button" class="btn btn-danger">Cacular Total</button>
                 {{#if (eq model.order.typedelivery "Domicilio")}}
                     <h4>Recuerda que los gastos de envio serán considerados en el cobro.</h4>
                 {{/if}}
