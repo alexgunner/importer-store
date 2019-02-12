@@ -55,15 +55,14 @@ export default Component.extend({
         var store = this.get('store');
         var dest = document.querySelector('#destinos');
         if(entrega.value=="Tienda"){
-            $('#tien').show();
+            //$('#tien').show();
             $('#deliv').hide();
-        }
-        else{
-            $('#tien').hide();
-            $('#deliv').show();
+            $("#mensaje").show();
         }
         
         if(entrega.value != "Tienda"){
+            $("#mensaje").hide();
+            $('#deliv').show();
              //find destination
             store.findRecord('destination', dest.value).then(function(destination){
                 $('#deliveries').empty();
@@ -141,30 +140,29 @@ export default Component.extend({
                             role: item.get('role')
                         })
                         cart.save().then(function(){
-                            console.log("calcula total");
-                            //calculate total
+                            item.deleteRecord();
+                            item.save();
+                            ido = record.id
+                            console.log(ido);
                             Ember.$.ajax({
                                 url: "http://api.domusbolivia.com/total",
                                 type: "POST",
                                 contentType: 'application/json',
                                 data: JSON.stringify({
                                     id: record.id
-                                    })
+                                })
+                            
                             });
-                        ido = record.id;
-                    }).then(function(){
-                        items.forEach(function(item){
-                            item.deleteRecord();
-                            item.save();
-                          });
-                        window.location.href = '/pay/'+ ido;
-                    });
+                        }).then(function(){
+                            window.location.href = '/pay/'+ido;
+                        });
+                            
                     });
                 });
-            }); 
-
+            });
+            
         }
-        
+       
         },
 
         cancel() {
