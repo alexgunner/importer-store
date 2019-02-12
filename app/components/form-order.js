@@ -140,8 +140,6 @@ export default Component.extend({
                             role: item.get('role')
                         })
                         cart.save().then(function(){
-                            item.deleteRecord();
-                            item.save();
                             ido = record.id
                             console.log(ido);
                             Ember.$.ajax({
@@ -152,10 +150,14 @@ export default Component.extend({
                                     id: record.id
                                 })
                             });
-                            if (items.length == 1)
-                            {
-                                window.location.href = '/pay/'+ido;
-                            }
+                            item.deleteRecord();
+                            item.save().then(function(){
+                                if (items.length == 0)
+                                {
+                                    window.location.href = '/pay/'+ido;
+                                }
+                            });
+                            
                         })   
                     });
                     
