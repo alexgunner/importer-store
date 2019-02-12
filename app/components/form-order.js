@@ -151,13 +151,14 @@ export default Component.extend({
                                 data: JSON.stringify({
                                     id: record.id
                                 })
-                            
                             });
-                        })
-                            
-                    }).then(function(){
-                        window.location.href = '/pay/'+ido;
+                            if (items.length == 1)
+                            {
+                                window.location.href = '/pay/'+ido;
+                            }
+                        })   
                     });
+                    
                 });
             });
             
