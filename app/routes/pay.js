@@ -116,7 +116,7 @@ export default Route.extend({
 
         total(ido)
         {
-            Ember.$.ajax({
+            $.ajax({
                 url: "http://api.domusbolivia.com/total",
                 type: "POST",
                 contentType: 'application/json',
