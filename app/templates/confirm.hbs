@@ -1,0 +1,14 @@
+{{outlet}}
+<section>
+    <div class="container">
+        <div class="row">
+			<div class="col-sm-12 padding-right">
+				<h2 class="title text-center">Datos de Envío y Pago</h2>
+                {{form-order-delivery-pay destinations=model.destinations offices=model.offices 
+                deliveries=model.deliveries order=model.order}}
+                <br/>
+                <br/>
+            </div>
+        </div>
+	</div>
+</section>

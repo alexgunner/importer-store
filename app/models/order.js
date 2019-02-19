@@ -6,7 +6,7 @@ export default DS.Model.extend({
     delivery_id: DS.attr('number'),
     client: DS.belongsTo('client'),
     carts: DS.hasMany('carts'),
-    delivery: DS.belongsTo('delivery'),
+    deliveryid: DS.attr(),
     state: DS.attr(),
     typepay: DS.attr(),
     typedelivery: DS.attr(),
