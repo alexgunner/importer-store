@@ -1,7 +1,8 @@
 import DS from 'ember-data';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+import FirebaseAdapter from 'emberfire/adapters/firebase';
 
-export default DS.JSONAPIAdapter.extend(DataAdapterMixin,{
+export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
 	host: 'http://api.domusbolivia.com',
 	
 	authorize(xhr) {
@@ -11,3 +12,5 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin,{
 	}
 
 });
+
+
